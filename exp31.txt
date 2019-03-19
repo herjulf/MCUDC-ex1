@@ -1,0 +1,3026 @@
+
+2013-03-12/13 MCU_SLEEP undefined.. PHASE_OPTMIZATION not defined
+Fluke 45/17B 51 mv @ 10 OHM --> 5.1 mA
+
+PRR = 1373/1373 = 100%
+RDC = 350/41205 =  0.8%
+
+PRR=100%,  MCU_DUTY_CYCLE=N/A,  RDC=0.8%,  Current consumption=5.1mA
+
+
+*******Booting Contiki-3.x-3629-g6f7fcd2*******
+Boot cause: External reset
+get_poll_mode=0
+static bool is_promiscuous=0
+rf230_get_frame_retries=4
+rf230_get_csma_retries=2
+get_auto_ack=1
+rf230_get_cca_threshold=65460
+I2C: AT24MAC,BME280,BME680
+EUI-64 MAC: fc-c2-3d-0-0-0-38-6d
+PAN=0xABCD, MAC=CSMA, RDC=ContikiMAC, NETWORK=sicslowpan, channel=26, check-rate-Hz=8, tx-power=0
+RPL Enabled
+Routing Enabled
+Online
+UDP server started
+created a new RPL dag
+Server IPv6 addresses: ::
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+Created a server connection with remote address :: local/remote port 5678/8765
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+  <none>
+Routes [20 max]
+  <none>
+---------
+Never-used stack > 18360 bytes
+pkts=1 Report RX '&: SEQ=1 RADIO_ON=0 SEC=45 ' from 29
+60(0)s
+pkts=2 Report RX '&: SEQ=2 RADIO_ON=0 SEC=75 ' from 29
+pkts=3 Report RX '&: SEQ=3 RADIO_ON=0 SEC=105 ' from 29
+120(0)s
+pkts=4 Report RX '&: SEQ=4 RADIO_ON=0 SEC=135 ' from 29
+pkts=5 Report RX '&: SEQ=5 RADIO_ON=0 SEC=165 ' from 29
+180(0)s
+pkts=6 Report RX '&: SEQ=6 RADIO_ON=0 SEC=195 ' from 29
+pkts=7 Report RX '&: SEQ=7 RADIO_ON=0 SEC=225 ' from 29
+240(0)s
+pkts=8 Report RX '&: SEQ=8 RADIO_ON=0 SEC=255 ' from 29
+pkts=9 Report RX '&: SEQ=9 RADIO_ON=0 SEC=285 ' from 29
+300(0)s
+pkts=10 Report RX '&: SEQ=10 RADIO_ON=0 SEC=315 ' from 29
+pkts=11 Report RX '&: SEQ=11 RADIO_ON=0 SEC=345 ' from 29
+360(0)s
+pkts=12 Report RX '&: SEQ=12 RADIO_ON=0 SEC=375 ' from 29
+pkts=13 Report RX '&: SEQ=13 RADIO_ON=0 SEC=405 ' from 29
+420(0)s
+pkts=14 Report RX '&: SEQ=14 RADIO_ON=0 SEC=435 ' from 29
+pkts=15 Report RX '&: SEQ=15 RADIO_ON=2 SEC=465 ' from 29
+480(0)s
+pkts=16 Report RX '&: SEQ=16 RADIO_ON=2 SEC=495 ' from 29
+pkts=17 Report RX '&: SEQ=17 RADIO_ON=4 SEC=525 ' from 29
+540(0)s
+pkts=18 Report RX '&: SEQ=18 RADIO_ON=4 SEC=555 ' from 29
+pkts=19 Report RX '&: SEQ=19 RADIO_ON=4 SEC=585 ' from 29
+600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1637s
+
+---------
+pkts=20 Report RX '&: SEQ=20 RADIO_ON=4 SEC=615 ' from 29
+pkts=21 Report RX '&: SEQ=21 RADIO_ON=4 SEC=645 ' from 29
+660(0)s
+pkts=22 Report RX '&: SEQ=22 RADIO_ON=4 SEC=675 ' from 29
+pkts=23 Report RX '&: SEQ=23 RADIO_ON=4 SEC=705 ' from 29
+720(0)s
+pkts=24 Report RX '&: SEQ=24 RADIO_ON=4 SEC=735 ' from 29
+pkts=25 Report RX '&: SEQ=25 RADIO_ON=4 SEC=765 ' from 29
+780(0)s
+pkts=26 Report RX '&: SEQ=26 RADIO_ON=4 SEC=795 ' from 29
+pkts=27 Report RX '&: SEQ=27 RADIO_ON=4 SEC=825 ' from 29
+840(0)s
+pkts=28 Report RX '&: SEQ=28 RADIO_ON=5 SEC=855 ' from 29
+pkts=29 Report RX '&: SEQ=29 RADIO_ON=5 SEC=885 ' from 29
+900(0)s
+pkts=30 Report RX '&: SEQ=30 RADIO_ON=5 SEC=915 ' from 29
+pkts=31 Report RX '&: SEQ=31 RADIO_ON=5 SEC=945 ' from 29
+960(0)s
+pkts=32 Report RX '&: SEQ=32 RADIO_ON=5 SEC=975 ' from 29
+pkts=33 Report RX '&: SEQ=33 RADIO_ON=6 SEC=1005 ' from 29
+1020(0)s
+Never-used stack > 18240 bytes
+pkts=34 Report RX '&: SEQ=34 RADIO_ON=7 SEC=1035 ' from 29
+pkts=35 Report RX '&: SEQ=35 RADIO_ON=8 SEC=1065 ' from 29
+1080(0)s
+pkts=36 Report RX '&: SEQ=36 RADIO_ON=9 SEC=1095 ' from 29
+pkts=37 Report RX '&: SEQ=37 RADIO_ON=9 SEC=1125 ' from 29
+1140(0)s
+pkts=38 Report RX '&: SEQ=38 RADIO_ON=9 SEC=1155 ' from 29
+pkts=39 Report RX '&: SEQ=39 RADIO_ON=9 SEC=1185 ' from 29
+1200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1498s
+
+---------
+pkts=40 Report RX '&: SEQ=40 RADIO_ON=9 SEC=1215 ' from 29
+pkts=41 Report RX '&: SEQ=41 RADIO_ON=9 SEC=1245 ' from 29
+1260(0)s
+pkts=42 Report RX '&: SEQ=42 RADIO_ON=9 SEC=1275 ' from 29
+pkts=43 Report RX '&: SEQ=43 RADIO_ON=9 SEC=1305 ' from 29
+1320(0)s
+pkts=44 Report RX '&: SEQ=44 RADIO_ON=9 SEC=1335 ' from 29
+pkts=45 Report RX '&: SEQ=45 RADIO_ON=9 SEC=1365 ' from 29
+1380(0)s
+pkts=46 Report RX '&: SEQ=46 RADIO_ON=9 SEC=1395 ' from 29
+pkts=47 Report RX '&: SEQ=47 RADIO_ON=9 SEC=1425 ' from 29
+1440(0)s
+pkts=48 Report RX '&: SEQ=48 RADIO_ON=9 SEC=1455 ' from 29
+pkts=49 Report RX '&: SEQ=49 RADIO_ON=10 SEC=1485 ' from 29
+1500(0)s
+pkts=50 Report RX '&: SEQ=50 RADIO_ON=10 SEC=1515 ' from 29
+pkts=51 Report RX '&: SEQ=51 RADIO_ON=10 SEC=1545 ' from 29
+1560(0)s
+pkts=52 Report RX '&: SEQ=52 RADIO_ON=12 SEC=1575 ' from 29
+pkts=53 Report RX '&: SEQ=53 RADIO_ON=12 SEC=1605 ' from 29
+1620(0)s
+pkts=54 Report RX '&: SEQ=54 RADIO_ON=13 SEC=1635 ' from 29
+pkts=55 Report RX '&: SEQ=55 RADIO_ON=14 SEC=1665 ' from 29
+1680(0)s
+pkts=56 Report RX '&: SEQ=56 RADIO_ON=14 SEC=1695 ' from 29
+pkts=57 Report RX '&: SEQ=57 RADIO_ON=14 SEC=1725 ' from 29
+1740(0)s
+pkts=58 Report RX '&: SEQ=58 RADIO_ON=14 SEC=1755 ' from 29
+pkts=59 Report RX '&: SEQ=59 RADIO_ON=14 SEC=1785 ' from 29
+1800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1624s
+
+---------
+pkts=60 Report RX '&: SEQ=60 RADIO_ON=14 SEC=1815 ' from 29
+pkts=61 Report RX '&: SEQ=61 RADIO_ON=14 SEC=1845 ' from 29
+1860(0)s
+pkts=62 Report RX '&: SEQ=62 RADIO_ON=14 SEC=1875 ' from 29
+pkts=63 Report RX '&: SEQ=63 RADIO_ON=14 SEC=1905 ' from 29
+1920(0)s
+pkts=64 Report RX '&: SEQ=64 RADIO_ON=14 SEC=1935 ' from 29
+pkts=65 Report RX '&: SEQ=65 RADIO_ON=14 SEC=1965 ' from 29
+1980(0)s
+pkts=66 Report RX '&: SEQ=66 RADIO_ON=14 SEC=1995 ' from 29
+pkts=67 Report RX '&: SEQ=67 RADIO_ON=14 SEC=2025 ' from 29
+2040(0)s
+Never-used stack > 18240 bytes
+pkts=68 Report RX '&: SEQ=68 RADIO_ON=14 SEC=2055 ' from 29
+pkts=69 Report RX '&: SEQ=69 RADIO_ON=14 SEC=2085 ' from 29
+2100(0)s
+pkts=70 Report RX '&: SEQ=70 RADIO_ON=16 SEC=2115 ' from 29
+pkts=71 Report RX '&: SEQ=71 RADIO_ON=17 SEC=2145 ' from 29
+2160(0)s
+pkts=72 Report RX '&: SEQ=72 RADIO_ON=17 SEC=2175 ' from 29
+pkts=73 Report RX '&: SEQ=73 RADIO_ON=19 SEC=2205 ' from 29
+2220(0)s
+pkts=74 Report RX '&: SEQ=74 RADIO_ON=19 SEC=2235 ' from 29
+pkts=75 Report RX '&: SEQ=75 RADIO_ON=19 SEC=2265 ' from 29
+2280(0)s
+pkts=76 Report RX '&: SEQ=76 RADIO_ON=19 SEC=2295 ' from 29
+pkts=77 Report RX '&: SEQ=77 RADIO_ON=19 SEC=2325 ' from 29
+2340(0)s
+pkts=78 Report RX '&: SEQ=78 RADIO_ON=19 SEC=2355 ' from 29
+pkts=79 Report RX '&: SEQ=79 RADIO_ON=19 SEC=2385 ' from 29
+2400(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1024s
+
+---------
+pkts=80 Report RX '&: SEQ=80 RADIO_ON=19 SEC=2415 ' from 29
+pkts=81 Report RX '&: SEQ=81 RADIO_ON=19 SEC=2445 ' from 29
+2460(0)s
+pkts=82 Report RX '&: SEQ=82 RADIO_ON=19 SEC=2475 ' from 29
+pkts=83 Report RX '&: SEQ=83 RADIO_ON=19 SEC=2505 ' from 29
+2520(0)s
+pkts=84 Report RX '&: SEQ=84 RADIO_ON=19 SEC=2535 ' from 29
+pkts=85 Report RX '&: SEQ=85 RADIO_ON=19 SEC=2565 ' from 29
+2580(0)s
+pkts=86 Report RX '&: SEQ=86 RADIO_ON=19 SEC=2595 ' from 29
+pkts=87 Report RX '&: SEQ=87 RADIO_ON=19 SEC=2625 ' from 29
+2640(0)s
+pkts=88 Report RX '&: SEQ=88 RADIO_ON=20 SEC=2655 ' from 29
+pkts=89 Report RX '&: SEQ=89 RADIO_ON=21 SEC=2685 ' from 29
+2700(0)s
+pkts=90 Report RX '&: SEQ=90 RADIO_ON=21 SEC=2715 ' from 29
+pkts=91 Report RX '&: SEQ=91 RADIO_ON=23 SEC=2745 ' from 29
+2760(0)s
+pkts=92 Report RX '&: SEQ=92 RADIO_ON=23 SEC=2775 ' from 29
+pkts=93 Report RX '&: SEQ=93 RADIO_ON=23 SEC=2805 ' from 29
+2820(0)s
+pkts=94 Report RX '&: SEQ=94 RADIO_ON=23 SEC=2835 ' from 29
+pkts=95 Report RX '&: SEQ=95 RADIO_ON=23 SEC=2865 ' from 29
+2880(0)s
+pkts=96 Report RX '&: SEQ=96 RADIO_ON=23 SEC=2895 ' from 29
+pkts=97 Report RX '&: SEQ=97 RADIO_ON=23 SEC=2925 ' from 29
+2940(0)s
+pkts=98 Report RX '&: SEQ=98 RADIO_ON=23 SEC=2955 ' from 29
+pkts=99 Report RX '&: SEQ=99 RADIO_ON=23 SEC=2985 ' from 29
+3000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1631s
+
+---------
+pkts=100 Report RX '&: SEQ=100 RADIO_ON=23 SEC=3015 ' from 29
+pkts=101 Report RX '&: SEQ=101 RADIO_ON=23 SEC=3045 ' from 29
+3060(0)s
+Never-used stack > 18240 bytes
+pkts=102 Report RX '&: SEQ=102 RADIO_ON=23 SEC=3075 ' from 29
+pkts=103 Report RX '&: SEQ=103 RADIO_ON=24 SEC=3105 ' from 29
+3120(0)s
+pkts=104 Report RX '&: SEQ=104 RADIO_ON=24 SEC=3135 ' from 29
+pkts=105 Report RX '&: SEQ=105 RADIO_ON=24 SEC=3165 ' from 29
+3180(0)s
+pkts=106 Report RX '&: SEQ=106 RADIO_ON=24 SEC=3195 ' from 29
+pkts=107 Report RX '&: SEQ=107 RADIO_ON=25 SEC=3225 ' from 29
+3240(0)s
+pkts=108 Report RX '&: SEQ=108 RADIO_ON=26 SEC=3255 ' from 29
+pkts=109 Report RX '&: SEQ=109 RADIO_ON=27 SEC=3285 ' from 29
+3300(0)s
+pkts=110 Report RX '&: SEQ=110 RADIO_ON=28 SEC=3315 ' from 29
+pkts=111 Report RX '&: SEQ=111 RADIO_ON=28 SEC=3345 ' from 29
+3360(0)s
+pkts=112 Report RX '&: SEQ=112 RADIO_ON=28 SEC=3375 ' from 29
+pkts=113 Report RX '&: SEQ=113 RADIO_ON=28 SEC=3405 ' from 29
+3420(0)s
+pkts=114 Report RX '&: SEQ=114 RADIO_ON=28 SEC=3435 ' from 29
+pkts=115 Report RX '&: SEQ=115 RADIO_ON=28 SEC=3465 ' from 29
+3480(0)s
+pkts=116 Report RX '&: SEQ=116 RADIO_ON=28 SEC=3495 ' from 29
+pkts=117 Report RX '&: SEQ=117 RADIO_ON=28 SEC=3525 ' from 29
+3540(0)s
+pkts=118 Report RX '&: SEQ=118 RADIO_ON=28 SEC=3555 ' from 29
+pkts=119 Report RX '&: SEQ=119 RADIO_ON=28 SEC=3585 ' from 29
+3600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1031s
+
+---------
+pkts=120 Report RX '&: SEQ=120 RADIO_ON=28 SEC=3615 ' from 29
+pkts=121 Report RX '&: SEQ=121 RADIO_ON=28 SEC=3645 ' from 29
+3660(0)s
+pkts=122 Report RX '&: SEQ=122 RADIO_ON=28 SEC=3675 ' from 29
+pkts=123 Report RX '&: SEQ=123 RADIO_ON=29 SEC=3705 ' from 29
+3720(0)s
+pkts=124 Report RX '&: SEQ=124 RADIO_ON=29 SEC=3735 ' from 29
+pkts=125 Report RX '&: SEQ=125 RADIO_ON=29 SEC=3765 ' from 29
+3780(0)s
+pkts=126 Report RX '&: SEQ=126 RADIO_ON=31 SEC=3795 ' from 29
+pkts=127 Report RX '&: SEQ=127 RADIO_ON=31 SEC=3825 ' from 29
+3840(0)s
+pkts=128 Report RX '&: SEQ=128 RADIO_ON=33 SEC=3855 ' from 29
+pkts=129 Report RX '&: SEQ=129 RADIO_ON=33 SEC=3885 ' from 29
+3900(0)s
+pkts=130 Report RX '&: SEQ=130 RADIO_ON=33 SEC=3915 ' from 29
+pkts=131 Report RX '&: SEQ=131 RADIO_ON=33 SEC=3945 ' from 29
+3960(0)s
+pkts=132 Report RX '&: SEQ=132 RADIO_ON=33 SEC=3975 ' from 29
+pkts=133 Report RX '&: SEQ=133 RADIO_ON=33 SEC=4005 ' from 29
+4020(0)s
+pkts=134 Report RX '&: SEQ=134 RADIO_ON=33 SEC=4035 ' from 29
+pkts=135 Report RX '&: SEQ=135 RADIO_ON=33 SEC=4065 ' from 29
+4080(0)s
+pkts=136 Report RX '&: SEQ=136 RADIO_ON=33 SEC=4095 ' from 29
+Never-used stack > 18240 bytes
+pkts=137 Report RX '&: SEQ=137 RADIO_ON=33 SEC=4125 ' from 29
+4140(0)s
+pkts=138 Report RX '&: SEQ=138 RADIO_ON=33 SEC=4155 ' from 29
+pkts=139 Report RX '&: SEQ=139 RADIO_ON=33 SEC=4185 ' from 29
+4200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1418s
+
+---------
+pkts=140 Report RX '&: SEQ=140 RADIO_ON=33 SEC=4215 ' from 29
+pkts=141 Report RX '&: SEQ=141 RADIO_ON=33 SEC=4245 ' from 29
+4260(0)s
+pkts=142 Report RX '&: SEQ=142 RADIO_ON=33 SEC=4275 ' from 29
+pkts=143 Report RX '&: SEQ=143 RADIO_ON=33 SEC=4305 ' from 29
+4320(0)s
+pkts=144 Report RX '&: SEQ=144 RADIO_ON=35 SEC=4335 ' from 29
+pkts=145 Report RX '&: SEQ=145 RADIO_ON=36 SEC=4365 ' from 29
+4380(0)s
+pkts=146 Report RX '&: SEQ=146 RADIO_ON=36 SEC=4395 ' from 29
+pkts=147 Report RX '&: SEQ=147 RADIO_ON=38 SEC=4425 ' from 29
+4440(0)s
+pkts=148 Report RX '&: SEQ=148 RADIO_ON=38 SEC=4455 ' from 29
+pkts=149 Report RX '&: SEQ=149 RADIO_ON=38 SEC=4485 ' from 29
+4500(0)s
+pkts=150 Report RX '&: SEQ=150 RADIO_ON=38 SEC=4515 ' from 29
+pkts=151 Report RX '&: SEQ=151 RADIO_ON=38 SEC=4545 ' from 29
+4560(0)s
+pkts=152 Report RX '&: SEQ=152 RADIO_ON=38 SEC=4575 ' from 29
+pkts=153 Report RX '&: SEQ=153 RADIO_ON=38 SEC=4605 ' from 29
+4620(0)s
+pkts=154 Report RX '&: SEQ=154 RADIO_ON=38 SEC=4635 ' from 29
+pkts=155 Report RX '&: SEQ=155 RADIO_ON=38 SEC=4665 ' from 29
+4680(0)s
+pkts=156 Report RX '&: SEQ=156 RADIO_ON=38 SEC=4695 ' from 29
+pkts=157 Report RX '&: SEQ=157 RADIO_ON=38 SEC=4725 ' from 29
+4740(0)s
+pkts=158 Report RX '&: SEQ=158 RADIO_ON=38 SEC=4755 ' from 29
+pkts=159 Report RX '&: SEQ=159 RADIO_ON=38 SEC=4785 ' from 29
+4800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1758s
+
+---------
+pkts=160 Report RX '&: SEQ=160 RADIO_ON=38 SEC=4815 ' from 29
+pkts=161 Report RX '&: SEQ=161 RADIO_ON=38 SEC=4845 ' from 29
+4860(0)s
+pkts=162 Report RX '&: SEQ=162 RADIO_ON=39 SEC=4875 ' from 29
+pkts=163 Report RX '&: SEQ=163 RADIO_ON=40 SEC=4905 ' from 29
+4920(0)s
+pkts=164 Report RX '&: SEQ=164 RADIO_ON=40 SEC=4935 ' from 29
+pkts=165 Report RX '&: SEQ=165 RADIO_ON=42 SEC=4965 ' from 29
+4980(0)s
+pkts=166 Report RX '&: SEQ=166 RADIO_ON=42 SEC=4995 ' from 29
+pkts=167 Report RX '&: SEQ=167 RADIO_ON=42 SEC=5025 ' from 29
+5040(0)s
+pkts=168 Report RX '&: SEQ=168 RADIO_ON=42 SEC=5055 ' from 29
+pkts=169 Report RX '&: SEQ=169 RADIO_ON=42 SEC=5085 ' from 29
+5100(0)s
+pkts=170 Report RX '&: SEQ=170 RADIO_ON=42 SEC=5115 ' from 29
+Never-used stack > 18240 bytes
+pkts=171 Report RX '&: SEQ=171 RADIO_ON=42 SEC=5145 ' from 29
+5160(0)s
+pkts=172 Report RX '&: SEQ=172 RADIO_ON=42 SEC=5175 ' from 29
+pkts=173 Report RX '&: SEQ=173 RADIO_ON=42 SEC=5205 ' from 29
+5220(0)s
+pkts=174 Report RX '&: SEQ=174 RADIO_ON=42 SEC=5235 ' from 29
+pkts=175 Report RX '&: SEQ=175 RADIO_ON=42 SEC=5265 ' from 29
+5280(0)s
+pkts=176 Report RX '&: SEQ=176 RADIO_ON=42 SEC=5295 ' from 29
+pkts=177 Report RX '&: SEQ=177 RADIO_ON=43 SEC=5325 ' from 29
+5340(0)s
+pkts=178 Report RX '&: SEQ=178 RADIO_ON=43 SEC=5355 ' from 29
+pkts=179 Report RX '&: SEQ=179 RADIO_ON=43 SEC=5385 ' from 29
+5400(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1158s
+
+---------
+pkts=180 Report RX '&: SEQ=180 RADIO_ON=43 SEC=5415 ' from 29
+pkts=181 Report RX '&: SEQ=181 RADIO_ON=44 SEC=5445 ' from 29
+5460(0)s
+pkts=182 Report RX '&: SEQ=182 RADIO_ON=45 SEC=5475 ' from 29
+pkts=183 Report RX '&: SEQ=183 RADIO_ON=46 SEC=5505 ' from 29
+5520(0)s
+pkts=184 Report RX '&: SEQ=184 RADIO_ON=47 SEC=5535 ' from 29
+pkts=185 Report RX '&: SEQ=185 RADIO_ON=47 SEC=5565 ' from 29
+5580(0)s
+pkts=186 Report RX '&: SEQ=186 RADIO_ON=47 SEC=5595 ' from 29
+pkts=187 Report RX '&: SEQ=187 RADIO_ON=47 SEC=5625 ' from 29
+5640(0)s
+pkts=188 Report RX '&: SEQ=188 RADIO_ON=47 SEC=5655 ' from 29
+pkts=189 Report RX '&: SEQ=189 RADIO_ON=47 SEC=5685 ' from 29
+5700(0)s
+pkts=190 Report RX '&: SEQ=190 RADIO_ON=47 SEC=5715 ' from 29
+pkts=191 Report RX '&: SEQ=191 RADIO_ON=47 SEC=5745 ' from 29
+5760(0)s
+pkts=192 Report RX '&: SEQ=192 RADIO_ON=47 SEC=5775 ' from 29
+pkts=193 Report RX '&: SEQ=193 RADIO_ON=47 SEC=5805 ' from 29
+5820(0)s
+pkts=194 Report RX '&: SEQ=194 RADIO_ON=47 SEC=5835 ' from 29
+pkts=195 Report RX '&: SEQ=195 RADIO_ON=47 SEC=5865 ' from 29
+5880(0)s
+pkts=196 Report RX '&: SEQ=196 RADIO_ON=47 SEC=5895 ' from 29
+pkts=197 Report RX '&: SEQ=197 RADIO_ON=48 SEC=5925 ' from 29
+5940(0)s
+pkts=198 Report RX '&: SEQ=198 RADIO_ON=48 SEC=5955 ' from 29
+pkts=199 Report RX '&: SEQ=199 RADIO_ON=48 SEC=5985 ' from 29
+6000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1626s
+
+---------
+pkts=200 Report RX '&: SEQ=200 RADIO_ON=50 SEC=6015 ' from 29
+pkts=201 Report RX '&: SEQ=201 RADIO_ON=50 SEC=6045 ' from 29
+6060(0)s
+pkts=202 Report RX '&: SEQ=202 RADIO_ON=52 SEC=6075 ' from 29
+pkts=203 Report RX '&: SEQ=203 RADIO_ON=52 SEC=6105 ' from 29
+6120(0)s
+pkts=204 Report RX '&: SEQ=204 RADIO_ON=52 SEC=6135 ' from 29
+Never-used stack > 18240 bytes
+pkts=205 Report RX '&: SEQ=205 RADIO_ON=52 SEC=6165 ' from 29
+6180(0)s
+pkts=206 Report RX '&: SEQ=206 RADIO_ON=52 SEC=6195 ' from 29
+pkts=207 Report RX '&: SEQ=207 RADIO_ON=52 SEC=6225 ' from 29
+6240(0)s
+pkts=208 Report RX '&: SEQ=208 RADIO_ON=52 SEC=6255 ' from 29
+pkts=209 Report RX '&: SEQ=209 RADIO_ON=52 SEC=6285 ' from 29
+6300(0)s
+pkts=210 Report RX '&: SEQ=210 RADIO_ON=52 SEC=6315 ' from 29
+pkts=211 Report RX '&: SEQ=211 RADIO_ON=52 SEC=6345 ' from 29
+6360(0)s
+pkts=212 Report RX '&: SEQ=212 RADIO_ON=52 SEC=6375 ' from 29
+pkts=213 Report RX '&: SEQ=213 RADIO_ON=52 SEC=6405 ' from 29
+6420(0)s
+pkts=214 Report RX '&: SEQ=214 RADIO_ON=52 SEC=6435 ' from 29
+pkts=215 Report RX '&: SEQ=215 RADIO_ON=52 SEC=6465 ' from 29
+6480(0)s
+pkts=216 Report RX '&: SEQ=216 RADIO_ON=52 SEC=6495 ' from 29
+pkts=217 Report RX '&: SEQ=217 RADIO_ON=52 SEC=6525 ' from 29
+6540(0)s
+pkts=218 Report RX '&: SEQ=218 RADIO_ON=54 SEC=6555 ' from 29
+pkts=219 Report RX '&: SEQ=219 RADIO_ON=55 SEC=6585 ' from 29
+6600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1026s
+
+---------
+pkts=220 Report RX '&: SEQ=220 RADIO_ON=55 SEC=6615 ' from 29
+pkts=221 Report RX '&: SEQ=221 RADIO_ON=57 SEC=6645 ' from 29
+6660(0)s
+pkts=222 Report RX '&: SEQ=222 RADIO_ON=57 SEC=6675 ' from 29
+pkts=223 Report RX '&: SEQ=223 RADIO_ON=57 SEC=6705 ' from 29
+6720(0)s
+pkts=224 Report RX '&: SEQ=224 RADIO_ON=57 SEC=6735 ' from 29
+pkts=225 Report RX '&: SEQ=225 RADIO_ON=57 SEC=6765 ' from 29
+6780(0)s
+pkts=226 Report RX '&: SEQ=226 RADIO_ON=57 SEC=6795 ' from 29
+pkts=227 Report RX '&: SEQ=227 RADIO_ON=57 SEC=6825 ' from 29
+6840(0)s
+pkts=228 Report RX '&: SEQ=228 RADIO_ON=57 SEC=6855 ' from 29
+pkts=229 Report RX '&: SEQ=229 RADIO_ON=57 SEC=6885 ' from 29
+6900(0)s
+pkts=230 Report RX '&: SEQ=230 RADIO_ON=57 SEC=6915 ' from 29
+pkts=231 Report RX '&: SEQ=231 RADIO_ON=57 SEC=6945 ' from 29
+6960(0)s
+pkts=232 Report RX '&: SEQ=232 RADIO_ON=57 SEC=6975 ' from 29
+pkts=233 Report RX '&: SEQ=233 RADIO_ON=57 SEC=7005 ' from 29
+7020(0)s
+pkts=234 Report RX '&: SEQ=234 RADIO_ON=57 SEC=7035 ' from 29
+pkts=235 Report RX '&: SEQ=235 RADIO_ON=57 SEC=7065 ' from 29
+7080(0)s
+pkts=236 Report RX '&: SEQ=236 RADIO_ON=58 SEC=7095 ' from 29
+pkts=237 Report RX '&: SEQ=237 RADIO_ON=59 SEC=7125 ' from 29
+7140(0)s
+pkts=238 Report RX '&: SEQ=238 RADIO_ON=59 SEC=7155 ' from 29
+Never-used stack > 18220 bytes
+pkts=239 Report RX '&: SEQ=239 RADIO_ON=61 SEC=7185 ' from 29
+7200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1556s
+
+---------
+pkts=240 Report RX '&: SEQ=240 RADIO_ON=61 SEC=7215 ' from 29
+pkts=241 Report RX '&: SEQ=241 RADIO_ON=61 SEC=7245 ' from 29
+7260(0)s
+pkts=242 Report RX '&: SEQ=242 RADIO_ON=61 SEC=7275 ' from 29
+pkts=243 Report RX '&: SEQ=243 RADIO_ON=61 SEC=7305 ' from 29
+7320(0)s
+pkts=244 Report RX '&: SEQ=244 RADIO_ON=61 SEC=7335 ' from 29
+pkts=245 Report RX '&: SEQ=245 RADIO_ON=61 SEC=7365 ' from 29
+7380(0)s
+pkts=246 Report RX '&: SEQ=246 RADIO_ON=61 SEC=7395 ' from 29
+pkts=247 Report RX '&: SEQ=247 RADIO_ON=61 SEC=7425 ' from 29
+7440(0)s
+pkts=248 Report RX '&: SEQ=248 RADIO_ON=61 SEC=7455 ' from 29
+pkts=249 Report RX '&: SEQ=249 RADIO_ON=61 SEC=7485 ' from 29
+7500(0)s
+pkts=250 Report RX '&: SEQ=250 RADIO_ON=61 SEC=7515 ' from 29
+pkts=251 Report RX '&: SEQ=251 RADIO_ON=62 SEC=7545 ' from 29
+7560(0)s
+pkts=252 Report RX '&: SEQ=252 RADIO_ON=62 SEC=7575 ' from 29
+pkts=253 Report RX '&: SEQ=253 RADIO_ON=62 SEC=7605 ' from 29
+7620(0)s
+pkts=254 Report RX '&: SEQ=254 RADIO_ON=62 SEC=7635 ' from 29
+pkts=255 Report RX '&: SEQ=255 RADIO_ON=63 SEC=7665 ' from 29
+7680(0)s
+pkts=256 Report RX '&: SEQ=256 RADIO_ON=64 SEC=7695 ' from 29
+pkts=257 Report RX '&: SEQ=257 RADIO_ON=65 SEC=7725 ' from 29
+7740(0)s
+pkts=258 Report RX '&: SEQ=258 RADIO_ON=66 SEC=7755 ' from 29
+pkts=259 Report RX '&: SEQ=259 RADIO_ON=66 SEC=7785 ' from 29
+7800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 956s
+
+---------
+pkts=260 Report RX '&: SEQ=260 RADIO_ON=66 SEC=7815 ' from 29
+pkts=261 Report RX '&: SEQ=261 RADIO_ON=66 SEC=7845 ' from 29
+7860(0)s
+pkts=262 Report RX '&: SEQ=262 RADIO_ON=66 SEC=7875 ' from 29
+pkts=263 Report RX '&: SEQ=263 RADIO_ON=66 SEC=7905 ' from 29
+7920(0)s
+pkts=264 Report RX '&: SEQ=264 RADIO_ON=66 SEC=7935 ' from 29
+pkts=265 Report RX '&: SEQ=265 RADIO_ON=66 SEC=7965 ' from 29
+7980(0)s
+pkts=266 Report RX '&: SEQ=266 RADIO_ON=66 SEC=7995 ' from 29
+pkts=267 Report RX '&: SEQ=267 RADIO_ON=66 SEC=8025 ' from 29
+8040(0)s
+pkts=268 Report RX '&: SEQ=268 RADIO_ON=66 SEC=8055 ' from 29
+pkts=269 Report RX '&: SEQ=269 RADIO_ON=66 SEC=8085 ' from 29
+8100(0)s
+pkts=270 Report RX '&: SEQ=270 RADIO_ON=66 SEC=8115 ' from 29
+pkts=271 Report RX '&: SEQ=271 RADIO_ON=67 SEC=8145 ' from 29
+8160(0)s
+pkts=272 Report RX '&: SEQ=272 RADIO_ON=67 SEC=8175 ' from 29
+Never-used stack > 18220 bytes
+pkts=273 Report RX '&: SEQ=273 RADIO_ON=67 SEC=8205 ' from 29
+8220(0)s
+pkts=274 Report RX '&: SEQ=274 RADIO_ON=69 SEC=8235 ' from 29
+pkts=275 Report RX '&: SEQ=275 RADIO_ON=69 SEC=8265 ' from 29
+8280(0)s
+pkts=276 Report RX '&: SEQ=276 RADIO_ON=70 SEC=8295 ' from 29
+pkts=277 Report RX '&: SEQ=277 RADIO_ON=71 SEC=8325 ' from 29
+8340(0)s
+pkts=278 Report RX '&: SEQ=278 RADIO_ON=71 SEC=8355 ' from 29
+pkts=279 Report RX '&: SEQ=279 RADIO_ON=71 SEC=8385 ' from 29
+8400(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1267s
+
+---------
+pkts=280 Report RX '&: SEQ=280 RADIO_ON=71 SEC=8415 ' from 29
+pkts=281 Report RX '&: SEQ=281 RADIO_ON=71 SEC=8445 ' from 29
+8460(0)s
+pkts=282 Report RX '&: SEQ=282 RADIO_ON=71 SEC=8475 ' from 29
+pkts=283 Report RX '&: SEQ=283 RADIO_ON=71 SEC=8505 ' from 29
+8520(0)s
+pkts=284 Report RX '&: SEQ=284 RADIO_ON=71 SEC=8535 ' from 29
+pkts=285 Report RX '&: SEQ=285 RADIO_ON=71 SEC=8565 ' from 29
+8580(0)s
+pkts=286 Report RX '&: SEQ=286 RADIO_ON=71 SEC=8595 ' from 29
+pkts=287 Report RX '&: SEQ=287 RADIO_ON=71 SEC=8625 ' from 29
+8640(0)s
+pkts=288 Report RX '&: SEQ=288 RADIO_ON=71 SEC=8655 ' from 29
+pkts=289 Report RX '&: SEQ=289 RADIO_ON=71 SEC=8685 ' from 29
+8700(0)s
+pkts=290 Report RX '&: SEQ=290 RADIO_ON=71 SEC=8715 ' from 29
+pkts=291 Report RX '&: SEQ=291 RADIO_ON=71 SEC=8745 ' from 29
+8760(0)s
+pkts=292 Report RX '&: SEQ=292 RADIO_ON=73 SEC=8775 ' from 29
+pkts=293 Report RX '&: SEQ=293 RADIO_ON=74 SEC=8805 ' from 29
+8820(0)s
+pkts=294 Report RX '&: SEQ=294 RADIO_ON=74 SEC=8835 ' from 29
+pkts=295 Report RX '&: SEQ=295 RADIO_ON=76 SEC=8865 ' from 29
+8880(0)s
+pkts=296 Report RX '&: SEQ=296 RADIO_ON=76 SEC=8895 ' from 29
+pkts=297 Report RX '&: SEQ=297 RADIO_ON=76 SEC=8925 ' from 29
+8940(0)s
+pkts=298 Report RX '&: SEQ=298 RADIO_ON=76 SEC=8955 ' from 29
+pkts=299 Report RX '&: SEQ=299 RADIO_ON=76 SEC=8985 ' from 29
+9000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 667s
+
+---------
+pkts=300 Report RX '&: SEQ=300 RADIO_ON=76 SEC=9015 ' from 29
+pkts=301 Report RX '&: SEQ=301 RADIO_ON=76 SEC=9045 ' from 29
+9060(0)s
+pkts=302 Report RX '&: SEQ=302 RADIO_ON=76 SEC=9075 ' from 29
+pkts=303 Report RX '&: SEQ=303 RADIO_ON=76 SEC=9105 ' from 29
+9120(0)s
+pkts=304 Report RX '&: SEQ=304 RADIO_ON=76 SEC=9135 ' from 29
+pkts=305 Report RX '&: SEQ=305 RADIO_ON=76 SEC=9165 ' from 29
+9180(0)s
+pkts=306 Report RX '&: SEQ=306 RADIO_ON=76 SEC=9195 ' from 29
+Never-used stack > 18220 bytes
+pkts=307 Report RX '&: SEQ=307 RADIO_ON=76 SEC=9225 ' from 29
+9240(0)s
+pkts=308 Report RX '&: SEQ=308 RADIO_ON=76 SEC=9255 ' from 29
+pkts=309 Report RX '&: SEQ=309 RADIO_ON=76 SEC=9285 ' from 29
+9300(0)s
+pkts=310 Report RX '&: SEQ=310 RADIO_ON=76 SEC=9315 ' from 29
+pkts=311 Report RX '&: SEQ=311 RADIO_ON=78 SEC=9345 ' from 29
+9360(0)s
+pkts=312 Report RX '&: SEQ=312 RADIO_ON=78 SEC=9375 ' from 29
+pkts=313 Report RX '&: SEQ=313 RADIO_ON=80 SEC=9405 ' from 29
+9420(0)s
+pkts=314 Report RX '&: SEQ=314 RADIO_ON=80 SEC=9435 ' from 29
+pkts=315 Report RX '&: SEQ=315 RADIO_ON=80 SEC=9465 ' from 29
+9480(0)s
+pkts=316 Report RX '&: SEQ=316 RADIO_ON=80 SEC=9495 ' from 29
+pkts=317 Report RX '&: SEQ=317 RADIO_ON=80 SEC=9525 ' from 29
+9540(0)s
+pkts=318 Report RX '&: SEQ=318 RADIO_ON=80 SEC=9555 ' from 29
+pkts=319 Report RX '&: SEQ=319 RADIO_ON=80 SEC=9585 ' from 29
+9600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1209s
+
+---------
+pkts=320 Report RX '&: SEQ=320 RADIO_ON=80 SEC=9615 ' from 29
+pkts=321 Report RX '&: SEQ=321 RADIO_ON=80 SEC=9645 ' from 29
+9660(0)s
+pkts=322 Report RX '&: SEQ=322 RADIO_ON=80 SEC=9675 ' from 29
+pkts=323 Report RX '&: SEQ=323 RADIO_ON=80 SEC=9705 ' from 29
+9720(0)s
+pkts=324 Report RX '&: SEQ=324 RADIO_ON=80 SEC=9735 ' from 29
+pkts=325 Report RX '&: SEQ=325 RADIO_ON=81 SEC=9765 ' from 29
+9780(0)s
+pkts=326 Report RX '&: SEQ=326 RADIO_ON=81 SEC=9795 ' from 29
+pkts=327 Report RX '&: SEQ=327 RADIO_ON=81 SEC=9825 ' from 29
+9840(0)s
+pkts=328 Report RX '&: SEQ=328 RADIO_ON=81 SEC=9855 ' from 29
+pkts=329 Report RX '&: SEQ=329 RADIO_ON=82 SEC=9885 ' from 29
+9900(0)s
+pkts=330 Report RX '&: SEQ=330 RADIO_ON=83 SEC=9915 ' from 29
+pkts=331 Report RX '&: SEQ=331 RADIO_ON=83 SEC=9945 ' from 29
+9960(0)s
+pkts=332 Report RX '&: SEQ=332 RADIO_ON=85 SEC=9975 ' from 29
+pkts=333 Report RX '&: SEQ=333 RADIO_ON=85 SEC=10005 ' from 29
+10020(0)s
+pkts=334 Report RX '&: SEQ=334 RADIO_ON=85 SEC=10035 ' from 29
+pkts=335 Report RX '&: SEQ=335 RADIO_ON=85 SEC=10065 ' from 29
+10080(0)s
+pkts=336 Report RX '&: SEQ=336 RADIO_ON=85 SEC=10095 ' from 29
+pkts=337 Report RX '&: SEQ=337 RADIO_ON=85 SEC=10125 ' from 29
+10140(0)s
+pkts=338 Report RX '&: SEQ=338 RADIO_ON=85 SEC=10155 ' from 29
+pkts=339 Report RX '&: SEQ=339 RADIO_ON=85 SEC=10185 ' from 29
+10200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1560s
+
+---------
+pkts=340 Report RX '&: SEQ=340 RADIO_ON=85 SEC=10215 ' from 29
+Never-used stack > 18220 bytes
+pkts=341 Report RX '&: SEQ=341 RADIO_ON=85 SEC=10245 ' from 29
+10260(0)s
+pkts=342 Report RX '&: SEQ=342 RADIO_ON=85 SEC=10275 ' from 29
+pkts=343 Report RX '&: SEQ=343 RADIO_ON=85 SEC=10305 ' from 29
+10320(0)s
+pkts=344 Report RX '&: SEQ=344 RADIO_ON=85 SEC=10335 ' from 29
+pkts=345 Report RX '&: SEQ=345 RADIO_ON=86 SEC=10365 ' from 29
+10380(0)s
+pkts=346 Report RX '&: SEQ=346 RADIO_ON=86 SEC=10395 ' from 29
+pkts=347 Report RX '&: SEQ=347 RADIO_ON=86 SEC=10425 ' from 29
+10440(0)s
+pkts=348 Report RX '&: SEQ=348 RADIO_ON=87 SEC=10455 ' from 29
+pkts=349 Report RX '&: SEQ=349 RADIO_ON=88 SEC=10485 ' from 29
+10500(0)s
+pkts=350 Report RX '&: SEQ=350 RADIO_ON=89 SEC=10515 ' from 29
+pkts=351 Report RX '&: SEQ=351 RADIO_ON=90 SEC=10545 ' from 29
+10560(0)s
+pkts=352 Report RX '&: SEQ=352 RADIO_ON=90 SEC=10575 ' from 29
+pkts=353 Report RX '&: SEQ=353 RADIO_ON=90 SEC=10605 ' from 29
+10620(0)s
+pkts=354 Report RX '&: SEQ=354 RADIO_ON=90 SEC=10635 ' from 29
+pkts=355 Report RX '&: SEQ=355 RADIO_ON=90 SEC=10665 ' from 29
+10680(0)s
+pkts=356 Report RX '&: SEQ=356 RADIO_ON=90 SEC=10695 ' from 29
+pkts=357 Report RX '&: SEQ=357 RADIO_ON=90 SEC=10725 ' from 29
+10740(0)s
+pkts=358 Report RX '&: SEQ=358 RADIO_ON=90 SEC=10755 ' from 29
+pkts=359 Report RX '&: SEQ=359 RADIO_ON=90 SEC=10785 ' from 29
+10800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 960s
+
+---------
+pkts=360 Report RX '&: SEQ=360 RADIO_ON=90 SEC=10815 ' from 29
+pkts=361 Report RX '&: SEQ=361 RADIO_ON=90 SEC=10845 ' from 29
+10860(0)s
+pkts=362 Report RX '&: SEQ=362 RADIO_ON=90 SEC=10875 ' from 29
+pkts=363 Report RX '&: SEQ=363 RADIO_ON=90 SEC=10905 ' from 29
+10920(0)s
+pkts=364 Report RX '&: SEQ=364 RADIO_ON=90 SEC=10935 ' from 29
+pkts=365 Report RX '&: SEQ=365 RADIO_ON=91 SEC=10965 ' from 29
+10980(0)s
+pkts=366 Report RX '&: SEQ=366 RADIO_ON=91 SEC=10995 ' from 29
+pkts=367 Report RX '&: SEQ=367 RADIO_ON=93 SEC=11025 ' from 29
+11040(0)s
+pkts=368 Report RX '&: SEQ=368 RADIO_ON=93 SEC=11055 ' from 29
+pkts=369 Report RX '&: SEQ=369 RADIO_ON=94 SEC=11085 ' from 29
+11100(0)s
+pkts=370 Report RX '&: SEQ=370 RADIO_ON=95 SEC=11115 ' from 29
+pkts=371 Report RX '&: SEQ=371 RADIO_ON=95 SEC=11145 ' from 29
+11160(0)s
+pkts=372 Report RX '&: SEQ=372 RADIO_ON=95 SEC=11175 ' from 29
+pkts=373 Report RX '&: SEQ=373 RADIO_ON=95 SEC=11205 ' from 29
+11220(0)s
+pkts=374 Report RX '&: SEQ=374 RADIO_ON=95 SEC=11235 ' from 29
+Never-used stack > 18220 bytes
+pkts=375 Report RX '&: SEQ=375 RADIO_ON=95 SEC=11265 ' from 29
+11280(0)s
+pkts=376 Report RX '&: SEQ=376 RADIO_ON=95 SEC=11295 ' from 29
+pkts=377 Report RX '&: SEQ=377 RADIO_ON=95 SEC=11325 ' from 29
+11340(0)s
+pkts=378 Report RX '&: SEQ=378 RADIO_ON=95 SEC=11355 ' from 29
+pkts=379 Report RX '&: SEQ=379 RADIO_ON=95 SEC=11385 ' from 29
+11400(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1473s
+
+---------
+pkts=380 Report RX '&: SEQ=380 RADIO_ON=95 SEC=11415 ' from 29
+pkts=381 Report RX '&: SEQ=381 RADIO_ON=95 SEC=11445 ' from 29
+11460(0)s
+pkts=382 Report RX '&: SEQ=382 RADIO_ON=95 SEC=11475 ' from 29
+pkts=383 Report RX '&: SEQ=383 RADIO_ON=95 SEC=11505 ' from 29
+11520(0)s
+pkts=384 Report RX '&: SEQ=384 RADIO_ON=95 SEC=11535 ' from 29
+pkts=385 Report RX '&: SEQ=385 RADIO_ON=97 SEC=11565 ' from 29
+11580(0)s
+pkts=386 Report RX '&: SEQ=386 RADIO_ON=97 SEC=11595 ' from 29
+pkts=387 Report RX '&: SEQ=387 RADIO_ON=98 SEC=11625 ' from 29
+11640(0)s
+pkts=388 Report RX '&: SEQ=388 RADIO_ON=100 SEC=11655 ' from 29
+pkts=389 Report RX '&: SEQ=389 RADIO_ON=100 SEC=11685 ' from 29
+11700(0)s
+pkts=390 Report RX '&: SEQ=390 RADIO_ON=100 SEC=11715 ' from 29
+pkts=391 Report RX '&: SEQ=391 RADIO_ON=100 SEC=11745 ' from 29
+11760(0)s
+pkts=392 Report RX '&: SEQ=392 RADIO_ON=100 SEC=11775 ' from 29
+pkts=393 Report RX '&: SEQ=393 RADIO_ON=100 SEC=11805 ' from 29
+11820(0)s
+pkts=394 Report RX '&: SEQ=394 RADIO_ON=100 SEC=11835 ' from 29
+pkts=395 Report RX '&: SEQ=395 RADIO_ON=100 SEC=11865 ' from 29
+11880(0)s
+pkts=396 Report RX '&: SEQ=396 RADIO_ON=100 SEC=11895 ' from 29
+pkts=397 Report RX '&: SEQ=397 RADIO_ON=100 SEC=11925 ' from 29
+11940(0)s
+pkts=398 Report RX '&: SEQ=398 RADIO_ON=100 SEC=11955 ' from 29
+pkts=399 Report RX '&: SEQ=399 RADIO_ON=100 SEC=11985 ' from 29
+12000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 873s
+
+---------
+pkts=400 Report RX '&: SEQ=400 RADIO_ON=100 SEC=12015 ' from 29
+pkts=401 Report RX '&: SEQ=401 RADIO_ON=100 SEC=12045 ' from 29
+12060(0)s
+pkts=402 Report RX '&: SEQ=402 RADIO_ON=100 SEC=12075 ' from 29
+pkts=403 Report RX '&: SEQ=403 RADIO_ON=100 SEC=12105 ' from 29
+12120(0)s
+pkts=404 Report RX '&: SEQ=404 RADIO_ON=102 SEC=12135 ' from 29
+pkts=405 Report RX '&: SEQ=405 RADIO_ON=102 SEC=12165 ' from 29
+12180(0)s
+pkts=406 Report RX '&: SEQ=406 RADIO_ON=103 SEC=12195 ' from 29
+pkts=407 Report RX '&: SEQ=407 RADIO_ON=104 SEC=12225 ' from 29
+12240(0)s
+pkts=408 Report RX '&: SEQ=408 RADIO_ON=104 SEC=12255 ' from 29
+pkts=409 Report RX '&: SEQ=409 RADIO_ON=104 SEC=12285 ' from 29
+Never-used stack > 18220 bytes
+12300(0)s
+pkts=410 Report RX '&: SEQ=410 RADIO_ON=104 SEC=12315 ' from 29
+pkts=411 Report RX '&: SEQ=411 RADIO_ON=104 SEC=12345 ' from 29
+12360(0)s
+pkts=412 Report RX '&: SEQ=412 RADIO_ON=104 SEC=12375 ' from 29
+pkts=413 Report RX '&: SEQ=413 RADIO_ON=104 SEC=12405 ' from 29
+12420(0)s
+pkts=414 Report RX '&: SEQ=414 RADIO_ON=104 SEC=12435 ' from 29
+pkts=415 Report RX '&: SEQ=415 RADIO_ON=104 SEC=12465 ' from 29
+12480(0)s
+pkts=416 Report RX '&: SEQ=416 RADIO_ON=104 SEC=12495 ' from 29
+pkts=417 Report RX '&: SEQ=417 RADIO_ON=104 SEC=12525 ' from 29
+12540(0)s
+pkts=418 Report RX '&: SEQ=418 RADIO_ON=105 SEC=12555 ' from 29
+pkts=419 Report RX '&: SEQ=419 RADIO_ON=105 SEC=12585 ' from 29
+12600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1496s
+
+---------
+pkts=420 Report RX '&: SEQ=420 RADIO_ON=105 SEC=12615 ' from 29
+pkts=421 Report RX '&: SEQ=421 RADIO_ON=105 SEC=12645 ' from 29
+12660(0)s
+pkts=422 Report RX '&: SEQ=422 RADIO_ON=106 SEC=12675 ' from 29
+pkts=423 Report RX '&: SEQ=423 RADIO_ON=107 SEC=12705 ' from 29
+12720(0)s
+pkts=424 Report RX '&: SEQ=424 RADIO_ON=107 SEC=12735 ' from 29
+pkts=425 Report RX '&: SEQ=425 RADIO_ON=109 SEC=12765 ' from 29
+12780(0)s
+pkts=426 Report RX '&: SEQ=426 RADIO_ON=109 SEC=12795 ' from 29
+pkts=427 Report RX '&: SEQ=427 RADIO_ON=109 SEC=12825 ' from 29
+12840(0)s
+pkts=428 Report RX '&: SEQ=428 RADIO_ON=109 SEC=12855 ' from 29
+pkts=429 Report RX '&: SEQ=429 RADIO_ON=109 SEC=12885 ' from 29
+12900(0)s
+pkts=430 Report RX '&: SEQ=430 RADIO_ON=109 SEC=12915 ' from 29
+pkts=431 Report RX '&: SEQ=431 RADIO_ON=109 SEC=12945 ' from 29
+12960(0)s
+pkts=432 Report RX '&: SEQ=432 RADIO_ON=109 SEC=12975 ' from 29
+pkts=433 Report RX '&: SEQ=433 RADIO_ON=109 SEC=13005 ' from 29
+13020(0)s
+pkts=434 Report RX '&: SEQ=434 RADIO_ON=109 SEC=13035 ' from 29
+pkts=435 Report RX '&: SEQ=435 RADIO_ON=109 SEC=13065 ' from 29
+13080(0)s
+pkts=436 Report RX '&: SEQ=436 RADIO_ON=109 SEC=13095 ' from 29
+pkts=437 Report RX '&: SEQ=437 RADIO_ON=109 SEC=13125 ' from 29
+13140(0)s
+pkts=438 Report RX '&: SEQ=438 RADIO_ON=109 SEC=13155 ' from 29
+pkts=439 Report RX '&: SEQ=439 RADIO_ON=110 SEC=13185 ' from 29
+13200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 896s
+
+---------
+pkts=440 Report RX '&: SEQ=440 RADIO_ON=110 SEC=13215 ' from 29
+pkts=441 Report RX '&: SEQ=441 RADIO_ON=111 SEC=13245 ' from 29
+13260(0)s
+pkts=442 Report RX '&: SEQ=442 RADIO_ON=112 SEC=13275 ' from 29
+pkts=443 Report RX '&: SEQ=443 RADIO_ON=113 SEC=13305 ' from 29
+Never-used stack > 18220 bytes
+13320(0)s
+pkts=444 Report RX '&: SEQ=444 RADIO_ON=114 SEC=13335 ' from 29
+pkts=445 Report RX '&: SEQ=445 RADIO_ON=114 SEC=13365 ' from 29
+13380(0)s
+pkts=446 Report RX '&: SEQ=446 RADIO_ON=114 SEC=13395 ' from 29
+pkts=447 Report RX '&: SEQ=447 RADIO_ON=114 SEC=13425 ' from 29
+13440(0)s
+pkts=448 Report RX '&: SEQ=448 RADIO_ON=114 SEC=13455 ' from 29
+pkts=449 Report RX '&: SEQ=449 RADIO_ON=114 SEC=13485 ' from 29
+13500(0)s
+pkts=450 Report RX '&: SEQ=450 RADIO_ON=114 SEC=13515 ' from 29
+pkts=451 Report RX '&: SEQ=451 RADIO_ON=114 SEC=13545 ' from 29
+13560(0)s
+pkts=452 Report RX '&: SEQ=452 RADIO_ON=114 SEC=13575 ' from 29
+pkts=453 Report RX '&: SEQ=453 RADIO_ON=114 SEC=13605 ' from 29
+13620(0)s
+pkts=454 Report RX '&: SEQ=454 RADIO_ON=114 SEC=13635 ' from 29
+pkts=455 Report RX '&: SEQ=455 RADIO_ON=114 SEC=13665 ' from 29
+13680(0)s
+pkts=456 Report RX '&: SEQ=456 RADIO_ON=114 SEC=13695 ' from 29
+pkts=457 Report RX '&: SEQ=457 RADIO_ON=114 SEC=13725 ' from 29
+13740(0)s
+pkts=458 Report RX '&: SEQ=458 RADIO_ON=114 SEC=13755 ' from 29
+pkts=459 Report RX '&: SEQ=459 RADIO_ON=115 SEC=13785 ' from 29
+13800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1339s
+
+---------
+pkts=460 Report RX '&: SEQ=460 RADIO_ON=117 SEC=13815 ' from 29
+pkts=461 Report RX '&: SEQ=461 RADIO_ON=117 SEC=13845 ' from 29
+13860(0)s
+pkts=462 Report RX '&: SEQ=462 RADIO_ON=118 SEC=13875 ' from 29
+pkts=463 Report RX '&: SEQ=463 RADIO_ON=119 SEC=13905 ' from 29
+13920(0)s
+pkts=464 Report RX '&: SEQ=464 RADIO_ON=119 SEC=13935 ' from 29
+pkts=465 Report RX '&: SEQ=465 RADIO_ON=119 SEC=13965 ' from 29
+13980(0)s
+pkts=466 Report RX '&: SEQ=466 RADIO_ON=119 SEC=13995 ' from 29
+pkts=467 Report RX '&: SEQ=467 RADIO_ON=119 SEC=14025 ' from 29
+14040(0)s
+pkts=468 Report RX '&: SEQ=468 RADIO_ON=119 SEC=14055 ' from 29
+pkts=469 Report RX '&: SEQ=469 RADIO_ON=119 SEC=14085 ' from 29
+14100(0)s
+pkts=470 Report RX '&: SEQ=470 RADIO_ON=119 SEC=14115 ' from 29
+pkts=471 Report RX '&: SEQ=471 RADIO_ON=119 SEC=14145 ' from 29
+14160(0)s
+pkts=472 Report RX '&: SEQ=472 RADIO_ON=119 SEC=14175 ' from 29
+pkts=473 Report RX '&: SEQ=473 RADIO_ON=119 SEC=14205 ' from 29
+14220(0)s
+pkts=474 Report RX '&: SEQ=474 RADIO_ON=119 SEC=14235 ' from 29
+pkts=475 Report RX '&: SEQ=475 RADIO_ON=119 SEC=14265 ' from 29
+14280(0)s
+pkts=476 Report RX '&: SEQ=476 RADIO_ON=119 SEC=14295 ' from 29
+pkts=477 Report RX '&: SEQ=477 RADIO_ON=119 SEC=14325 ' from 29
+Never-used stack > 18220 bytes
+14340(0)s
+pkts=478 Report RX '&: SEQ=478 RADIO_ON=120 SEC=14355 ' from 29
+pkts=479 Report RX '&: SEQ=479 RADIO_ON=121 SEC=14385 ' from 29
+14400(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1780s
+
+---------
+pkts=480 Report RX '&: SEQ=480 RADIO_ON=122 SEC=14415 ' from 29
+pkts=481 Report RX '&: SEQ=481 RADIO_ON=123 SEC=14445 ' from 29
+14460(0)s
+pkts=482 Report RX '&: SEQ=482 RADIO_ON=123 SEC=14475 ' from 29
+pkts=483 Report RX '&: SEQ=483 RADIO_ON=123 SEC=14505 ' from 29
+14520(0)s
+pkts=484 Report RX '&: SEQ=484 RADIO_ON=123 SEC=14535 ' from 29
+pkts=485 Report RX '&: SEQ=485 RADIO_ON=123 SEC=14565 ' from 29
+14580(0)s
+pkts=486 Report RX '&: SEQ=486 RADIO_ON=123 SEC=14595 ' from 29
+pkts=487 Report RX '&: SEQ=487 RADIO_ON=123 SEC=14625 ' from 29
+14640(0)s
+pkts=488 Report RX '&: SEQ=488 RADIO_ON=123 SEC=14655 ' from 29
+pkts=489 Report RX '&: SEQ=489 RADIO_ON=123 SEC=14685 ' from 29
+14700(0)s
+pkts=490 Report RX '&: SEQ=490 RADIO_ON=123 SEC=14715 ' from 29
+pkts=491 Report RX '&: SEQ=491 RADIO_ON=123 SEC=14745 ' from 29
+14760(0)s
+pkts=492 Report RX '&: SEQ=492 RADIO_ON=124 SEC=14775 ' from 29
+pkts=493 Report RX '&: SEQ=493 RADIO_ON=124 SEC=14805 ' from 29
+14820(0)s
+pkts=494 Report RX '&: SEQ=494 RADIO_ON=124 SEC=14835 ' from 29
+pkts=495 Report RX '&: SEQ=495 RADIO_ON=124 SEC=14865 ' from 29
+14880(0)s
+pkts=496 Report RX '&: SEQ=496 RADIO_ON=124 SEC=14895 ' from 29
+pkts=497 Report RX '&: SEQ=497 RADIO_ON=126 SEC=14925 ' from 29
+14940(0)s
+pkts=498 Report RX '&: SEQ=498 RADIO_ON=126 SEC=14955 ' from 29
+pkts=499 Report RX '&: SEQ=499 RADIO_ON=127 SEC=14985 ' from 29
+15000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1180s
+
+---------
+pkts=500 Report RX '&: SEQ=500 RADIO_ON=128 SEC=15015 ' from 29
+pkts=501 Report RX '&: SEQ=501 RADIO_ON=128 SEC=15045 ' from 29
+15060(0)s
+pkts=502 Report RX '&: SEQ=502 RADIO_ON=128 SEC=15075 ' from 29
+pkts=503 Report RX '&: SEQ=503 RADIO_ON=128 SEC=15105 ' from 29
+15120(0)s
+pkts=504 Report RX '&: SEQ=504 RADIO_ON=128 SEC=15135 ' from 29
+pkts=505 Report RX '&: SEQ=505 RADIO_ON=128 SEC=15165 ' from 29
+15180(0)s
+pkts=506 Report RX '&: SEQ=506 RADIO_ON=128 SEC=15195 ' from 29
+pkts=507 Report RX '&: SEQ=507 RADIO_ON=128 SEC=15225 ' from 29
+15240(0)s
+pkts=508 Report RX '&: SEQ=508 RADIO_ON=128 SEC=15255 ' from 29
+pkts=509 Report RX '&: SEQ=509 RADIO_ON=128 SEC=15285 ' from 29
+15300(0)s
+pkts=510 Report RX '&: SEQ=510 RADIO_ON=128 SEC=15315 ' from 29
+pkts=511 Report RX '&: SEQ=511 RADIO_ON=128 SEC=15345 ' from 29
+15360(0)s
+Never-used stack > 18220 bytes
+pkts=512 Report RX '&: SEQ=512 RADIO_ON=129 SEC=15375 ' from 29
+pkts=513 Report RX '&: SEQ=513 RADIO_ON=129 SEC=15405 ' from 29
+15420(0)s
+pkts=514 Report RX '&: SEQ=514 RADIO_ON=129 SEC=15435 ' from 29
+pkts=515 Report RX '&: SEQ=515 RADIO_ON=129 SEC=15465 ' from 29
+15480(0)s
+pkts=516 Report RX '&: SEQ=516 RADIO_ON=131 SEC=15495 ' from 29
+pkts=517 Report RX '&: SEQ=517 RADIO_ON=131 SEC=15525 ' from 29
+15540(0)s
+pkts=518 Report RX '&: SEQ=518 RADIO_ON=133 SEC=15555 ' from 29
+pkts=519 Report RX '&: SEQ=519 RADIO_ON=133 SEC=15585 ' from 29
+15600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1521s
+
+---------
+pkts=520 Report RX '&: SEQ=520 RADIO_ON=133 SEC=15615 ' from 29
+pkts=521 Report RX '&: SEQ=521 RADIO_ON=133 SEC=15645 ' from 29
+15660(0)s
+pkts=522 Report RX '&: SEQ=522 RADIO_ON=133 SEC=15675 ' from 29
+pkts=523 Report RX '&: SEQ=523 RADIO_ON=133 SEC=15705 ' from 29
+15720(0)s
+pkts=524 Report RX '&: SEQ=524 RADIO_ON=133 SEC=15735 ' from 29
+pkts=525 Report RX '&: SEQ=525 RADIO_ON=133 SEC=15765 ' from 29
+15780(0)s
+pkts=526 Report RX '&: SEQ=526 RADIO_ON=133 SEC=15795 ' from 29
+pkts=527 Report RX '&: SEQ=527 RADIO_ON=133 SEC=15825 ' from 29
+15840(0)s
+pkts=528 Report RX '&: SEQ=528 RADIO_ON=133 SEC=15855 ' from 29
+pkts=529 Report RX '&: SEQ=529 RADIO_ON=133 SEC=15885 ' from 29
+15900(0)s
+pkts=530 Report RX '&: SEQ=530 RADIO_ON=133 SEC=15915 ' from 29
+pkts=531 Report RX '&: SEQ=531 RADIO_ON=133 SEC=15945 ' from 29
+15960(0)s
+pkts=532 Report RX '&: SEQ=532 RADIO_ON=134 SEC=15975 ' from 29
+pkts=533 Report RX '&: SEQ=533 RADIO_ON=134 SEC=16005 ' from 29
+16020(0)s
+pkts=534 Report RX '&: SEQ=534 RADIO_ON=135 SEC=16035 ' from 29
+pkts=535 Report RX '&: SEQ=535 RADIO_ON=136 SEC=16065 ' from 29
+16080(0)s
+pkts=536 Report RX '&: SEQ=536 RADIO_ON=136 SEC=16095 ' from 29
+pkts=537 Report RX '&: SEQ=537 RADIO_ON=138 SEC=16125 ' from 29
+16140(0)s
+pkts=538 Report RX '&: SEQ=538 RADIO_ON=138 SEC=16155 ' from 29
+pkts=539 Report RX '&: SEQ=539 RADIO_ON=138 SEC=16185 ' from 29
+16200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 921s
+
+---------
+pkts=540 Report RX '&: SEQ=540 RADIO_ON=138 SEC=16215 ' from 29
+pkts=541 Report RX '&: SEQ=541 RADIO_ON=138 SEC=16245 ' from 29
+16260(0)s
+pkts=542 Report RX '&: SEQ=542 RADIO_ON=138 SEC=16275 ' from 29
+pkts=543 Report RX '&: SEQ=543 RADIO_ON=138 SEC=16305 ' from 29
+16320(0)s
+pkts=544 Report RX '&: SEQ=544 RADIO_ON=138 SEC=16335 ' from 29
+pkts=545 Report RX '&: SEQ=545 RADIO_ON=138 SEC=16365 ' from 29
+16380(0)s
+Never-used stack > 18220 bytes
+pkts=546 Report RX '&: SEQ=546 RADIO_ON=138 SEC=16395 ' from 29
+pkts=547 Report RX '&: SEQ=547 RADIO_ON=138 SEC=16425 ' from 29
+16440(0)s
+pkts=548 Report RX '&: SEQ=548 RADIO_ON=138 SEC=16455 ' from 29
+pkts=549 Report RX '&: SEQ=549 RADIO_ON=138 SEC=16485 ' from 29
+16500(0)s
+pkts=550 Report RX '&: SEQ=550 RADIO_ON=138 SEC=16515 ' from 29
+pkts=551 Report RX '&: SEQ=551 RADIO_ON=138 SEC=16545 ' from 29
+16560(0)s
+pkts=552 Report RX '&: SEQ=552 RADIO_ON=138 SEC=16575 ' from 29
+pkts=553 Report RX '&: SEQ=553 RADIO_ON=140 SEC=16605 ' from 29
+16620(0)s
+pkts=554 Report RX '&: SEQ=554 RADIO_ON=140 SEC=16635 ' from 29
+pkts=555 Report RX '&: SEQ=555 RADIO_ON=142 SEC=16665 ' from 29
+16680(0)s
+pkts=556 Report RX '&: SEQ=556 RADIO_ON=143 SEC=16695 ' from 29
+pkts=557 Report RX '&: SEQ=557 RADIO_ON=143 SEC=16725 ' from 29
+16740(0)s
+pkts=558 Report RX '&: SEQ=558 RADIO_ON=143 SEC=16755 ' from 29
+pkts=559 Report RX '&: SEQ=559 RADIO_ON=143 SEC=16785 ' from 29
+16800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1304s
+
+---------
+pkts=560 Report RX '&: SEQ=560 RADIO_ON=143 SEC=16815 ' from 29
+pkts=561 Report RX '&: SEQ=561 RADIO_ON=143 SEC=16845 ' from 29
+16860(0)s
+pkts=562 Report RX '&: SEQ=562 RADIO_ON=143 SEC=16875 ' from 29
+pkts=563 Report RX '&: SEQ=563 RADIO_ON=143 SEC=16905 ' from 29
+16920(0)s
+pkts=564 Report RX '&: SEQ=564 RADIO_ON=143 SEC=16935 ' from 29
+pkts=565 Report RX '&: SEQ=565 RADIO_ON=143 SEC=16965 ' from 29
+16980(0)s
+pkts=566 Report RX '&: SEQ=566 RADIO_ON=143 SEC=16995 ' from 29
+pkts=567 Report RX '&: SEQ=567 RADIO_ON=143 SEC=17025 ' from 29
+17040(0)s
+pkts=568 Report RX '&: SEQ=568 RADIO_ON=143 SEC=17055 ' from 29
+pkts=569 Report RX '&: SEQ=569 RADIO_ON=143 SEC=17085 ' from 29
+17100(0)s
+pkts=570 Report RX '&: SEQ=570 RADIO_ON=143 SEC=17115 ' from 29
+pkts=571 Report RX '&: SEQ=571 RADIO_ON=144 SEC=17145 ' from 29
+17160(0)s
+pkts=572 Report RX '&: SEQ=572 RADIO_ON=145 SEC=17175 ' from 29
+pkts=573 Report RX '&: SEQ=573 RADIO_ON=145 SEC=17205 ' from 29
+17220(0)s
+pkts=574 Report RX '&: SEQ=574 RADIO_ON=147 SEC=17235 ' from 29
+pkts=575 Report RX '&: SEQ=575 RADIO_ON=147 SEC=17265 ' from 29
+17280(0)s
+pkts=576 Report RX '&: SEQ=576 RADIO_ON=147 SEC=17295 ' from 29
+pkts=577 Report RX '&: SEQ=577 RADIO_ON=147 SEC=17325 ' from 29
+17340(0)s
+pkts=578 Report RX '&: SEQ=578 RADIO_ON=147 SEC=17355 ' from 29
+pkts=579 Report RX '&: SEQ=579 RADIO_ON=147 SEC=17385 ' from 29
+17400(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1707s
+
+---------
+Never-used stack > 18220 bytes
+pkts=580 Report RX '&: SEQ=580 RADIO_ON=147 SEC=17415 ' from 29
+pkts=581 Report RX '&: SEQ=581 RADIO_ON=147 SEC=17445 ' from 29
+17460(0)s
+pkts=582 Report RX '&: SEQ=582 RADIO_ON=147 SEC=17475 ' from 29
+pkts=583 Report RX '&: SEQ=583 RADIO_ON=147 SEC=17505 ' from 29
+17520(0)s
+pkts=584 Report RX '&: SEQ=584 RADIO_ON=147 SEC=17535 ' from 29
+pkts=585 Report RX '&: SEQ=585 RADIO_ON=147 SEC=17565 ' from 29
+17580(0)s
+pkts=586 Report RX '&: SEQ=586 RADIO_ON=148 SEC=17595 ' from 29
+pkts=587 Report RX '&: SEQ=587 RADIO_ON=148 SEC=17625 ' from 29
+17640(0)s
+pkts=588 Report RX '&: SEQ=588 RADIO_ON=148 SEC=17655 ' from 29
+pkts=589 Report RX '&: SEQ=589 RADIO_ON=148 SEC=17685 ' from 29
+17700(0)s
+pkts=590 Report RX '&: SEQ=590 RADIO_ON=149 SEC=17715 ' from 29
+pkts=591 Report RX '&: SEQ=591 RADIO_ON=150 SEC=17745 ' from 29
+17760(0)s
+pkts=592 Report RX '&: SEQ=592 RADIO_ON=151 SEC=17775 ' from 29
+pkts=593 Report RX '&: SEQ=593 RADIO_ON=152 SEC=17805 ' from 29
+17820(0)s
+pkts=594 Report RX '&: SEQ=594 RADIO_ON=152 SEC=17835 ' from 29
+pkts=595 Report RX '&: SEQ=595 RADIO_ON=152 SEC=17865 ' from 29
+17880(0)s
+pkts=596 Report RX '&: SEQ=596 RADIO_ON=152 SEC=17895 ' from 29
+pkts=597 Report RX '&: SEQ=597 RADIO_ON=152 SEC=17925 ' from 29
+17940(0)s
+pkts=598 Report RX '&: SEQ=598 RADIO_ON=152 SEC=17955 ' from 29
+pkts=599 Report RX '&: SEQ=599 RADIO_ON=152 SEC=17985 ' from 29
+18000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1321s
+
+---------
+pkts=600 Report RX '&: SEQ=600 RADIO_ON=152 SEC=18015 ' from 29
+pkts=601 Report RX '&: SEQ=601 RADIO_ON=152 SEC=18045 ' from 29
+18060(0)s
+pkts=602 Report RX '&: SEQ=602 RADIO_ON=152 SEC=18075 ' from 29
+pkts=603 Report RX '&: SEQ=603 RADIO_ON=152 SEC=18105 ' from 29
+18120(0)s
+pkts=604 Report RX '&: SEQ=604 RADIO_ON=152 SEC=18135 ' from 29
+pkts=605 Report RX '&: SEQ=605 RADIO_ON=152 SEC=18165 ' from 29
+18180(0)s
+pkts=606 Report RX '&: SEQ=606 RADIO_ON=153 SEC=18195 ' from 29
+pkts=607 Report RX '&: SEQ=607 RADIO_ON=153 SEC=18225 ' from 29
+18240(0)s
+pkts=608 Report RX '&: SEQ=608 RADIO_ON=153 SEC=18255 ' from 29
+pkts=609 Report RX '&: SEQ=609 RADIO_ON=155 SEC=18285 ' from 29
+18300(0)s
+pkts=610 Report RX '&: SEQ=610 RADIO_ON=155 SEC=18315 ' from 29
+pkts=611 Report RX '&: SEQ=611 RADIO_ON=156 SEC=18345 ' from 29
+18360(0)s
+pkts=612 Report RX '&: SEQ=612 RADIO_ON=157 SEC=18375 ' from 29
+pkts=613 Report RX '&: SEQ=613 RADIO_ON=157 SEC=18405 ' from 29
+18420(0)s
+Never-used stack > 18220 bytes
+pkts=614 Report RX '&: SEQ=614 RADIO_ON=157 SEC=18435 ' from 29
+pkts=615 Report RX '&: SEQ=615 RADIO_ON=157 SEC=18465 ' from 29
+18480(0)s
+pkts=616 Report RX '&: SEQ=616 RADIO_ON=157 SEC=18495 ' from 29
+pkts=617 Report RX '&: SEQ=617 RADIO_ON=157 SEC=18525 ' from 29
+18540(0)s
+pkts=618 Report RX '&: SEQ=618 RADIO_ON=157 SEC=18555 ' from 29
+pkts=619 Report RX '&: SEQ=619 RADIO_ON=157 SEC=18585 ' from 29
+18600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1596s
+
+---------
+pkts=620 Report RX '&: SEQ=620 RADIO_ON=157 SEC=18615 ' from 29
+pkts=621 Report RX '&: SEQ=621 RADIO_ON=157 SEC=18645 ' from 29
+18660(0)s
+pkts=622 Report RX '&: SEQ=622 RADIO_ON=157 SEC=18675 ' from 29
+pkts=623 Report RX '&: SEQ=623 RADIO_ON=157 SEC=18705 ' from 29
+18720(0)s
+pkts=624 Report RX '&: SEQ=624 RADIO_ON=157 SEC=18735 ' from 29
+pkts=625 Report RX '&: SEQ=625 RADIO_ON=157 SEC=18765 ' from 29
+18780(0)s
+pkts=626 Report RX '&: SEQ=626 RADIO_ON=157 SEC=18795 ' from 29
+pkts=627 Report RX '&: SEQ=627 RADIO_ON=158 SEC=18825 ' from 29
+18840(0)s
+pkts=628 Report RX '&: SEQ=628 RADIO_ON=160 SEC=18855 ' from 29
+pkts=629 Report RX '&: SEQ=629 RADIO_ON=160 SEC=18885 ' from 29
+18900(0)s
+pkts=630 Report RX '&: SEQ=630 RADIO_ON=161 SEC=18915 ' from 29
+pkts=631 Report RX '&: SEQ=631 RADIO_ON=162 SEC=18945 ' from 29
+18960(0)s
+pkts=632 Report RX '&: SEQ=632 RADIO_ON=162 SEC=18975 ' from 29
+pkts=633 Report RX '&: SEQ=633 RADIO_ON=162 SEC=19005 ' from 29
+19020(0)s
+pkts=634 Report RX '&: SEQ=634 RADIO_ON=162 SEC=19035 ' from 29
+pkts=635 Report RX '&: SEQ=635 RADIO_ON=162 SEC=19065 ' from 29
+19080(0)s
+pkts=636 Report RX '&: SEQ=636 RADIO_ON=162 SEC=19095 ' from 29
+pkts=637 Report RX '&: SEQ=637 RADIO_ON=162 SEC=19125 ' from 29
+19140(0)s
+pkts=638 Report RX '&: SEQ=638 RADIO_ON=162 SEC=19155 ' from 29
+pkts=639 Report RX '&: SEQ=639 RADIO_ON=162 SEC=19185 ' from 29
+19200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 996s
+
+---------
+pkts=640 Report RX '&: SEQ=640 RADIO_ON=162 SEC=19215 ' from 29
+pkts=641 Report RX '&: SEQ=641 RADIO_ON=162 SEC=19245 ' from 29
+19260(0)s
+pkts=642 Report RX '&: SEQ=642 RADIO_ON=162 SEC=19275 ' from 29
+pkts=643 Report RX '&: SEQ=643 RADIO_ON=162 SEC=19305 ' from 29
+19320(0)s
+pkts=644 Report RX '&: SEQ=644 RADIO_ON=162 SEC=19335 ' from 29
+pkts=645 Report RX '&: SEQ=645 RADIO_ON=162 SEC=19365 ' from 29
+19380(0)s
+pkts=646 Report RX '&: SEQ=646 RADIO_ON=163 SEC=19395 ' from 29
+pkts=647 Report RX '&: SEQ=647 RADIO_ON=164 SEC=19425 ' from 29
+19440(0)s
+pkts=648 Report RX '&: SEQ=648 RADIO_ON=165 SEC=19455 ' from 29
+Never-used stack > 18220 bytes
+pkts=649 Report RX '&: SEQ=649 RADIO_ON=167 SEC=19485 ' from 29
+19500(0)s
+pkts=650 Report RX '&: SEQ=650 RADIO_ON=167 SEC=19515 ' from 29
+pkts=651 Report RX '&: SEQ=651 RADIO_ON=167 SEC=19545 ' from 29
+19560(0)s
+pkts=652 Report RX '&: SEQ=652 RADIO_ON=167 SEC=19575 ' from 29
+pkts=653 Report RX '&: SEQ=653 RADIO_ON=167 SEC=19605 ' from 29
+19620(0)s
+pkts=654 Report RX '&: SEQ=654 RADIO_ON=167 SEC=19635 ' from 29
+pkts=655 Report RX '&: SEQ=655 RADIO_ON=167 SEC=19665 ' from 29
+19680(0)s
+pkts=656 Report RX '&: SEQ=656 RADIO_ON=167 SEC=19695 ' from 29
+pkts=657 Report RX '&: SEQ=657 RADIO_ON=167 SEC=19725 ' from 29
+19740(0)s
+pkts=658 Report RX '&: SEQ=658 RADIO_ON=167 SEC=19755 ' from 29
+pkts=659 Report RX '&: SEQ=659 RADIO_ON=167 SEC=19785 ' from 29
+19800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1524s
+
+---------
+pkts=660 Report RX '&: SEQ=660 RADIO_ON=167 SEC=19815 ' from 29
+pkts=661 Report RX '&: SEQ=661 RADIO_ON=167 SEC=19845 ' from 29
+19860(0)s
+pkts=662 Report RX '&: SEQ=662 RADIO_ON=167 SEC=19875 ' from 29
+pkts=663 Report RX '&: SEQ=663 RADIO_ON=167 SEC=19905 ' from 29
+19920(0)s
+pkts=664 Report RX '&: SEQ=664 RADIO_ON=167 SEC=19935 ' from 29
+pkts=665 Report RX '&: SEQ=665 RADIO_ON=169 SEC=19965 ' from 29
+19980(0)s
+pkts=666 Report RX '&: SEQ=666 RADIO_ON=169 SEC=19995 ' from 29
+pkts=667 Report RX '&: SEQ=667 RADIO_ON=170 SEC=20025 ' from 29
+20040(0)s
+pkts=668 Report RX '&: SEQ=668 RADIO_ON=171 SEC=20055 ' from 29
+pkts=669 Report RX '&: SEQ=669 RADIO_ON=171 SEC=20085 ' from 29
+20100(0)s
+pkts=670 Report RX '&: SEQ=670 RADIO_ON=171 SEC=20115 ' from 29
+pkts=671 Report RX '&: SEQ=671 RADIO_ON=171 SEC=20145 ' from 29
+20160(0)s
+pkts=672 Report RX '&: SEQ=672 RADIO_ON=171 SEC=20175 ' from 29
+pkts=673 Report RX '&: SEQ=673 RADIO_ON=171 SEC=20205 ' from 29
+20220(0)s
+pkts=674 Report RX '&: SEQ=674 RADIO_ON=171 SEC=20235 ' from 29
+pkts=675 Report RX '&: SEQ=675 RADIO_ON=171 SEC=20265 ' from 29
+20280(0)s
+pkts=676 Report RX '&: SEQ=676 RADIO_ON=171 SEC=20295 ' from 29
+pkts=677 Report RX '&: SEQ=677 RADIO_ON=171 SEC=20325 ' from 29
+20340(0)s
+pkts=678 Report RX '&: SEQ=678 RADIO_ON=171 SEC=20355 ' from 29
+pkts=679 Report RX '&: SEQ=679 RADIO_ON=172 SEC=20385 ' from 29
+20400(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 924s
+
+---------
+pkts=680 Report RX '&: SEQ=680 RADIO_ON=172 SEC=20415 ' from 29
+pkts=681 Report RX '&: SEQ=681 RADIO_ON=172 SEC=20445 ' from 29
+20460(0)s
+pkts=682 Report RX '&: SEQ=682 RADIO_ON=172 SEC=20475 ' from 29
+Never-used stack > 18220 bytes
+pkts=683 Report RX '&: SEQ=683 RADIO_ON=172 SEC=20505 ' from 29
+20520(0)s
+pkts=684 Report RX '&: SEQ=684 RADIO_ON=174 SEC=20535 ' from 29
+pkts=685 Report RX '&: SEQ=685 RADIO_ON=174 SEC=20565 ' from 29
+20580(0)s
+pkts=686 Report RX '&: SEQ=686 RADIO_ON=176 SEC=20595 ' from 29
+pkts=687 Report RX '&: SEQ=687 RADIO_ON=176 SEC=20625 ' from 29
+20640(0)s
+pkts=688 Report RX '&: SEQ=688 RADIO_ON=176 SEC=20655 ' from 29
+pkts=689 Report RX '&: SEQ=689 RADIO_ON=176 SEC=20685 ' from 29
+20700(0)s
+pkts=690 Report RX '&: SEQ=690 RADIO_ON=176 SEC=20715 ' from 29
+pkts=691 Report RX '&: SEQ=691 RADIO_ON=176 SEC=20745 ' from 29
+20760(0)s
+pkts=692 Report RX '&: SEQ=692 RADIO_ON=176 SEC=20775 ' from 29
+pkts=693 Report RX '&: SEQ=693 RADIO_ON=176 SEC=20805 ' from 29
+20820(0)s
+pkts=694 Report RX '&: SEQ=694 RADIO_ON=176 SEC=20835 ' from 29
+pkts=695 Report RX '&: SEQ=695 RADIO_ON=176 SEC=20865 ' from 29
+20880(0)s
+pkts=696 Report RX '&: SEQ=696 RADIO_ON=176 SEC=20895 ' from 29
+pkts=697 Report RX '&: SEQ=697 RADIO_ON=176 SEC=20925 ' from 29
+20940(0)s
+pkts=698 Report RX '&: SEQ=698 RADIO_ON=176 SEC=20955 ' from 29
+pkts=699 Report RX '&: SEQ=699 RADIO_ON=176 SEC=20985 ' from 29
+21000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1448s
+
+---------
+pkts=700 Report RX '&: SEQ=700 RADIO_ON=177 SEC=21015 ' from 29
+pkts=701 Report RX '&: SEQ=701 RADIO_ON=177 SEC=21045 ' from 29
+21060(0)s
+pkts=702 Report RX '&: SEQ=702 RADIO_ON=178 SEC=21075 ' from 29
+pkts=703 Report RX '&: SEQ=703 RADIO_ON=179 SEC=21105 ' from 29
+21120(0)s
+pkts=704 Report RX '&: SEQ=704 RADIO_ON=179 SEC=21135 ' from 29
+pkts=705 Report RX '&: SEQ=705 RADIO_ON=181 SEC=21165 ' from 29
+21180(0)s
+pkts=706 Report RX '&: SEQ=706 RADIO_ON=181 SEC=21195 ' from 29
+pkts=707 Report RX '&: SEQ=707 RADIO_ON=181 SEC=21225 ' from 29
+21240(0)s
+pkts=708 Report RX '&: SEQ=708 RADIO_ON=181 SEC=21255 ' from 29
+pkts=709 Report RX '&: SEQ=709 RADIO_ON=181 SEC=21285 ' from 29
+21300(0)s
+pkts=710 Report RX '&: SEQ=710 RADIO_ON=181 SEC=21315 ' from 29
+pkts=711 Report RX '&: SEQ=711 RADIO_ON=181 SEC=21345 ' from 29
+21360(0)s
+pkts=712 Report RX '&: SEQ=712 RADIO_ON=181 SEC=21375 ' from 29
+pkts=713 Report RX '&: SEQ=713 RADIO_ON=181 SEC=21405 ' from 29
+21420(0)s
+pkts=714 Report RX '&: SEQ=714 RADIO_ON=181 SEC=21435 ' from 29
+pkts=715 Report RX '&: SEQ=715 RADIO_ON=181 SEC=21465 ' from 29
+21480(0)s
+pkts=716 Report RX '&: SEQ=716 RADIO_ON=181 SEC=21495 ' from 29
+Never-used stack > 18220 bytes
+pkts=717 Report RX '&: SEQ=717 RADIO_ON=181 SEC=21525 ' from 29
+21540(0)s
+pkts=718 Report RX '&: SEQ=718 RADIO_ON=181 SEC=21555 ' from 29
+pkts=719 Report RX '&: SEQ=719 RADIO_ON=181 SEC=21585 ' from 29
+21600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 848s
+
+---------
+pkts=720 Report RX '&: SEQ=720 RADIO_ON=181 SEC=21615 ' from 29
+pkts=721 Report RX '&: SEQ=721 RADIO_ON=183 SEC=21645 ' from 29
+21660(0)s
+pkts=722 Report RX '&: SEQ=722 RADIO_ON=184 SEC=21675 ' from 29
+pkts=723 Report RX '&: SEQ=723 RADIO_ON=185 SEC=21705 ' from 29
+21720(0)s
+pkts=724 Report RX '&: SEQ=724 RADIO_ON=186 SEC=21735 ' from 29
+pkts=725 Report RX '&: SEQ=725 RADIO_ON=186 SEC=21765 ' from 29
+21780(0)s
+pkts=726 Report RX '&: SEQ=726 RADIO_ON=186 SEC=21795 ' from 29
+pkts=727 Report RX '&: SEQ=727 RADIO_ON=186 SEC=21825 ' from 29
+21840(0)s
+pkts=728 Report RX '&: SEQ=728 RADIO_ON=186 SEC=21855 ' from 29
+pkts=729 Report RX '&: SEQ=729 RADIO_ON=186 SEC=21885 ' from 29
+21900(0)s
+pkts=730 Report RX '&: SEQ=730 RADIO_ON=186 SEC=21915 ' from 29
+pkts=731 Report RX '&: SEQ=731 RADIO_ON=186 SEC=21945 ' from 29
+21960(0)s
+pkts=732 Report RX '&: SEQ=732 RADIO_ON=186 SEC=21975 ' from 29
+pkts=733 Report RX '&: SEQ=733 RADIO_ON=186 SEC=22005 ' from 29
+22020(0)s
+pkts=734 Report RX '&: SEQ=734 RADIO_ON=186 SEC=22035 ' from 29
+pkts=735 Report RX '&: SEQ=735 RADIO_ON=186 SEC=22065 ' from 29
+22080(0)s
+pkts=736 Report RX '&: SEQ=736 RADIO_ON=186 SEC=22095 ' from 29
+pkts=737 Report RX '&: SEQ=737 RADIO_ON=186 SEC=22125 ' from 29
+22140(0)s
+pkts=738 Report RX '&: SEQ=738 RADIO_ON=186 SEC=22155 ' from 29
+pkts=739 Report RX '&: SEQ=739 RADIO_ON=187 SEC=22185 ' from 29
+22200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1249s
+
+---------
+pkts=740 Report RX '&: SEQ=740 RADIO_ON=188 SEC=22215 ' from 29
+pkts=741 Report RX '&: SEQ=741 RADIO_ON=188 SEC=22245 ' from 29
+22260(0)s
+pkts=742 Report RX '&: SEQ=742 RADIO_ON=190 SEC=22275 ' from 29
+pkts=743 Report RX '&: SEQ=743 RADIO_ON=190 SEC=22305 ' from 29
+22320(0)s
+pkts=744 Report RX '&: SEQ=744 RADIO_ON=190 SEC=22335 ' from 29
+pkts=745 Report RX '&: SEQ=745 RADIO_ON=190 SEC=22365 ' from 29
+22380(0)s
+pkts=746 Report RX '&: SEQ=746 RADIO_ON=190 SEC=22395 ' from 29
+pkts=747 Report RX '&: SEQ=747 RADIO_ON=190 SEC=22425 ' from 29
+22440(0)s
+pkts=748 Report RX '&: SEQ=748 RADIO_ON=190 SEC=22455 ' from 29
+pkts=749 Report RX '&: SEQ=749 RADIO_ON=190 SEC=22485 ' from 29
+22500(0)s
+pkts=750 Report RX '&: SEQ=750 RADIO_ON=190 SEC=22515 ' from 29
+Never-used stack > 18220 bytes
+pkts=751 Report RX '&: SEQ=751 RADIO_ON=190 SEC=22545 ' from 29
+22560(0)s
+pkts=752 Report RX '&: SEQ=752 RADIO_ON=190 SEC=22575 ' from 29
+pkts=753 Report RX '&: SEQ=753 RADIO_ON=191 SEC=22605 ' from 29
+22620(0)s
+pkts=754 Report RX '&: SEQ=754 RADIO_ON=191 SEC=22635 ' from 29
+pkts=755 Report RX '&: SEQ=755 RADIO_ON=191 SEC=22665 ' from 29
+22680(0)s
+pkts=756 Report RX '&: SEQ=756 RADIO_ON=191 SEC=22695 ' from 29
+pkts=757 Report RX '&: SEQ=757 RADIO_ON=191 SEC=22725 ' from 29
+22740(0)s
+pkts=758 Report RX '&: SEQ=758 RADIO_ON=192 SEC=22755 ' from 29
+pkts=759 Report RX '&: SEQ=759 RADIO_ON=193 SEC=22785 ' from 29
+22800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1689s
+
+---------
+pkts=760 Report RX '&: SEQ=760 RADIO_ON=194 SEC=22815 ' from 29
+pkts=761 Report RX '&: SEQ=761 RADIO_ON=195 SEC=22845 ' from 29
+22860(0)s
+pkts=762 Report RX '&: SEQ=762 RADIO_ON=195 SEC=22875 ' from 29
+pkts=763 Report RX '&: SEQ=763 RADIO_ON=195 SEC=22905 ' from 29
+22920(0)s
+pkts=764 Report RX '&: SEQ=764 RADIO_ON=195 SEC=22935 ' from 29
+pkts=765 Report RX '&: SEQ=765 RADIO_ON=195 SEC=22965 ' from 29
+22980(0)s
+pkts=766 Report RX '&: SEQ=766 RADIO_ON=195 SEC=22995 ' from 29
+pkts=767 Report RX '&: SEQ=767 RADIO_ON=195 SEC=23025 ' from 29
+23040(0)s
+pkts=768 Report RX '&: SEQ=768 RADIO_ON=195 SEC=23055 ' from 29
+pkts=769 Report RX '&: SEQ=769 RADIO_ON=195 SEC=23085 ' from 29
+23100(0)s
+pkts=770 Report RX '&: SEQ=770 RADIO_ON=195 SEC=23115 ' from 29
+pkts=771 Report RX '&: SEQ=771 RADIO_ON=195 SEC=23145 ' from 29
+23160(0)s
+pkts=772 Report RX '&: SEQ=772 RADIO_ON=195 SEC=23175 ' from 29
+pkts=773 Report RX '&: SEQ=773 RADIO_ON=196 SEC=23205 ' from 29
+23220(0)s
+pkts=774 Report RX '&: SEQ=774 RADIO_ON=196 SEC=23235 ' from 29
+pkts=775 Report RX '&: SEQ=775 RADIO_ON=196 SEC=23265 ' from 29
+23280(0)s
+pkts=776 Report RX '&: SEQ=776 RADIO_ON=196 SEC=23295 ' from 29
+pkts=777 Report RX '&: SEQ=777 RADIO_ON=198 SEC=23325 ' from 29
+23340(0)s
+pkts=778 Report RX '&: SEQ=778 RADIO_ON=198 SEC=23355 ' from 29
+pkts=779 Report RX '&: SEQ=779 RADIO_ON=199 SEC=23385 ' from 29
+23400(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1089s
+
+---------
+pkts=780 Report RX '&: SEQ=780 RADIO_ON=200 SEC=23415 ' from 29
+pkts=781 Report RX '&: SEQ=781 RADIO_ON=200 SEC=23445 ' from 29
+23460(0)s
+pkts=782 Report RX '&: SEQ=782 RADIO_ON=200 SEC=23475 ' from 29
+pkts=783 Report RX '&: SEQ=783 RADIO_ON=200 SEC=23505 ' from 29
+23520(0)s
+pkts=784 Report RX '&: SEQ=784 RADIO_ON=200 SEC=23535 ' from 29
+Never-used stack > 18220 bytes
+pkts=785 Report RX '&: SEQ=785 RADIO_ON=200 SEC=23565 ' from 29
+23580(0)s
+pkts=786 Report RX '&: SEQ=786 RADIO_ON=200 SEC=23595 ' from 29
+pkts=787 Report RX '&: SEQ=787 RADIO_ON=200 SEC=23625 ' from 29
+23640(0)s
+pkts=788 Report RX '&: SEQ=788 RADIO_ON=200 SEC=23655 ' from 29
+pkts=789 Report RX '&: SEQ=789 RADIO_ON=200 SEC=23685 ' from 29
+23700(0)s
+pkts=790 Report RX '&: SEQ=790 RADIO_ON=200 SEC=23715 ' from 29
+pkts=791 Report RX '&: SEQ=791 RADIO_ON=200 SEC=23745 ' from 29
+23760(0)s
+pkts=792 Report RX '&: SEQ=792 RADIO_ON=200 SEC=23775 ' from 29
+pkts=793 Report RX '&: SEQ=793 RADIO_ON=201 SEC=23805 ' from 29
+23820(0)s
+pkts=794 Report RX '&: SEQ=794 RADIO_ON=201 SEC=23835 ' from 29
+pkts=795 Report RX '&: SEQ=795 RADIO_ON=201 SEC=23865 ' from 29
+23880(0)s
+pkts=796 Report RX '&: SEQ=796 RADIO_ON=203 SEC=23895 ' from 29
+pkts=797 Report RX '&: SEQ=797 RADIO_ON=203 SEC=23925 ' from 29
+23940(0)s
+pkts=798 Report RX '&: SEQ=798 RADIO_ON=205 SEC=23955 ' from 29
+pkts=799 Report RX '&: SEQ=799 RADIO_ON=205 SEC=23985 ' from 29
+24000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1532s
+
+---------
+pkts=800 Report RX '&: SEQ=800 RADIO_ON=205 SEC=24015 ' from 29
+pkts=801 Report RX '&: SEQ=801 RADIO_ON=205 SEC=24045 ' from 29
+24060(0)s
+pkts=802 Report RX '&: SEQ=802 RADIO_ON=205 SEC=24075 ' from 29
+pkts=803 Report RX '&: SEQ=803 RADIO_ON=205 SEC=24105 ' from 29
+24120(0)s
+pkts=804 Report RX '&: SEQ=804 RADIO_ON=205 SEC=24135 ' from 29
+pkts=805 Report RX '&: SEQ=805 RADIO_ON=205 SEC=24165 ' from 29
+24180(0)s
+pkts=806 Report RX '&: SEQ=806 RADIO_ON=205 SEC=24195 ' from 29
+pkts=807 Report RX '&: SEQ=807 RADIO_ON=205 SEC=24225 ' from 29
+24240(0)s
+pkts=808 Report RX '&: SEQ=808 RADIO_ON=205 SEC=24255 ' from 29
+pkts=809 Report RX '&: SEQ=809 RADIO_ON=205 SEC=24285 ' from 29
+24300(0)s
+pkts=810 Report RX '&: SEQ=810 RADIO_ON=205 SEC=24315 ' from 29
+pkts=811 Report RX '&: SEQ=811 RADIO_ON=205 SEC=24345 ' from 29
+24360(0)s
+pkts=812 Report RX '&: SEQ=812 RADIO_ON=205 SEC=24375 ' from 29
+pkts=813 Report RX '&: SEQ=813 RADIO_ON=205 SEC=24405 ' from 29
+24420(0)s
+pkts=814 Report RX '&: SEQ=814 RADIO_ON=207 SEC=24435 ' from 29
+pkts=815 Report RX '&: SEQ=815 RADIO_ON=208 SEC=24465 ' from 29
+24480(0)s
+pkts=816 Report RX '&: SEQ=816 RADIO_ON=208 SEC=24495 ' from 29
+pkts=817 Report RX '&: SEQ=817 RADIO_ON=210 SEC=24525 ' from 29
+24540(0)s
+pkts=818 Report RX '&: SEQ=818 RADIO_ON=210 SEC=24555 ' from 29
+Never-used stack > 18220 bytes
+pkts=819 Report RX '&: SEQ=819 RADIO_ON=210 SEC=24585 ' from 29
+24600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 932s
+
+---------
+pkts=820 Report RX '&: SEQ=820 RADIO_ON=210 SEC=24615 ' from 29
+pkts=821 Report RX '&: SEQ=821 RADIO_ON=210 SEC=24645 ' from 29
+24660(0)s
+pkts=822 Report RX '&: SEQ=822 RADIO_ON=210 SEC=24675 ' from 29
+pkts=823 Report RX '&: SEQ=823 RADIO_ON=210 SEC=24705 ' from 29
+24720(0)s
+pkts=824 Report RX '&: SEQ=824 RADIO_ON=210 SEC=24735 ' from 29
+pkts=825 Report RX '&: SEQ=825 RADIO_ON=210 SEC=24765 ' from 29
+24780(0)s
+pkts=826 Report RX '&: SEQ=826 RADIO_ON=210 SEC=24795 ' from 29
+pkts=827 Report RX '&: SEQ=827 RADIO_ON=210 SEC=24825 ' from 29
+24840(0)s
+pkts=828 Report RX '&: SEQ=828 RADIO_ON=210 SEC=24855 ' from 29
+pkts=829 Report RX '&: SEQ=829 RADIO_ON=210 SEC=24885 ' from 29
+24900(0)s
+pkts=830 Report RX '&: SEQ=830 RADIO_ON=210 SEC=24915 ' from 29
+pkts=831 Report RX '&: SEQ=831 RADIO_ON=210 SEC=24945 ' from 29
+24960(0)s
+pkts=832 Report RX '&: SEQ=832 RADIO_ON=210 SEC=24975 ' from 29
+pkts=833 Report RX '&: SEQ=833 RADIO_ON=212 SEC=25005 ' from 29
+25020(0)s
+pkts=834 Report RX '&: SEQ=834 RADIO_ON=212 SEC=25035 ' from 29
+pkts=835 Report RX '&: SEQ=835 RADIO_ON=214 SEC=25065 ' from 29
+25080(0)s
+pkts=836 Report RX '&: SEQ=836 RADIO_ON=214 SEC=25095 ' from 29
+pkts=837 Report RX '&: SEQ=837 RADIO_ON=214 SEC=25125 ' from 29
+25140(0)s
+pkts=838 Report RX '&: SEQ=838 RADIO_ON=214 SEC=25155 ' from 29
+pkts=839 Report RX '&: SEQ=839 RADIO_ON=214 SEC=25185 ' from 29
+25200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1292s
+
+---------
+pkts=840 Report RX '&: SEQ=840 RADIO_ON=214 SEC=25215 ' from 29
+pkts=841 Report RX '&: SEQ=841 RADIO_ON=214 SEC=25245 ' from 29
+25260(0)s
+pkts=842 Report RX '&: SEQ=842 RADIO_ON=214 SEC=25275 ' from 29
+pkts=843 Report RX '&: SEQ=843 RADIO_ON=214 SEC=25305 ' from 29
+25320(0)s
+pkts=844 Report RX '&: SEQ=844 RADIO_ON=214 SEC=25335 ' from 29
+pkts=845 Report RX '&: SEQ=845 RADIO_ON=214 SEC=25365 ' from 29
+25380(0)s
+pkts=846 Report RX '&: SEQ=846 RADIO_ON=215 SEC=25395 ' from 29
+pkts=847 Report RX '&: SEQ=847 RADIO_ON=215 SEC=25425 ' from 29
+25440(0)s
+pkts=848 Report RX '&: SEQ=848 RADIO_ON=215 SEC=25455 ' from 29
+pkts=849 Report RX '&: SEQ=849 RADIO_ON=215 SEC=25485 ' from 29
+25500(0)s
+pkts=850 Report RX '&: SEQ=850 RADIO_ON=215 SEC=25515 ' from 29
+pkts=851 Report RX '&: SEQ=851 RADIO_ON=216 SEC=25545 ' from 29
+25560(0)s
+pkts=852 Report RX '&: SEQ=852 RADIO_ON=217 SEC=25575 ' from 29
+Never-used stack > 18220 bytes
+pkts=853 Report RX '&: SEQ=853 RADIO_ON=217 SEC=25605 ' from 29
+25620(0)s
+pkts=854 Report RX '&: SEQ=854 RADIO_ON=219 SEC=25635 ' from 29
+pkts=855 Report RX '&: SEQ=855 RADIO_ON=219 SEC=25665 ' from 29
+25680(0)s
+pkts=856 Report RX '&: SEQ=856 RADIO_ON=219 SEC=25695 ' from 29
+pkts=857 Report RX '&: SEQ=857 RADIO_ON=219 SEC=25725 ' from 29
+25740(0)s
+pkts=858 Report RX '&: SEQ=858 RADIO_ON=219 SEC=25755 ' from 29
+pkts=859 Report RX '&: SEQ=859 RADIO_ON=219 SEC=25785 ' from 29
+25800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1639s
+
+---------
+pkts=860 Report RX '&: SEQ=860 RADIO_ON=219 SEC=25815 ' from 29
+pkts=861 Report RX '&: SEQ=861 RADIO_ON=219 SEC=25845 ' from 29
+25860(0)s
+pkts=862 Report RX '&: SEQ=862 RADIO_ON=219 SEC=25875 ' from 29
+pkts=863 Report RX '&: SEQ=863 RADIO_ON=219 SEC=25905 ' from 29
+25920(0)s
+pkts=864 Report RX '&: SEQ=864 RADIO_ON=219 SEC=25935 ' from 29
+pkts=865 Report RX '&: SEQ=865 RADIO_ON=219 SEC=25965 ' from 29
+25980(0)s
+pkts=866 Report RX '&: SEQ=866 RADIO_ON=220 SEC=25995 ' from 29
+pkts=867 Report RX '&: SEQ=867 RADIO_ON=220 SEC=26025 ' from 29
+26040(0)s
+pkts=868 Report RX '&: SEQ=868 RADIO_ON=220 SEC=26055 ' from 29
+pkts=869 Report RX '&: SEQ=869 RADIO_ON=220 SEC=26085 ' from 29
+26100(0)s
+pkts=870 Report RX '&: SEQ=870 RADIO_ON=221 SEC=26115 ' from 29
+pkts=871 Report RX '&: SEQ=871 RADIO_ON=222 SEC=26145 ' from 29
+26160(0)s
+pkts=872 Report RX '&: SEQ=872 RADIO_ON=223 SEC=26175 ' from 29
+pkts=873 Report RX '&: SEQ=873 RADIO_ON=224 SEC=26205 ' from 29
+26220(0)s
+pkts=874 Report RX '&: SEQ=874 RADIO_ON=224 SEC=26235 ' from 29
+pkts=875 Report RX '&: SEQ=875 RADIO_ON=224 SEC=26265 ' from 29
+26280(0)s
+pkts=876 Report RX '&: SEQ=876 RADIO_ON=224 SEC=26295 ' from 29
+pkts=877 Report RX '&: SEQ=877 RADIO_ON=224 SEC=26325 ' from 29
+26340(0)s
+pkts=878 Report RX '&: SEQ=878 RADIO_ON=224 SEC=26355 ' from 29
+pkts=879 Report RX '&: SEQ=879 RADIO_ON=224 SEC=26385 ' from 29
+26400(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1307s
+
+---------
+pkts=880 Report RX '&: SEQ=880 RADIO_ON=224 SEC=26415 ' from 29
+pkts=881 Report RX '&: SEQ=881 RADIO_ON=224 SEC=26445 ' from 29
+26460(0)s
+pkts=882 Report RX '&: SEQ=882 RADIO_ON=224 SEC=26475 ' from 29
+pkts=883 Report RX '&: SEQ=883 RADIO_ON=224 SEC=26505 ' from 29
+26520(0)s
+pkts=884 Report RX '&: SEQ=884 RADIO_ON=224 SEC=26535 ' from 29
+pkts=885 Report RX '&: SEQ=885 RADIO_ON=224 SEC=26565 ' from 29
+26580(0)s
+pkts=886 Report RX '&: SEQ=886 RADIO_ON=224 SEC=26595 ' from 29
+Never-used stack > 18220 bytes
+pkts=887 Report RX '&: SEQ=887 RADIO_ON=225 SEC=26625 ' from 29
+26640(0)s
+pkts=888 Report RX '&: SEQ=888 RADIO_ON=225 SEC=26655 ' from 29
+pkts=889 Report RX '&: SEQ=889 RADIO_ON=227 SEC=26685 ' from 29
+26700(0)s
+pkts=890 Report RX '&: SEQ=890 RADIO_ON=227 SEC=26715 ' from 29
+pkts=891 Report RX '&: SEQ=891 RADIO_ON=228 SEC=26745 ' from 29
+26760(0)s
+pkts=892 Report RX '&: SEQ=892 RADIO_ON=229 SEC=26775 ' from 29
+pkts=893 Report RX '&: SEQ=893 RADIO_ON=229 SEC=26805 ' from 29
+26820(0)s
+pkts=894 Report RX '&: SEQ=894 RADIO_ON=229 SEC=26835 ' from 29
+pkts=895 Report RX '&: SEQ=895 RADIO_ON=229 SEC=26865 ' from 29
+26880(0)s
+pkts=896 Report RX '&: SEQ=896 RADIO_ON=229 SEC=26895 ' from 29
+pkts=897 Report RX '&: SEQ=897 RADIO_ON=229 SEC=26925 ' from 29
+26940(0)s
+pkts=898 Report RX '&: SEQ=898 RADIO_ON=229 SEC=26955 ' from 29
+pkts=899 Report RX '&: SEQ=899 RADIO_ON=229 SEC=26985 ' from 29
+27000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1789s
+
+---------
+pkts=900 Report RX '&: SEQ=900 RADIO_ON=229 SEC=27015 ' from 29
+pkts=901 Report RX '&: SEQ=901 RADIO_ON=229 SEC=27045 ' from 29
+27060(0)s
+pkts=902 Report RX '&: SEQ=902 RADIO_ON=229 SEC=27075 ' from 29
+pkts=903 Report RX '&: SEQ=903 RADIO_ON=229 SEC=27105 ' from 29
+27120(0)s
+pkts=904 Report RX '&: SEQ=904 RADIO_ON=229 SEC=27135 ' from 29
+pkts=905 Report RX '&: SEQ=905 RADIO_ON=229 SEC=27165 ' from 29
+27180(0)s
+pkts=906 Report RX '&: SEQ=906 RADIO_ON=229 SEC=27195 ' from 29
+pkts=907 Report RX '&: SEQ=907 RADIO_ON=230 SEC=27225 ' from 29
+27240(0)s
+pkts=908 Report RX '&: SEQ=908 RADIO_ON=232 SEC=27255 ' from 29
+pkts=909 Report RX '&: SEQ=909 RADIO_ON=232 SEC=27285 ' from 29
+27300(0)s
+pkts=910 Report RX '&: SEQ=910 RADIO_ON=233 SEC=27315 ' from 29
+pkts=911 Report RX '&: SEQ=911 RADIO_ON=234 SEC=27345 ' from 29
+27360(0)s
+pkts=912 Report RX '&: SEQ=912 RADIO_ON=234 SEC=27375 ' from 29
+pkts=913 Report RX '&: SEQ=913 RADIO_ON=234 SEC=27405 ' from 29
+27420(0)s
+pkts=914 Report RX '&: SEQ=914 RADIO_ON=234 SEC=27435 ' from 29
+pkts=915 Report RX '&: SEQ=915 RADIO_ON=234 SEC=27465 ' from 29
+27480(0)s
+pkts=916 Report RX '&: SEQ=916 RADIO_ON=234 SEC=27495 ' from 29
+pkts=917 Report RX '&: SEQ=917 RADIO_ON=234 SEC=27525 ' from 29
+27540(0)s
+pkts=918 Report RX '&: SEQ=918 RADIO_ON=234 SEC=27555 ' from 29
+pkts=919 Report RX '&: SEQ=919 RADIO_ON=234 SEC=27585 ' from 29
+27600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1189s
+
+---------
+pkts=920 Report RX '&: SEQ=920 RADIO_ON=234 SEC=27615 ' from 29
+pkts=921 Report RX '&: SEQ=921 RADIO_ON=234 SEC=27645 ' from 29
+Never-used stack > 18220 bytes
+27660(0)s
+pkts=922 Report RX '&: SEQ=922 RADIO_ON=234 SEC=27675 ' from 29
+pkts=923 Report RX '&: SEQ=923 RADIO_ON=234 SEC=27705 ' from 29
+27720(0)s
+pkts=924 Report RX '&: SEQ=924 RADIO_ON=234 SEC=27735 ' from 29
+pkts=925 Report RX '&: SEQ=925 RADIO_ON=234 SEC=27765 ' from 29
+27780(0)s
+pkts=926 Report RX '&: SEQ=926 RADIO_ON=236 SEC=27795 ' from 29
+pkts=927 Report RX '&: SEQ=927 RADIO_ON=236 SEC=27825 ' from 29
+27840(0)s
+pkts=928 Report RX '&: SEQ=928 RADIO_ON=237 SEC=27855 ' from 29
+pkts=929 Report RX '&: SEQ=929 RADIO_ON=239 SEC=27885 ' from 29
+27900(0)s
+pkts=930 Report RX '&: SEQ=930 RADIO_ON=239 SEC=27915 ' from 29
+pkts=931 Report RX '&: SEQ=931 RADIO_ON=239 SEC=27945 ' from 29
+27960(0)s
+pkts=932 Report RX '&: SEQ=932 RADIO_ON=239 SEC=27975 ' from 29
+pkts=933 Report RX '&: SEQ=933 RADIO_ON=239 SEC=28005 ' from 29
+28020(0)s
+pkts=934 Report RX '&: SEQ=934 RADIO_ON=239 SEC=28035 ' from 29
+pkts=935 Report RX '&: SEQ=935 RADIO_ON=239 SEC=28065 ' from 29
+28080(0)s
+pkts=936 Report RX '&: SEQ=936 RADIO_ON=239 SEC=28095 ' from 29
+pkts=937 Report RX '&: SEQ=937 RADIO_ON=239 SEC=28125 ' from 29
+28140(0)s
+pkts=938 Report RX '&: SEQ=938 RADIO_ON=239 SEC=28155 ' from 29
+pkts=939 Report RX '&: SEQ=939 RADIO_ON=239 SEC=28185 ' from 29
+28200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1520s
+
+---------
+pkts=940 Report RX '&: SEQ=940 RADIO_ON=239 SEC=28215 ' from 29
+pkts=941 Report RX '&: SEQ=941 RADIO_ON=239 SEC=28245 ' from 29
+28260(0)s
+pkts=942 Report RX '&: SEQ=942 RADIO_ON=239 SEC=28275 ' from 29
+pkts=943 Report RX '&: SEQ=943 RADIO_ON=239 SEC=28305 ' from 29
+28320(0)s
+pkts=944 Report RX '&: SEQ=944 RADIO_ON=239 SEC=28335 ' from 29
+pkts=945 Report RX '&: SEQ=945 RADIO_ON=241 SEC=28365 ' from 29
+28380(0)s
+pkts=946 Report RX '&: SEQ=946 RADIO_ON=241 SEC=28395 ' from 29
+pkts=947 Report RX '&: SEQ=947 RADIO_ON=242 SEC=28425 ' from 29
+28440(0)s
+pkts=948 Report RX '&: SEQ=948 RADIO_ON=243 SEC=28455 ' from 29
+pkts=949 Report RX '&: SEQ=949 RADIO_ON=243 SEC=28485 ' from 29
+28500(0)s
+pkts=950 Report RX '&: SEQ=950 RADIO_ON=243 SEC=28515 ' from 29
+pkts=951 Report RX '&: SEQ=951 RADIO_ON=243 SEC=28545 ' from 29
+28560(0)s
+pkts=952 Report RX '&: SEQ=952 RADIO_ON=243 SEC=28575 ' from 29
+pkts=953 Report RX '&: SEQ=953 RADIO_ON=243 SEC=28605 ' from 29
+28620(0)s
+pkts=954 Report RX '&: SEQ=954 RADIO_ON=243 SEC=28635 ' from 29
+pkts=955 Report RX '&: SEQ=955 RADIO_ON=243 SEC=28665 ' from 29
+Never-used stack > 18220 bytes
+28680(0)s
+pkts=956 Report RX '&: SEQ=956 RADIO_ON=243 SEC=28695 ' from 29
+pkts=957 Report RX '&: SEQ=957 RADIO_ON=243 SEC=28725 ' from 29
+28740(0)s
+pkts=958 Report RX '&: SEQ=958 RADIO_ON=243 SEC=28755 ' from 29
+pkts=959 Report RX '&: SEQ=959 RADIO_ON=244 SEC=28785 ' from 29
+28800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 920s
+
+---------
+pkts=960 Report RX '&: SEQ=960 RADIO_ON=244 SEC=28815 ' from 29
+pkts=961 Report RX '&: SEQ=961 RADIO_ON=244 SEC=28845 ' from 29
+28860(0)s
+pkts=962 Report RX '&: SEQ=962 RADIO_ON=244 SEC=28875 ' from 29
+pkts=963 Report RX '&: SEQ=963 RADIO_ON=245 SEC=28905 ' from 29
+28920(0)s
+pkts=964 Report RX '&: SEQ=964 RADIO_ON=246 SEC=28935 ' from 29
+pkts=965 Report RX '&: SEQ=965 RADIO_ON=246 SEC=28965 ' from 29
+28980(0)s
+pkts=966 Report RX '&: SEQ=966 RADIO_ON=248 SEC=28995 ' from 29
+pkts=967 Report RX '&: SEQ=967 RADIO_ON=248 SEC=29025 ' from 29
+29040(0)s
+pkts=968 Report RX '&: SEQ=968 RADIO_ON=248 SEC=29055 ' from 29
+pkts=969 Report RX '&: SEQ=969 RADIO_ON=248 SEC=29085 ' from 29
+29100(0)s
+pkts=970 Report RX '&: SEQ=970 RADIO_ON=248 SEC=29115 ' from 29
+pkts=971 Report RX '&: SEQ=971 RADIO_ON=248 SEC=29145 ' from 29
+29160(0)s
+pkts=972 Report RX '&: SEQ=972 RADIO_ON=248 SEC=29175 ' from 29
+pkts=973 Report RX '&: SEQ=973 RADIO_ON=248 SEC=29205 ' from 29
+29220(0)s
+pkts=974 Report RX '&: SEQ=974 RADIO_ON=248 SEC=29235 ' from 29
+pkts=975 Report RX '&: SEQ=975 RADIO_ON=248 SEC=29265 ' from 29
+29280(0)s
+pkts=976 Report RX '&: SEQ=976 RADIO_ON=248 SEC=29295 ' from 29
+pkts=977 Report RX '&: SEQ=977 RADIO_ON=248 SEC=29325 ' from 29
+29340(0)s
+pkts=978 Report RX '&: SEQ=978 RADIO_ON=248 SEC=29355 ' from 29
+pkts=979 Report RX '&: SEQ=979 RADIO_ON=248 SEC=29385 ' from 29
+29400(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1267s
+
+---------
+pkts=980 Report RX '&: SEQ=980 RADIO_ON=249 SEC=29415 ' from 29
+pkts=981 Report RX '&: SEQ=981 RADIO_ON=249 SEC=29445 ' from 29
+29460(0)s
+pkts=982 Report RX '&: SEQ=982 RADIO_ON=250 SEC=29475 ' from 29
+pkts=983 Report RX '&: SEQ=983 RADIO_ON=251 SEC=29505 ' from 29
+29520(0)s
+pkts=984 Report RX '&: SEQ=984 RADIO_ON=251 SEC=29535 ' from 29
+pkts=985 Report RX '&: SEQ=985 RADIO_ON=253 SEC=29565 ' from 29
+29580(0)s
+pkts=986 Report RX '&: SEQ=986 RADIO_ON=253 SEC=29595 ' from 29
+pkts=987 Report RX '&: SEQ=987 RADIO_ON=253 SEC=29625 ' from 29
+29640(0)s
+pkts=988 Report RX '&: SEQ=988 RADIO_ON=253 SEC=29655 ' from 29
+pkts=989 Report RX '&: SEQ=989 RADIO_ON=253 SEC=29685 ' from 29
+Never-used stack > 18220 bytes
+29700(0)s
+pkts=990 Report RX '&: SEQ=990 RADIO_ON=253 SEC=29715 ' from 29
+pkts=991 Report RX '&: SEQ=991 RADIO_ON=253 SEC=29745 ' from 29
+29760(0)s
+pkts=992 Report RX '&: SEQ=992 RADIO_ON=253 SEC=29775 ' from 29
+pkts=993 Report RX '&: SEQ=993 RADIO_ON=253 SEC=29805 ' from 29
+29820(0)s
+pkts=994 Report RX '&: SEQ=994 RADIO_ON=253 SEC=29835 ' from 29
+pkts=995 Report RX '&: SEQ=995 RADIO_ON=253 SEC=29865 ' from 29
+29880(0)s
+pkts=996 Report RX '&: SEQ=996 RADIO_ON=253 SEC=29895 ' from 29
+pkts=997 Report RX '&: SEQ=997 RADIO_ON=253 SEC=29925 ' from 29
+29940(0)s
+pkts=998 Report RX '&: SEQ=998 RADIO_ON=253 SEC=29955 ' from 29
+pkts=999 Report RX '&: SEQ=999 RADIO_ON=254 SEC=29985 ' from 29
+30000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1782s
+
+---------
+pkts=1000 Report RX '&: SEQ=1000 RADIO_ON=254 SEC=30015 ' from 29
+pkts=1001 Report RX '&: SEQ=1001 RADIO_ON=255 SEC=30045 ' from 29
+30060(0)s
+pkts=1002 Report RX '&: SEQ=1002 RADIO_ON=256 SEC=30075 ' from 29
+pkts=1003 Report RX '&: SEQ=1003 RADIO_ON=257 SEC=30105 ' from 29
+30120(0)s
+pkts=1004 Report RX '&: SEQ=1004 RADIO_ON=258 SEC=30135 ' from 29
+pkts=1005 Report RX '&: SEQ=1005 RADIO_ON=258 SEC=30165 ' from 29
+30180(0)s
+pkts=1006 Report RX '&: SEQ=1006 RADIO_ON=258 SEC=30195 ' from 29
+pkts=1007 Report RX '&: SEQ=1007 RADIO_ON=258 SEC=30225 ' from 29
+30240(0)s
+pkts=1008 Report RX '&: SEQ=1008 RADIO_ON=258 SEC=30255 ' from 29
+pkts=1009 Report RX '&: SEQ=1009 RADIO_ON=258 SEC=30285 ' from 29
+30300(0)s
+pkts=1010 Report RX '&: SEQ=1010 RADIO_ON=258 SEC=30315 ' from 29
+pkts=1011 Report RX '&: SEQ=1011 RADIO_ON=258 SEC=30345 ' from 29
+30360(0)s
+pkts=1012 Report RX '&: SEQ=1012 RADIO_ON=258 SEC=30375 ' from 29
+pkts=1013 Report RX '&: SEQ=1013 RADIO_ON=258 SEC=30405 ' from 29
+30420(0)s
+pkts=1014 Report RX '&: SEQ=1014 RADIO_ON=258 SEC=30435 ' from 29
+pkts=1015 Report RX '&: SEQ=1015 RADIO_ON=258 SEC=30465 ' from 29
+30480(0)s
+pkts=1016 Report RX '&: SEQ=1016 RADIO_ON=258 SEC=30495 ' from 29
+pkts=1017 Report RX '&: SEQ=1017 RADIO_ON=258 SEC=30525 ' from 29
+30540(0)s
+pkts=1018 Report RX '&: SEQ=1018 RADIO_ON=258 SEC=30555 ' from 29
+pkts=1019 Report RX '&: SEQ=1019 RADIO_ON=259 SEC=30585 ' from 29
+30600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1329s
+
+---------
+pkts=1020 Report RX '&: SEQ=1020 RADIO_ON=261 SEC=30615 ' from 29
+pkts=1021 Report RX '&: SEQ=1021 RADIO_ON=261 SEC=30645 ' from 29
+30660(0)s
+pkts=1022 Report RX '&: SEQ=1022 RADIO_ON=262 SEC=30675 ' from 29
+pkts=1023 Report RX '&: SEQ=1023 RADIO_ON=263 SEC=30705 ' from 29
+30720(0)s
+Never-used stack > 18220 bytes
+pkts=1024 Report RX '&: SEQ=1024 RADIO_ON=263 SEC=30735 ' from 29
+pkts=1025 Report RX '&: SEQ=1025 RADIO_ON=263 SEC=30765 ' from 29
+30780(0)s
+pkts=1026 Report RX '&: SEQ=1026 RADIO_ON=263 SEC=30795 ' from 29
+pkts=1027 Report RX '&: SEQ=1027 RADIO_ON=263 SEC=30825 ' from 29
+30840(0)s
+pkts=1028 Report RX '&: SEQ=1028 RADIO_ON=263 SEC=30855 ' from 29
+pkts=1029 Report RX '&: SEQ=1029 RADIO_ON=263 SEC=30885 ' from 29
+30900(0)s
+pkts=1030 Report RX '&: SEQ=1030 RADIO_ON=263 SEC=30915 ' from 29
+pkts=1031 Report RX '&: SEQ=1031 RADIO_ON=263 SEC=30945 ' from 29
+30960(0)s
+pkts=1032 Report RX '&: SEQ=1032 RADIO_ON=263 SEC=30975 ' from 29
+pkts=1033 Report RX '&: SEQ=1033 RADIO_ON=263 SEC=31005 ' from 29
+31020(0)s
+pkts=1034 Report RX '&: SEQ=1034 RADIO_ON=263 SEC=31035 ' from 29
+pkts=1035 Report RX '&: SEQ=1035 RADIO_ON=263 SEC=31065 ' from 29
+31080(0)s
+pkts=1036 Report RX '&: SEQ=1036 RADIO_ON=263 SEC=31095 ' from 29
+pkts=1037 Report RX '&: SEQ=1037 RADIO_ON=263 SEC=31125 ' from 29
+31140(0)s
+pkts=1038 Report RX '&: SEQ=1038 RADIO_ON=264 SEC=31155 ' from 29
+pkts=1039 Report RX '&: SEQ=1039 RADIO_ON=265 SEC=31185 ' from 29
+31200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1566s
+
+---------
+pkts=1040 Report RX '&: SEQ=1040 RADIO_ON=266 SEC=31215 ' from 29
+pkts=1041 Report RX '&: SEQ=1041 RADIO_ON=267 SEC=31245 ' from 29
+31260(0)s
+pkts=1042 Report RX '&: SEQ=1042 RADIO_ON=267 SEC=31275 ' from 29
+pkts=1043 Report RX '&: SEQ=1043 RADIO_ON=267 SEC=31305 ' from 29
+31320(0)s
+pkts=1044 Report RX '&: SEQ=1044 RADIO_ON=267 SEC=31335 ' from 29
+pkts=1045 Report RX '&: SEQ=1045 RADIO_ON=267 SEC=31365 ' from 29
+31380(0)s
+pkts=1046 Report RX '&: SEQ=1046 RADIO_ON=267 SEC=31395 ' from 29
+pkts=1047 Report RX '&: SEQ=1047 RADIO_ON=267 SEC=31425 ' from 29
+31440(0)s
+pkts=1048 Report RX '&: SEQ=1048 RADIO_ON=267 SEC=31455 ' from 29
+pkts=1049 Report RX '&: SEQ=1049 RADIO_ON=267 SEC=31485 ' from 29
+31500(0)s
+pkts=1050 Report RX '&: SEQ=1050 RADIO_ON=267 SEC=31515 ' from 29
+pkts=1051 Report RX '&: SEQ=1051 RADIO_ON=267 SEC=31545 ' from 29
+31560(0)s
+pkts=1052 Report RX '&: SEQ=1052 RADIO_ON=268 SEC=31575 ' from 29
+pkts=1053 Report RX '&: SEQ=1053 RADIO_ON=268 SEC=31605 ' from 29
+31620(0)s
+pkts=1054 Report RX '&: SEQ=1054 RADIO_ON=268 SEC=31635 ' from 29
+pkts=1055 Report RX '&: SEQ=1055 RADIO_ON=268 SEC=31665 ' from 29
+31680(0)s
+pkts=1056 Report RX '&: SEQ=1056 RADIO_ON=268 SEC=31695 ' from 29
+pkts=1057 Report RX '&: SEQ=1057 RADIO_ON=270 SEC=31725 ' from 29
+31740(0)s
+Never-used stack > 18220 bytes
+pkts=1058 Report RX '&: SEQ=1058 RADIO_ON=270 SEC=31755 ' from 29
+pkts=1059 Report RX '&: SEQ=1059 RADIO_ON=271 SEC=31785 ' from 29
+31800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 966s
+
+---------
+pkts=1060 Report RX '&: SEQ=1060 RADIO_ON=272 SEC=31815 ' from 29
+pkts=1061 Report RX '&: SEQ=1061 RADIO_ON=272 SEC=31845 ' from 29
+31860(0)s
+pkts=1062 Report RX '&: SEQ=1062 RADIO_ON=272 SEC=31875 ' from 29
+pkts=1063 Report RX '&: SEQ=1063 RADIO_ON=272 SEC=31905 ' from 29
+31920(0)s
+pkts=1064 Report RX '&: SEQ=1064 RADIO_ON=272 SEC=31935 ' from 29
+pkts=1065 Report RX '&: SEQ=1065 RADIO_ON=272 SEC=31965 ' from 29
+31980(0)s
+pkts=1066 Report RX '&: SEQ=1066 RADIO_ON=272 SEC=31995 ' from 29
+pkts=1067 Report RX '&: SEQ=1067 RADIO_ON=272 SEC=32025 ' from 29
+32040(0)s
+pkts=1068 Report RX '&: SEQ=1068 RADIO_ON=272 SEC=32055 ' from 29
+pkts=1069 Report RX '&: SEQ=1069 RADIO_ON=272 SEC=32085 ' from 29
+32100(0)s
+pkts=1070 Report RX '&: SEQ=1070 RADIO_ON=272 SEC=32115 ' from 29
+pkts=1071 Report RX '&: SEQ=1071 RADIO_ON=272 SEC=32145 ' from 29
+32160(0)s
+pkts=1072 Report RX '&: SEQ=1072 RADIO_ON=273 SEC=32175 ' from 29
+pkts=1073 Report RX '&: SEQ=1073 RADIO_ON=273 SEC=32205 ' from 29
+32220(0)s
+pkts=1074 Report RX '&: SEQ=1074 RADIO_ON=273 SEC=32235 ' from 29
+pkts=1075 Report RX '&: SEQ=1075 RADIO_ON=273 SEC=32265 ' from 29
+32280(0)s
+pkts=1076 Report RX '&: SEQ=1076 RADIO_ON=275 SEC=32295 ' from 29
+pkts=1077 Report RX '&: SEQ=1077 RADIO_ON=275 SEC=32325 ' from 29
+32340(0)s
+pkts=1078 Report RX '&: SEQ=1078 RADIO_ON=277 SEC=32355 ' from 29
+pkts=1079 Report RX '&: SEQ=1079 RADIO_ON=277 SEC=32385 ' from 29
+32400(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1582s
+
+---------
+pkts=1080 Report RX '&: SEQ=1080 RADIO_ON=277 SEC=32415 ' from 29
+pkts=1081 Report RX '&: SEQ=1081 RADIO_ON=277 SEC=32445 ' from 29
+32460(0)s
+pkts=1082 Report RX '&: SEQ=1082 RADIO_ON=277 SEC=32475 ' from 29
+pkts=1083 Report RX '&: SEQ=1083 RADIO_ON=277 SEC=32505 ' from 29
+32520(0)s
+pkts=1084 Report RX '&: SEQ=1084 RADIO_ON=277 SEC=32535 ' from 29
+pkts=1085 Report RX '&: SEQ=1085 RADIO_ON=277 SEC=32565 ' from 29
+32580(0)s
+pkts=1086 Report RX '&: SEQ=1086 RADIO_ON=277 SEC=32595 ' from 29
+pkts=1087 Report RX '&: SEQ=1087 RADIO_ON=277 SEC=32625 ' from 29
+32640(0)s
+pkts=1088 Report RX '&: SEQ=1088 RADIO_ON=277 SEC=32655 ' from 29
+pkts=1089 Report RX '&: SEQ=1089 RADIO_ON=277 SEC=32685 ' from 29
+32700(0)s
+pkts=1090 Report RX '&: SEQ=1090 RADIO_ON=277 SEC=32715 ' from 29
+pkts=1091 Report RX '&: SEQ=1091 RADIO_ON=277 SEC=32745 ' from 29
+32760(0)s
+Never-used stack > 18220 bytes
+pkts=1092 Report RX '&: SEQ=1092 RADIO_ON=278 SEC=32775 ' from 29
+pkts=1093 Report RX '&: SEQ=1093 RADIO_ON=278 SEC=32805 ' from 29
+32820(0)s
+pkts=1094 Report RX '&: SEQ=1094 RADIO_ON=279 SEC=32835 ' from 29
+pkts=1095 Report RX '&: SEQ=1095 RADIO_ON=280 SEC=32865 ' from 29
+32880(0)s
+pkts=1096 Report RX '&: SEQ=1096 RADIO_ON=280 SEC=32895 ' from 29
+pkts=1097 Report RX '&: SEQ=1097 RADIO_ON=282 SEC=32925 ' from 29
+32940(0)s
+pkts=1098 Report RX '&: SEQ=1098 RADIO_ON=282 SEC=32955 ' from 29
+pkts=1099 Report RX '&: SEQ=1099 RADIO_ON=282 SEC=32985 ' from 29
+33000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 982s
+
+---------
+pkts=1100 Report RX '&: SEQ=1100 RADIO_ON=282 SEC=33015 ' from 29
+pkts=1101 Report RX '&: SEQ=1101 RADIO_ON=282 SEC=33045 ' from 29
+33060(0)s
+pkts=1102 Report RX '&: SEQ=1102 RADIO_ON=282 SEC=33075 ' from 29
+pkts=1103 Report RX '&: SEQ=1103 RADIO_ON=282 SEC=33105 ' from 29
+33120(0)s
+pkts=1104 Report RX '&: SEQ=1104 RADIO_ON=282 SEC=33135 ' from 29
+pkts=1105 Report RX '&: SEQ=1105 RADIO_ON=282 SEC=33165 ' from 29
+33180(0)s
+pkts=1106 Report RX '&: SEQ=1106 RADIO_ON=282 SEC=33195 ' from 29
+pkts=1107 Report RX '&: SEQ=1107 RADIO_ON=282 SEC=33225 ' from 29
+33240(0)s
+pkts=1108 Report RX '&: SEQ=1108 RADIO_ON=282 SEC=33255 ' from 29
+pkts=1109 Report RX '&: SEQ=1109 RADIO_ON=282 SEC=33285 ' from 29
+33300(0)s
+pkts=1110 Report RX '&: SEQ=1110 RADIO_ON=282 SEC=33315 ' from 29
+pkts=1111 Report RX '&: SEQ=1111 RADIO_ON=282 SEC=33345 ' from 29
+33360(0)s
+pkts=1112 Report RX '&: SEQ=1112 RADIO_ON=282 SEC=33375 ' from 29
+pkts=1113 Report RX '&: SEQ=1113 RADIO_ON=284 SEC=33405 ' from 29
+33420(0)s
+pkts=1114 Report RX '&: SEQ=1114 RADIO_ON=285 SEC=33435 ' from 29
+pkts=1115 Report RX '&: SEQ=1115 RADIO_ON=285 SEC=33465 ' from 29
+33480(0)s
+pkts=1116 Report RX '&: SEQ=1116 RADIO_ON=287 SEC=33495 ' from 29
+pkts=1117 Report RX '&: SEQ=1117 RADIO_ON=287 SEC=33525 ' from 29
+33540(0)s
+pkts=1118 Report RX '&: SEQ=1118 RADIO_ON=287 SEC=33555 ' from 29
+pkts=1119 Report RX '&: SEQ=1119 RADIO_ON=287 SEC=33585 ' from 29
+33600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1422s
+
+---------
+pkts=1120 Report RX '&: SEQ=1120 RADIO_ON=287 SEC=33615 ' from 29
+pkts=1121 Report RX '&: SEQ=1121 RADIO_ON=287 SEC=33645 ' from 29
+33660(0)s
+pkts=1122 Report RX '&: SEQ=1122 RADIO_ON=287 SEC=33675 ' from 29
+pkts=1123 Report RX '&: SEQ=1123 RADIO_ON=287 SEC=33705 ' from 29
+33720(0)s
+pkts=1124 Report RX '&: SEQ=1124 RADIO_ON=287 SEC=33735 ' from 29
+pkts=1125 Report RX '&: SEQ=1125 RADIO_ON=287 SEC=33765 ' from 29
+33780(0)s
+Never-used stack > 18220 bytes
+pkts=1126 Report RX '&: SEQ=1126 RADIO_ON=287 SEC=33795 ' from 29
+pkts=1127 Report RX '&: SEQ=1127 RADIO_ON=287 SEC=33825 ' from 29
+33840(0)s
+pkts=1128 Report RX '&: SEQ=1128 RADIO_ON=287 SEC=33855 ' from 29
+pkts=1129 Report RX '&: SEQ=1129 RADIO_ON=287 SEC=33885 ' from 29
+33900(0)s
+pkts=1130 Report RX '&: SEQ=1130 RADIO_ON=287 SEC=33915 ' from 29
+pkts=1131 Report RX '&: SEQ=1131 RADIO_ON=288 SEC=33945 ' from 29
+33960(0)s
+pkts=1132 Report RX '&: SEQ=1132 RADIO_ON=289 SEC=33975 ' from 29
+pkts=1133 Report RX '&: SEQ=1133 RADIO_ON=289 SEC=34005 ' from 29
+34020(0)s
+pkts=1134 Report RX '&: SEQ=1134 RADIO_ON=291 SEC=34035 ' from 29
+pkts=1135 Report RX '&: SEQ=1135 RADIO_ON=291 SEC=34065 ' from 29
+34080(0)s
+pkts=1136 Report RX '&: SEQ=1136 RADIO_ON=291 SEC=34095 ' from 29
+pkts=1137 Report RX '&: SEQ=1137 RADIO_ON=291 SEC=34125 ' from 29
+34140(0)s
+pkts=1138 Report RX '&: SEQ=1138 RADIO_ON=291 SEC=34155 ' from 29
+pkts=1139 Report RX '&: SEQ=1139 RADIO_ON=291 SEC=34185 ' from 29
+34200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1715s
+
+---------
+pkts=1140 Report RX '&: SEQ=1140 RADIO_ON=291 SEC=34215 ' from 29
+pkts=1141 Report RX '&: SEQ=1141 RADIO_ON=291 SEC=34245 ' from 29
+34260(0)s
+pkts=1142 Report RX '&: SEQ=1142 RADIO_ON=291 SEC=34275 ' from 29
+pkts=1143 Report RX '&: SEQ=1143 RADIO_ON=291 SEC=34305 ' from 29
+34320(0)s
+pkts=1144 Report RX '&: SEQ=1144 RADIO_ON=291 SEC=34335 ' from 29
+pkts=1145 Report RX '&: SEQ=1145 RADIO_ON=292 SEC=34365 ' from 29
+34380(0)s
+pkts=1146 Report RX '&: SEQ=1146 RADIO_ON=292 SEC=34395 ' from 29
+pkts=1147 Report RX '&: SEQ=1147 RADIO_ON=292 SEC=34425 ' from 29
+34440(0)s
+pkts=1148 Report RX '&: SEQ=1148 RADIO_ON=292 SEC=34455 ' from 29
+pkts=1149 Report RX '&: SEQ=1149 RADIO_ON=292 SEC=34485 ' from 29
+34500(0)s
+pkts=1150 Report RX '&: SEQ=1150 RADIO_ON=293 SEC=34515 ' from 29
+pkts=1151 Report RX '&: SEQ=1151 RADIO_ON=294 SEC=34545 ' from 29
+34560(0)s
+pkts=1152 Report RX '&: SEQ=1152 RADIO_ON=294 SEC=34575 ' from 29
+pkts=1153 Report RX '&: SEQ=1153 RADIO_ON=296 SEC=34605 ' from 29
+34620(0)s
+pkts=1154 Report RX '&: SEQ=1154 RADIO_ON=296 SEC=34635 ' from 29
+pkts=1155 Report RX '&: SEQ=1155 RADIO_ON=296 SEC=34665 ' from 29
+34680(0)s
+pkts=1156 Report RX '&: SEQ=1156 RADIO_ON=296 SEC=34695 ' from 29
+pkts=1157 Report RX '&: SEQ=1157 RADIO_ON=296 SEC=34725 ' from 29
+34740(0)s
+pkts=1158 Report RX '&: SEQ=1158 RADIO_ON=296 SEC=34755 ' from 29
+pkts=1159 Report RX '&: SEQ=1159 RADIO_ON=296 SEC=34785 ' from 29
+34800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1115s
+
+---------
+pkts=1160 Report RX '&: SEQ=1160 RADIO_ON=296 SEC=34815 ' from 29
+Never-used stack > 18220 bytes
+pkts=1161 Report RX '&: SEQ=1161 RADIO_ON=296 SEC=34845 ' from 29
+34860(0)s
+pkts=1162 Report RX '&: SEQ=1162 RADIO_ON=296 SEC=34875 ' from 29
+pkts=1163 Report RX '&: SEQ=1163 RADIO_ON=296 SEC=34905 ' from 29
+34920(0)s
+pkts=1164 Report RX '&: SEQ=1164 RADIO_ON=296 SEC=34935 ' from 29
+pkts=1165 Report RX '&: SEQ=1165 RADIO_ON=297 SEC=34965 ' from 29
+34980(0)s
+pkts=1166 Report RX '&: SEQ=1166 RADIO_ON=297 SEC=34995 ' from 29
+pkts=1167 Report RX '&: SEQ=1167 RADIO_ON=297 SEC=35025 ' from 29
+35040(0)s
+pkts=1168 Report RX '&: SEQ=1168 RADIO_ON=297 SEC=35055 ' from 29
+pkts=1169 Report RX '&: SEQ=1169 RADIO_ON=298 SEC=35085 ' from 29
+35100(0)s
+pkts=1170 Report RX '&: SEQ=1170 RADIO_ON=299 SEC=35115 ' from 29
+pkts=1171 Report RX '&: SEQ=1171 RADIO_ON=300 SEC=35145 ' from 29
+35160(0)s
+pkts=1172 Report RX '&: SEQ=1172 RADIO_ON=301 SEC=35175 ' from 29
+pkts=1173 Report RX '&: SEQ=1173 RADIO_ON=301 SEC=35205 ' from 29
+35220(0)s
+pkts=1174 Report RX '&: SEQ=1174 RADIO_ON=301 SEC=35235 ' from 29
+pkts=1175 Report RX '&: SEQ=1175 RADIO_ON=301 SEC=35265 ' from 29
+35280(0)s
+pkts=1176 Report RX '&: SEQ=1176 RADIO_ON=301 SEC=35295 ' from 29
+pkts=1177 Report RX '&: SEQ=1177 RADIO_ON=301 SEC=35325 ' from 29
+35340(0)s
+pkts=1178 Report RX '&: SEQ=1178 RADIO_ON=301 SEC=35355 ' from 29
+pkts=1179 Report RX '&: SEQ=1179 RADIO_ON=301 SEC=35385 ' from 29
+35400(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1558s
+
+---------
+pkts=1180 Report RX '&: SEQ=1180 RADIO_ON=301 SEC=35415 ' from 29
+pkts=1181 Report RX '&: SEQ=1181 RADIO_ON=301 SEC=35445 ' from 29
+35460(0)s
+pkts=1182 Report RX '&: SEQ=1182 RADIO_ON=301 SEC=35475 ' from 29
+pkts=1183 Report RX '&: SEQ=1183 RADIO_ON=301 SEC=35505 ' from 29
+35520(0)s
+pkts=1184 Report RX '&: SEQ=1184 RADIO_ON=301 SEC=35535 ' from 29
+pkts=1185 Report RX '&: SEQ=1185 RADIO_ON=301 SEC=35565 ' from 29
+35580(0)s
+pkts=1186 Report RX '&: SEQ=1186 RADIO_ON=302 SEC=35595 ' from 29
+pkts=1187 Report RX '&: SEQ=1187 RADIO_ON=302 SEC=35625 ' from 29
+35640(0)s
+pkts=1188 Report RX '&: SEQ=1188 RADIO_ON=304 SEC=35655 ' from 29
+pkts=1189 Report RX '&: SEQ=1189 RADIO_ON=304 SEC=35685 ' from 29
+35700(0)s
+pkts=1190 Report RX '&: SEQ=1190 RADIO_ON=305 SEC=35715 ' from 29
+pkts=1191 Report RX '&: SEQ=1191 RADIO_ON=306 SEC=35745 ' from 29
+35760(0)s
+pkts=1192 Report RX '&: SEQ=1192 RADIO_ON=306 SEC=35775 ' from 29
+pkts=1193 Report RX '&: SEQ=1193 RADIO_ON=306 SEC=35805 ' from 29
+35820(0)s
+pkts=1194 Report RX '&: SEQ=1194 RADIO_ON=306 SEC=35835 ' from 29
+Never-used stack > 18220 bytes
+pkts=1195 Report RX '&: SEQ=1195 RADIO_ON=306 SEC=35865 ' from 29
+35880(0)s
+pkts=1196 Report RX '&: SEQ=1196 RADIO_ON=306 SEC=35895 ' from 29
+pkts=1197 Report RX '&: SEQ=1197 RADIO_ON=306 SEC=35925 ' from 29
+35940(0)s
+pkts=1198 Report RX '&: SEQ=1198 RADIO_ON=306 SEC=35955 ' from 29
+pkts=1199 Report RX '&: SEQ=1199 RADIO_ON=306 SEC=35985 ' from 29
+36000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 958s
+
+---------
+pkts=1200 Report RX '&: SEQ=1200 RADIO_ON=306 SEC=36015 ' from 29
+pkts=1201 Report RX '&: SEQ=1201 RADIO_ON=306 SEC=36045 ' from 29
+36060(0)s
+pkts=1202 Report RX '&: SEQ=1202 RADIO_ON=306 SEC=36075 ' from 29
+pkts=1203 Report RX '&: SEQ=1203 RADIO_ON=306 SEC=36105 ' from 29
+36120(0)s
+pkts=1204 Report RX '&: SEQ=1204 RADIO_ON=306 SEC=36135 ' from 29
+pkts=1205 Report RX '&: SEQ=1205 RADIO_ON=306 SEC=36165 ' from 29
+36180(0)s
+pkts=1206 Report RX '&: SEQ=1206 RADIO_ON=307 SEC=36195 ' from 29
+pkts=1207 Report RX '&: SEQ=1207 RADIO_ON=309 SEC=36225 ' from 29
+36240(0)s
+pkts=1208 Report RX '&: SEQ=1208 RADIO_ON=309 SEC=36255 ' from 29
+pkts=1209 Report RX '&: SEQ=1209 RADIO_ON=311 SEC=36285 ' from 29
+36300(0)s
+pkts=1210 Report RX '&: SEQ=1210 RADIO_ON=311 SEC=36315 ' from 29
+pkts=1211 Report RX '&: SEQ=1211 RADIO_ON=311 SEC=36345 ' from 29
+36360(0)s
+pkts=1212 Report RX '&: SEQ=1212 RADIO_ON=311 SEC=36375 ' from 29
+pkts=1213 Report RX '&: SEQ=1213 RADIO_ON=311 SEC=36405 ' from 29
+36420(0)s
+pkts=1214 Report RX '&: SEQ=1214 RADIO_ON=311 SEC=36435 ' from 29
+pkts=1215 Report RX '&: SEQ=1215 RADIO_ON=311 SEC=36465 ' from 29
+36480(0)s
+pkts=1216 Report RX '&: SEQ=1216 RADIO_ON=311 SEC=36495 ' from 29
+pkts=1217 Report RX '&: SEQ=1217 RADIO_ON=311 SEC=36525 ' from 29
+36540(0)s
+pkts=1218 Report RX '&: SEQ=1218 RADIO_ON=311 SEC=36555 ' from 29
+pkts=1219 Report RX '&: SEQ=1219 RADIO_ON=311 SEC=36585 ' from 29
+36600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1613s
+
+---------
+pkts=1220 Report RX '&: SEQ=1220 RADIO_ON=311 SEC=36615 ' from 29
+pkts=1221 Report RX '&: SEQ=1221 RADIO_ON=311 SEC=36645 ' from 29
+36660(0)s
+pkts=1222 Report RX '&: SEQ=1222 RADIO_ON=311 SEC=36675 ' from 29
+pkts=1223 Report RX '&: SEQ=1223 RADIO_ON=311 SEC=36705 ' from 29
+36720(0)s
+pkts=1224 Report RX '&: SEQ=1224 RADIO_ON=311 SEC=36735 ' from 29
+pkts=1225 Report RX '&: SEQ=1225 RADIO_ON=313 SEC=36765 ' from 29
+36780(0)s
+pkts=1226 Report RX '&: SEQ=1226 RADIO_ON=313 SEC=36795 ' from 29
+pkts=1227 Report RX '&: SEQ=1227 RADIO_ON=314 SEC=36825 ' from 29
+36840(0)s
+pkts=1228 Report RX '&: SEQ=1228 RADIO_ON=315 SEC=36855 ' from 29
+Never-used stack > 18220 bytes
+pkts=1229 Report RX '&: SEQ=1229 RADIO_ON=315 SEC=36885 ' from 29
+36900(0)s
+pkts=1230 Report RX '&: SEQ=1230 RADIO_ON=315 SEC=36915 ' from 29
+pkts=1231 Report RX '&: SEQ=1231 RADIO_ON=315 SEC=36945 ' from 29
+36960(0)s
+pkts=1232 Report RX '&: SEQ=1232 RADIO_ON=315 SEC=36975 ' from 29
+pkts=1233 Report RX '&: SEQ=1233 RADIO_ON=315 SEC=37005 ' from 29
+37020(0)s
+pkts=1234 Report RX '&: SEQ=1234 RADIO_ON=315 SEC=37035 ' from 29
+pkts=1235 Report RX '&: SEQ=1235 RADIO_ON=315 SEC=37065 ' from 29
+37080(0)s
+pkts=1236 Report RX '&: SEQ=1236 RADIO_ON=315 SEC=37095 ' from 29
+pkts=1237 Report RX '&: SEQ=1237 RADIO_ON=315 SEC=37125 ' from 29
+37140(0)s
+pkts=1238 Report RX '&: SEQ=1238 RADIO_ON=315 SEC=37155 ' from 29
+pkts=1239 Report RX '&: SEQ=1239 RADIO_ON=316 SEC=37185 ' from 29
+37200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1013s
+
+---------
+pkts=1240 Report RX '&: SEQ=1240 RADIO_ON=316 SEC=37215 ' from 29
+pkts=1241 Report RX '&: SEQ=1241 RADIO_ON=316 SEC=37245 ' from 29
+37260(0)s
+pkts=1242 Report RX '&: SEQ=1242 RADIO_ON=316 SEC=37275 ' from 29
+pkts=1243 Report RX '&: SEQ=1243 RADIO_ON=317 SEC=37305 ' from 29
+37320(0)s
+pkts=1244 Report RX '&: SEQ=1244 RADIO_ON=318 SEC=37335 ' from 29
+pkts=1245 Report RX '&: SEQ=1245 RADIO_ON=318 SEC=37365 ' from 29
+37380(0)s
+pkts=1246 Report RX '&: SEQ=1246 RADIO_ON=320 SEC=37395 ' from 29
+pkts=1247 Report RX '&: SEQ=1247 RADIO_ON=320 SEC=37425 ' from 29
+37440(0)s
+pkts=1248 Report RX '&: SEQ=1248 RADIO_ON=320 SEC=37455 ' from 29
+pkts=1249 Report RX '&: SEQ=1249 RADIO_ON=320 SEC=37485 ' from 29
+37500(0)s
+pkts=1250 Report RX '&: SEQ=1250 RADIO_ON=320 SEC=37515 ' from 29
+pkts=1251 Report RX '&: SEQ=1251 RADIO_ON=320 SEC=37545 ' from 29
+37560(0)s
+pkts=1252 Report RX '&: SEQ=1252 RADIO_ON=320 SEC=37575 ' from 29
+pkts=1253 Report RX '&: SEQ=1253 RADIO_ON=320 SEC=37605 ' from 29
+37620(0)s
+pkts=1254 Report RX '&: SEQ=1254 RADIO_ON=320 SEC=37635 ' from 29
+pkts=1255 Report RX '&: SEQ=1255 RADIO_ON=320 SEC=37665 ' from 29
+37680(0)s
+pkts=1256 Report RX '&: SEQ=1256 RADIO_ON=320 SEC=37695 ' from 29
+pkts=1257 Report RX '&: SEQ=1257 RADIO_ON=320 SEC=37725 ' from 29
+37740(0)s
+pkts=1258 Report RX '&: SEQ=1258 RADIO_ON=320 SEC=37755 ' from 29
+pkts=1259 Report RX '&: SEQ=1259 RADIO_ON=320 SEC=37785 ' from 29
+37800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1353s
+
+---------
+pkts=1260 Report RX '&: SEQ=1260 RADIO_ON=321 SEC=37815 ' from 29
+pkts=1261 Report RX '&: SEQ=1261 RADIO_ON=321 SEC=37845 ' from 29
+37860(0)s
+pkts=1262 Report RX '&: SEQ=1262 RADIO_ON=322 SEC=37875 ' from 29
+Never-used stack > 18220 bytes
+pkts=1263 Report RX '&: SEQ=1263 RADIO_ON=323 SEC=37905 ' from 29
+37920(0)s
+pkts=1264 Report RX '&: SEQ=1264 RADIO_ON=324 SEC=37935 ' from 29
+pkts=1265 Report RX '&: SEQ=1265 RADIO_ON=325 SEC=37965 ' from 29
+37980(0)s
+pkts=1266 Report RX '&: SEQ=1266 RADIO_ON=325 SEC=37995 ' from 29
+pkts=1267 Report RX '&: SEQ=1267 RADIO_ON=325 SEC=38025 ' from 29
+38040(0)s
+pkts=1268 Report RX '&: SEQ=1268 RADIO_ON=325 SEC=38055 ' from 29
+pkts=1269 Report RX '&: SEQ=1269 RADIO_ON=325 SEC=38085 ' from 29
+38100(0)s
+pkts=1270 Report RX '&: SEQ=1270 RADIO_ON=325 SEC=38115 ' from 29
+pkts=1271 Report RX '&: SEQ=1271 RADIO_ON=325 SEC=38145 ' from 29
+38160(0)s
+pkts=1272 Report RX '&: SEQ=1272 RADIO_ON=325 SEC=38175 ' from 29
+pkts=1273 Report RX '&: SEQ=1273 RADIO_ON=325 SEC=38205 ' from 29
+38220(0)s
+pkts=1274 Report RX '&: SEQ=1274 RADIO_ON=325 SEC=38235 ' from 29
+pkts=1275 Report RX '&: SEQ=1275 RADIO_ON=325 SEC=38265 ' from 29
+38280(0)s
+pkts=1276 Report RX '&: SEQ=1276 RADIO_ON=325 SEC=38295 ' from 29
+pkts=1277 Report RX '&: SEQ=1277 RADIO_ON=325 SEC=38325 ' from 29
+38340(0)s
+pkts=1278 Report RX '&: SEQ=1278 RADIO_ON=325 SEC=38355 ' from 29
+pkts=1279 Report RX '&: SEQ=1279 RADIO_ON=326 SEC=38385 ' from 29
+38400(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1765s
+
+---------
+pkts=1280 Report RX '&: SEQ=1280 RADIO_ON=326 SEC=38415 ' from 29
+pkts=1281 Report RX '&: SEQ=1281 RADIO_ON=328 SEC=38445 ' from 29
+38460(0)s
+pkts=1282 Report RX '&: SEQ=1282 RADIO_ON=328 SEC=38475 ' from 29
+pkts=1283 Report RX '&: SEQ=1283 RADIO_ON=329 SEC=38505 ' from 29
+38520(0)s
+pkts=1284 Report RX '&: SEQ=1284 RADIO_ON=330 SEC=38535 ' from 29
+pkts=1285 Report RX '&: SEQ=1285 RADIO_ON=330 SEC=38565 ' from 29
+38580(0)s
+pkts=1286 Report RX '&: SEQ=1286 RADIO_ON=330 SEC=38595 ' from 29
+pkts=1287 Report RX '&: SEQ=1287 RADIO_ON=330 SEC=38625 ' from 29
+38640(0)s
+pkts=1288 Report RX '&: SEQ=1288 RADIO_ON=330 SEC=38655 ' from 29
+pkts=1289 Report RX '&: SEQ=1289 RADIO_ON=330 SEC=38685 ' from 29
+38700(0)s
+pkts=1290 Report RX '&: SEQ=1290 RADIO_ON=330 SEC=38715 ' from 29
+pkts=1291 Report RX '&: SEQ=1291 RADIO_ON=330 SEC=38745 ' from 29
+38760(0)s
+pkts=1292 Report RX '&: SEQ=1292 RADIO_ON=330 SEC=38775 ' from 29
+pkts=1293 Report RX '&: SEQ=1293 RADIO_ON=330 SEC=38805 ' from 29
+38820(0)s
+pkts=1294 Report RX '&: SEQ=1294 RADIO_ON=330 SEC=38835 ' from 29
+pkts=1295 Report RX '&: SEQ=1295 RADIO_ON=330 SEC=38865 ' from 29
+38880(0)s
+pkts=1296 Report RX '&: SEQ=1296 RADIO_ON=330 SEC=38895 ' from 29
+Never-used stack > 18220 bytes
+pkts=1297 Report RX '&: SEQ=1297 RADIO_ON=330 SEC=38925 ' from 29
+38940(0)s
+pkts=1298 Report RX '&: SEQ=1298 RADIO_ON=330 SEC=38955 ' from 29
+pkts=1299 Report RX '&: SEQ=1299 RADIO_ON=331 SEC=38985 ' from 29
+39000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1286s
+
+---------
+pkts=1300 Report RX '&: SEQ=1300 RADIO_ON=333 SEC=39015 ' from 29
+pkts=1301 Report RX '&: SEQ=1301 RADIO_ON=333 SEC=39045 ' from 29
+39060(0)s
+pkts=1302 Report RX '&: SEQ=1302 RADIO_ON=335 SEC=39075 ' from 29
+pkts=1303 Report RX '&: SEQ=1303 RADIO_ON=335 SEC=39105 ' from 29
+39120(0)s
+pkts=1304 Report RX '&: SEQ=1304 RADIO_ON=335 SEC=39135 ' from 29
+pkts=1305 Report RX '&: SEQ=1305 RADIO_ON=335 SEC=39165 ' from 29
+39180(0)s
+pkts=1306 Report RX '&: SEQ=1306 RADIO_ON=335 SEC=39195 ' from 29
+pkts=1307 Report RX '&: SEQ=1307 RADIO_ON=335 SEC=39225 ' from 29
+39240(0)s
+pkts=1308 Report RX '&: SEQ=1308 RADIO_ON=335 SEC=39255 ' from 29
+pkts=1309 Report RX '&: SEQ=1309 RADIO_ON=335 SEC=39285 ' from 29
+39300(0)s
+pkts=1310 Report RX '&: SEQ=1310 RADIO_ON=335 SEC=39315 ' from 29
+pkts=1311 Report RX '&: SEQ=1311 RADIO_ON=335 SEC=39345 ' from 29
+39360(0)s
+pkts=1312 Report RX '&: SEQ=1312 RADIO_ON=335 SEC=39375 ' from 29
+pkts=1313 Report RX '&: SEQ=1313 RADIO_ON=335 SEC=39405 ' from 29
+39420(0)s
+pkts=1314 Report RX '&: SEQ=1314 RADIO_ON=335 SEC=39435 ' from 29
+pkts=1315 Report RX '&: SEQ=1315 RADIO_ON=335 SEC=39465 ' from 29
+39480(0)s
+pkts=1316 Report RX '&: SEQ=1316 RADIO_ON=335 SEC=39495 ' from 29
+pkts=1317 Report RX '&: SEQ=1317 RADIO_ON=335 SEC=39525 ' from 29
+39540(0)s
+pkts=1318 Report RX '&: SEQ=1318 RADIO_ON=337 SEC=39555 ' from 29
+pkts=1319 Report RX '&: SEQ=1319 RADIO_ON=337 SEC=39585 ' from 29
+39600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1666s
+
+---------
+pkts=1320 Report RX '&: SEQ=1320 RADIO_ON=338 SEC=39615 ' from 29
+pkts=1321 Report RX '&: SEQ=1321 RADIO_ON=340 SEC=39645 ' from 29
+39660(0)s
+pkts=1322 Report RX '&: SEQ=1322 RADIO_ON=340 SEC=39675 ' from 29
+pkts=1323 Report RX '&: SEQ=1323 RADIO_ON=340 SEC=39705 ' from 29
+39720(0)s
+pkts=1324 Report RX '&: SEQ=1324 RADIO_ON=340 SEC=39735 ' from 29
+pkts=1325 Report RX '&: SEQ=1325 RADIO_ON=340 SEC=39765 ' from 29
+39780(0)s
+pkts=1326 Report RX '&: SEQ=1326 RADIO_ON=340 SEC=39795 ' from 29
+pkts=1327 Report RX '&: SEQ=1327 RADIO_ON=340 SEC=39825 ' from 29
+39840(0)s
+pkts=1328 Report RX '&: SEQ=1328 RADIO_ON=340 SEC=39855 ' from 29
+pkts=1329 Report RX '&: SEQ=1329 RADIO_ON=340 SEC=39885 ' from 29
+39900(0)s
+pkts=1330 Report RX '&: SEQ=1330 RADIO_ON=340 SEC=39915 ' from 29
+Never-used stack > 18220 bytes
+pkts=1331 Report RX '&: SEQ=1331 RADIO_ON=340 SEC=39945 ' from 29
+39960(0)s
+pkts=1332 Report RX '&: SEQ=1332 RADIO_ON=340 SEC=39975 ' from 29
+pkts=1333 Report RX '&: SEQ=1333 RADIO_ON=340 SEC=40005 ' from 29
+40020(0)s
+pkts=1334 Report RX '&: SEQ=1334 RADIO_ON=340 SEC=40035 ' from 29
+pkts=1335 Report RX '&: SEQ=1335 RADIO_ON=340 SEC=40065 ' from 29
+40080(0)s
+pkts=1336 Report RX '&: SEQ=1336 RADIO_ON=341 SEC=40095 ' from 29
+pkts=1337 Report RX '&: SEQ=1337 RADIO_ON=342 SEC=40125 ' from 29
+40140(0)s
+pkts=1338 Report RX '&: SEQ=1338 RADIO_ON=342 SEC=40155 ' from 29
+pkts=1339 Report RX '&: SEQ=1339 RADIO_ON=344 SEC=40185 ' from 29
+40200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1066s
+
+---------
+pkts=1340 Report RX '&: SEQ=1340 RADIO_ON=344 SEC=40215 ' from 29
+pkts=1341 Report RX '&: SEQ=1341 RADIO_ON=344 SEC=40245 ' from 29
+40260(0)s
+pkts=1342 Report RX '&: SEQ=1342 RADIO_ON=344 SEC=40275 ' from 29
+pkts=1343 Report RX '&: SEQ=1343 RADIO_ON=344 SEC=40305 ' from 29
+40320(0)s
+pkts=1344 Report RX '&: SEQ=1344 RADIO_ON=344 SEC=40335 ' from 29
+pkts=1345 Report RX '&: SEQ=1345 RADIO_ON=344 SEC=40365 ' from 29
+40380(0)s
+pkts=1346 Report RX '&: SEQ=1346 RADIO_ON=344 SEC=40395 ' from 29
+pkts=1347 Report RX '&: SEQ=1347 RADIO_ON=344 SEC=40425 ' from 29
+40440(0)s
+pkts=1348 Report RX '&: SEQ=1348 RADIO_ON=344 SEC=40455 ' from 29
+pkts=1349 Report RX '&: SEQ=1349 RADIO_ON=344 SEC=40485 ' from 29
+40500(0)s
+pkts=1350 Report RX '&: SEQ=1350 RADIO_ON=344 SEC=40515 ' from 29
+pkts=1351 Report RX '&: SEQ=1351 RADIO_ON=345 SEC=40545 ' from 29
+40560(0)s
+pkts=1352 Report RX '&: SEQ=1352 RADIO_ON=345 SEC=40575 ' from 29
+pkts=1353 Report RX '&: SEQ=1353 RADIO_ON=345 SEC=40605 ' from 29
+40620(0)s
+pkts=1354 Report RX '&: SEQ=1354 RADIO_ON=345 SEC=40635 ' from 29
+pkts=1355 Report RX '&: SEQ=1355 RADIO_ON=346 SEC=40665 ' from 29
+40680(0)s
+pkts=1356 Report RX '&: SEQ=1356 RADIO_ON=347 SEC=40695 ' from 29
+pkts=1357 Report RX '&: SEQ=1357 RADIO_ON=348 SEC=40725 ' from 29
+40740(0)s
+pkts=1358 Report RX '&: SEQ=1358 RADIO_ON=349 SEC=40755 ' from 29
+pkts=1359 Report RX '&: SEQ=1359 RADIO_ON=349 SEC=40785 ' from 29
+40800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1402s
+
+---------
+pkts=1360 Report RX '&: SEQ=1360 RADIO_ON=349 SEC=40815 ' from 29
+pkts=1361 Report RX '&: SEQ=1361 RADIO_ON=349 SEC=40845 ' from 29
+40860(0)s
+pkts=1362 Report RX '&: SEQ=1362 RADIO_ON=349 SEC=40875 ' from 29
+pkts=1363 Report RX '&: SEQ=1363 RADIO_ON=349 SEC=40905 ' from 29
+40920(0)s
+pkts=1364 Report RX '&: SEQ=1364 RADIO_ON=349 SEC=40935 ' from 29
+Never-used stack > 18220 bytes
+pkts=1365 Report RX '&: SEQ=1365 RADIO_ON=349 SEC=40965 ' from 29
+40980(0)s
+pkts=1366 Report RX '&: SEQ=1366 RADIO_ON=349 SEC=40995 ' from 29
+pkts=1367 Report RX '&: SEQ=1367 RADIO_ON=349 SEC=41025 ' from 29
+41040(0)s
+pkts=1368 Report RX '&: SEQ=1368 RADIO_ON=349 SEC=41055 ' from 29
+pkts=1369 Report RX '&: SEQ=1369 RADIO_ON=349 SEC=41085 ' from 29
+41100(0)s
+pkts=1370 Report RX '&: SEQ=1370 RADIO_ON=349 SEC=41115 ' from 29
+pkts=1371 Report RX '&: SEQ=1371 RADIO_ON=350 SEC=41145 ' from 29
+41160(0)s
+pkts=1372 Report RX '&: SEQ=1372 RADIO_ON=350 SEC=41175 ' from 29
+pkts=1373 Report RX '&: SEQ=1373 RADIO_ON=350 SEC=41205 ' from 29

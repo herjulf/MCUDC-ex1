@@ -1,0 +1,2600 @@
+Experiment date 2019-03-11/12
+-----------------------------
+
+
+
+Abstract
+--------
+
+MCU_SLEEP defined. Fluke 45/17B 3 mv @ 10 OHM = 300 uA
+PRR=98%,  MCU_DUTY_CYCLE=4%,   RDC=0.2%,  Current consumption=220uA
+
+MCU_SLEEP undefined. Fluke 45/17B 51 mv @ 10 OHM --> 5.1 mA
+PRR=100%,  MCU_DUTY_CYCLE=N/A,  RDC=0.8%,  Current consumption=5.1mA
+
+
+Experimental description
+------------------------
+ContikiMAC MCU_SLEEP/RDC experiment. Report node sends pkts every 30 sec
+to Sink RPL root and UDP server. Received pkts are loggen on console
+and saved for analyses.
+
+This work addresses the challenge to duty cycle MCU and not only to duty
+cycle the radio (RDC). Here we use ContikiMAC(RDC in Contimi-OS. The challenge
+is to keep RDC with a minimum MCU use. The total power consumption can be
+calculated.
+
+P(tot) = RDC*RADIO_POWER + MCU_DC*MCU_POWER (1) 
+
+The challenges is to keep RDC functional with very little MCU power
+enabling effective sleep modes. Turns off the timers normally needed by
+the RDC. In this work a method of synchronizing fast clock with slow
+realtime (RTC) clock is demonstrated.
+
+Experimental results
+---------------------
+UDP packet payload example SEQ=1266 MCU_SLEEP=36479 RADIO_ON=88 SEC=37995
+
+SEQ        - UDP packet number sent (sender)
+SEC        - test time elapsed in seconds (sender)
+MCU_SLEEP  - time in seconds MCU been in deep sleep (sender)
+RADIO_ON   - time in seconds radio has been ON  (sender)
+pkts       - UDP packets received (receiver)
+
+Note. We lost 30 pkt before RPL converged. 
+
+Estimating PDR when RPL has converged. 
+1266-30 = 1236
+Sink has received 1214 pkts.
+
+PRR = 1214/1236 -->                   PRR =  98%
+MCU USE = 1 - 36479/37995  MCU_DUTY_CYCLE =   4%
+RADIO USE = 88/37995                RDC   = 0.2%                
+
+Calculation
+------------
+From datasheets:
+Radio RX Power = 10mA
+MCU Busy       =  5mA
+
+Using the formula in 1.
+P(tot) = RDC*RADIO_POWER + MCU_DC*MCU_POWER (1)
+p(tot) = 10*0.002 + 5*0.04  --> 0.22 uA
+
+Discussion
+----------
+The current consumption was verified with FLUKE 45/FLUKE 17B
+multimeters.
+
+Interesting to note the MCU power use is a factor 10 bigger. 
+The total cost of RDC should be evaluated including timers
+and MCU usage. In this work the RDC is modified to use a
+cheap RTC.
+
+Platform
+--------
+Contiki-OS avr-rss2 (AtMega256RFR2)
+
+TODO
+----
+Compare MCU sleep disabled.
+
+
+Raw data
+--------
+
+*******Booting Contiki-3.x-3625-g6b8e947*******
+Boot cause: External reset
+get_poll_mode=0
+static bool is_promiscuous=0
+rf230_get_frame_retries=4
+rf230_get_csma_retries=2
+get_auto_ack=1
+rf230_get_cca_threshold=65460
+I2C: AT24MAC,BME280,BME680
+EUI-64 MAC: fc-c2-3d-0-0-0-38-6d
+PAN=0xABCD, MAC=CSMA, RDC=ContikiMAC, NETWORK=sicslowpan, channel=26, check-rate-Hz=8, tx-power=0
+RPL Enabled
+Routing Enabled
+Online
+UDP server started
+created a new RPL dag
+Server IPv6 addresses: ::
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+Created a server connection with remote address :: local/remote port 5678/8765
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+  <none>
+Routes [20 max]
+  <none>
+---------
+pkts=1 Report RX '&: SEQ=30 MCU_SLEEP=877 RADIO_ON=2 SEC=916 ' from 29
+pkts=2 Report RX '&: SEQ=31 MCU_SLEEP=907 RADIO_ON=2 SEC=946 ' from 29
+60(0)s
+pkts=3 Report RX '&: SEQ=32 MCU_SLEEP=935 RADIO_ON=2 SEC=976 ' from 29
+pkts=4 Report RX '&: SEQ=33 MCU_SLEEP=964 RADIO_ON=2 SEC=1006 ' from 29
+120(0)s
+pkts=5 Report RX '&: SEQ=34 MCU_SLEEP=992 RADIO_ON=2 SEC=1036 ' from 29
+pkts=6 Report RX '&: SEQ=35 MCU_SLEEP=1021 RADIO_ON=2 SEC=1066 ' from 29
+180(0)s
+pkts=7 Report RX '&: SEQ=36 MCU_SLEEP=1051 RADIO_ON=2 SEC=1097 ' from 29
+pkts=8 Report RX '&: SEQ=37 MCU_SLEEP=1079 RADIO_ON=2 SEC=1125 ' from 29
+240(0)s
+pkts=9 Report RX '&: SEQ=38 MCU_SLEEP=1109 RADIO_ON=2 SEC=1156 ' from 29
+pkts=10 Report RX '&: SEQ=39 MCU_SLEEP=1137 RADIO_ON=2 SEC=1186 ' from 29
+300(0)s
+pkts=11 Report RX '&: SEQ=40 MCU_SLEEP=1168 RADIO_ON=2 SEC=1217 ' from 29
+pkts=12 Report RX '&: SEQ=41 MCU_SLEEP=1195 RADIO_ON=2 SEC=1246 ' from 29
+360(0)s
+pkts=13 Report RX '&: SEQ=42 MCU_SLEEP=1225 RADIO_ON=2 SEC=1276 ' from 29
+pkts=14 Report RX '&: SEQ=43 MCU_SLEEP=1253 RADIO_ON=3 SEC=1305 ' from 29
+420(0)s
+pkts=15 Report RX '&: SEQ=44 MCU_SLEEP=1281 RADIO_ON=3 SEC=1336 ' from 29
+pkts=16 Report RX '&: SEQ=45 MCU_SLEEP=1310 RADIO_ON=3 SEC=1365 ' from 29
+480(0)s
+pkts=17 Report RX '&: SEQ=46 MCU_SLEEP=1339 RADIO_ON=3 SEC=1396 ' from 29
+pkts=18 Report RX '&: SEQ=47 MCU_SLEEP=1368 RADIO_ON=3 SEC=1425 ' from 29
+540(0)s
+pkts=19 Report RX '&: SEQ=48 MCU_SLEEP=1398 RADIO_ON=3 SEC=1456 ' from 29
+pkts=20 Report RX '&: SEQ=49 MCU_SLEEP=1426 RADIO_ON=3 SEC=1485 ' from 29
+600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1661s
+
+---------
+pkts=21 Report RX '&: SEQ=50 MCU_SLEEP=1455 RADIO_ON=3 SEC=1516 ' from 29
+pkts=22 Report RX '&: SEQ=51 MCU_SLEEP=1485 RADIO_ON=3 SEC=1546 ' from 29
+660(0)s
+pkts=23 Report RX '&: SEQ=52 MCU_SLEEP=1513 RADIO_ON=3 SEC=1576 ' from 29
+pkts=24 Report RX '&: SEQ=53 MCU_SLEEP=1542 RADIO_ON=3 SEC=1606 ' from 29
+720(0)s
+pkts=25 Report RX '&: SEQ=54 MCU_SLEEP=1571 RADIO_ON=3 SEC=1638 ' from 29
+pkts=26 Report RX '&: SEQ=55 MCU_SLEEP=1599 RADIO_ON=3 SEC=1666 ' from 29
+780(0)s
+pkts=27 Report RX '&: SEQ=56 MCU_SLEEP=1629 RADIO_ON=3 SEC=1697 ' from 29
+pkts=28 Report RX '&: SEQ=57 MCU_SLEEP=1657 RADIO_ON=3 SEC=1727 ' from 29
+pkts=29 Report RX '&: SEQ=58 MCU_SLEEP=1687 RADIO_ON=3 SEC=1758 ' from 29
+pkts=30 Report RX '&: SEQ=59 MCU_SLEEP=1713 RADIO_ON=3 SEC=1786 ' from 29
+900(0)s
+pkts=31 Report RX '&: SEQ=60 MCU_SLEEP=1743 RADIO_ON=4 SEC=1818 ' from 29
+pkts=32 Report RX '&: SEQ=61 MCU_SLEEP=1771 RADIO_ON=4 SEC=1847 ' from 29
+960(0)s
+pkts=33 Report RX '&: SEQ=62 MCU_SLEEP=1799 RADIO_ON=4 SEC=1875 ' from 29
+pkts=34 Report RX '&: SEQ=63 MCU_SLEEP=1828 RADIO_ON=4 SEC=1905 ' from 29
+1020(0)s
+Never-used stack > 18210 bytes
+pkts=35 Report RX '&: SEQ=64 MCU_SLEEP=1858 RADIO_ON=4 SEC=1936 ' from 29
+pkts=36 Report RX '&: SEQ=65 MCU_SLEEP=1885 RADIO_ON=4 SEC=1965 ' from 29
+1080(0)s
+pkts=37 Report RX '&: SEQ=66 MCU_SLEEP=1914 RADIO_ON=4 SEC=1996 ' from 29
+pkts=38 Report RX '&: SEQ=67 MCU_SLEEP=1944 RADIO_ON=4 SEC=2026 ' from 29
+1140(0)s
+pkts=39 Report RX '&: SEQ=68 MCU_SLEEP=1973 RADIO_ON=4 SEC=2057 ' from 29
+pkts=40 Report RX '&: SEQ=69 MCU_SLEEP=2000 RADIO_ON=4 SEC=2085 ' from 29
+1200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1063s
+
+---------
+pkts=41 Report RX '&: SEQ=70 MCU_SLEEP=2028 RADIO_ON=4 SEC=2115 ' from 29
+pkts=42 Report RX '&: SEQ=71 MCU_SLEEP=2058 RADIO_ON=4 SEC=2146 ' from 29
+1260(0)s
+pkts=43 Report RX '&: SEQ=72 MCU_SLEEP=2088 RADIO_ON=4 SEC=2178 ' from 29
+pkts=44 Report RX '&: SEQ=73 MCU_SLEEP=2116 RADIO_ON=4 SEC=2206 ' from 29
+1320(0)s
+pkts=45 Report RX '&: SEQ=74 MCU_SLEEP=2145 RADIO_ON=4 SEC=2235 ' from 29
+pkts=46 Report RX '&: SEQ=75 MCU_SLEEP=2174 RADIO_ON=5 SEC=2265 ' from 29
+1380(0)s
+pkts=47 Report RX '&: SEQ=76 MCU_SLEEP=2203 RADIO_ON=5 SEC=2295 ' from 29
+pkts=48 Report RX '&: SEQ=77 MCU_SLEEP=2233 RADIO_ON=5 SEC=2326 ' from 29
+1440(0)s
+pkts=49 Report RX '&: SEQ=78 MCU_SLEEP=2262 RADIO_ON=5 SEC=2357 ' from 29
+pkts=50 Report RX '&: SEQ=79 MCU_SLEEP=2290 RADIO_ON=5 SEC=2386 ' from 29
+1500(0)s
+pkts=51 Report RX '&: SEQ=80 MCU_SLEEP=2320 RADIO_ON=5 SEC=2417 ' from 29
+pkts=52 Report RX '&: SEQ=81 MCU_SLEEP=2348 RADIO_ON=5 SEC=2447 ' from 29
+1560(0)s
+pkts=53 Report RX '&: SEQ=82 MCU_SLEEP=2378 RADIO_ON=5 SEC=2477 ' from 29
+pkts=54 Report RX '&: SEQ=83 MCU_SLEEP=2406 RADIO_ON=5 SEC=2505 ' from 29
+1620(0)s
+pkts=55 Report RX '&: SEQ=84 MCU_SLEEP=2435 RADIO_ON=5 SEC=2536 ' from 29
+pkts=56 Report RX '&: SEQ=85 MCU_SLEEP=2464 RADIO_ON=6 SEC=2565 ' from 29
+1680(0)s
+pkts=57 Report RX '&: SEQ=86 MCU_SLEEP=2492 RADIO_ON=6 SEC=2595 ' from 29
+pkts=58 Report RX '&: SEQ=87 MCU_SLEEP=2521 RADIO_ON=6 SEC=2625 ' from 29
+1740(0)s
+pkts=59 Report RX '&: SEQ=88 MCU_SLEEP=2549 RADIO_ON=6 SEC=2655 ' from 29
+pkts=60 Report RX '&: SEQ=89 MCU_SLEEP=2579 RADIO_ON=6 SEC=2686 ' from 29
+1800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1531s
+
+---------
+pkts=61 Report RX '&: SEQ=90 MCU_SLEEP=2608 RADIO_ON=6 SEC=2716 ' from 29
+pkts=62 Report RX '&: SEQ=91 MCU_SLEEP=2635 RADIO_ON=6 SEC=2745 ' from 29
+1860(0)s
+pkts=63 Report RX '&: SEQ=92 MCU_SLEEP=2665 RADIO_ON=6 SEC=2776 ' from 29
+pkts=64 Report RX '&: SEQ=93 MCU_SLEEP=2692 RADIO_ON=6 SEC=2807 ' from 29
+1920(0)s
+pkts=65 Report RX '&: SEQ=94 MCU_SLEEP=2721 RADIO_ON=7 SEC=2836 ' from 29
+pkts=66 Report RX '&: SEQ=95 MCU_SLEEP=2750 RADIO_ON=7 SEC=2866 ' from 29
+1980(0)s
+pkts=67 Report RX '&: SEQ=96 MCU_SLEEP=2780 RADIO_ON=7 SEC=2898 ' from 29
+pkts=68 Report RX '&: SEQ=97 MCU_SLEEP=2807 RADIO_ON=7 SEC=2926 ' from 29
+2040(0)s
+Never-used stack > 18210 bytes
+pkts=69 Report RX '&: SEQ=98 MCU_SLEEP=2836 RADIO_ON=7 SEC=2956 ' from 29
+pkts=70 Report RX '&: SEQ=99 MCU_SLEEP=2863 RADIO_ON=7 SEC=2986 ' from 29
+2100(0)s
+pkts=71 Report RX '&: SEQ=100 MCU_SLEEP=2895 RADIO_ON=7 SEC=3017 ' from 29
+pkts=72 Report RX '&: SEQ=101 MCU_SLEEP=2921 RADIO_ON=7 SEC=3046 ' from 29
+2160(0)s
+pkts=73 Report RX '&: SEQ=102 MCU_SLEEP=2950 RADIO_ON=7 SEC=3076 ' from 29
+pkts=74 Report RX '&: SEQ=103 MCU_SLEEP=2978 RADIO_ON=7 SEC=3106 ' from 29
+2220(0)s
+pkts=75 Report RX '&: SEQ=104 MCU_SLEEP=3008 RADIO_ON=7 SEC=3137 ' from 29
+pkts=76 Report RX '&: SEQ=105 MCU_SLEEP=3035 RADIO_ON=7 SEC=3166 ' from 29
+2280(0)s
+pkts=77 Report RX '&: SEQ=106 MCU_SLEEP=3063 RADIO_ON=7 SEC=3195 ' from 29
+pkts=78 Report RX '&: SEQ=107 MCU_SLEEP=3092 RADIO_ON=8 SEC=3226 ' from 29
+2340(0)s
+pkts=79 Report RX '&: SEQ=108 MCU_SLEEP=3122 RADIO_ON=8 SEC=3257 ' from 29
+pkts=80 Report RX '&: SEQ=109 MCU_SLEEP=3151 RADIO_ON=8 SEC=3287 ' from 29
+2400(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 931s
+
+---------
+pkts=81 Report RX '&: SEQ=110 MCU_SLEEP=3178 RADIO_ON=8 SEC=3316 ' from 29
+pkts=82 Report RX '&: SEQ=111 MCU_SLEEP=3207 RADIO_ON=8 SEC=3346 ' from 29
+pkts=83 Report RX '&: SEQ=112 MCU_SLEEP=3237 RADIO_ON=8 SEC=3377 ' from 29
+pkts=84 Report RX '&: SEQ=113 MCU_SLEEP=3265 RADIO_ON=8 SEC=3406 ' from 29
+2520(0)s
+pkts=85 Report RX '&: SEQ=114 MCU_SLEEP=3295 RADIO_ON=8 SEC=3436 ' from 29
+pkts=86 Report RX '&: SEQ=115 MCU_SLEEP=3323 RADIO_ON=8 SEC=3466 ' from 29
+2580(0)s
+pkts=87 Report RX '&: SEQ=116 MCU_SLEEP=3352 RADIO_ON=8 SEC=3496 ' from 29
+pkts=88 Report RX '&: SEQ=117 MCU_SLEEP=3381 RADIO_ON=8 SEC=3526 ' from 29
+2640(0)s
+pkts=89 Report RX '&: SEQ=119 MCU_SLEEP=3439 RADIO_ON=8 SEC=3586 ' from 29
+pkts=90 Report RX '&: SEQ=120 MCU_SLEEP=3467 RADIO_ON=8 SEC=3616 ' from 29
+pkts=91 Report RX '&: SEQ=121 MCU_SLEEP=3496 RADIO_ON=8 SEC=3646 ' from 29
+2760(0)s
+pkts=92 Report RX '&: SEQ=122 MCU_SLEEP=3526 RADIO_ON=8 SEC=3677 ' from 29
+pkts=93 Report RX '&: SEQ=123 MCU_SLEEP=3554 RADIO_ON=8 SEC=3705 ' from 29
+2820(0)s
+pkts=94 Report RX '&: SEQ=124 MCU_SLEEP=3584 RADIO_ON=9 SEC=3736 ' from 29
+pkts=95 Report RX '&: SEQ=125 MCU_SLEEP=3612 RADIO_ON=9 SEC=3767 ' from 29
+2880(0)s
+pkts=96 Report RX '&: SEQ=126 MCU_SLEEP=3642 RADIO_ON=9 SEC=3797 ' from 29
+pkts=97 Report RX '&: SEQ=127 MCU_SLEEP=3669 RADIO_ON=9 SEC=3826 ' from 29
+2940(0)s
+pkts=98 Report RX '&: SEQ=128 MCU_SLEEP=3699 RADIO_ON=9 SEC=3856 ' from 29
+pkts=99 Report RX '&: SEQ=129 MCU_SLEEP=3727 RADIO_ON=9 SEC=3886 ' from 29
+3000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1238s
+
+---------
+pkts=100 Report RX '&: SEQ=130 MCU_SLEEP=3757 RADIO_ON=9 SEC=3917 ' from 29
+pkts=101 Report RX '&: SEQ=131 MCU_SLEEP=3784 RADIO_ON=9 SEC=3945 ' from 29
+3060(0)s
+Never-used stack > 18210 bytes
+pkts=102 Report RX '&: SEQ=132 MCU_SLEEP=3815 RADIO_ON=9 SEC=3976 ' from 29
+pkts=103 Report RX '&: SEQ=133 MCU_SLEEP=3842 RADIO_ON=9 SEC=4006 ' from 29
+3120(0)s
+pkts=104 Report RX '&: SEQ=134 MCU_SLEEP=3872 RADIO_ON=9 SEC=4037 ' from 29
+pkts=105 Report RX '&: SEQ=135 MCU_SLEEP=3900 RADIO_ON=9 SEC=4065 ' from 29
+pkts=106 Report RX '&: SEQ=136 MCU_SLEEP=3930 RADIO_ON=9 SEC=4096 ' from 29
+pkts=107 Report RX '&: SEQ=137 MCU_SLEEP=3958 RADIO_ON=9 SEC=4125 ' from 29
+pkts=108 Report RX '&: SEQ=138 MCU_SLEEP=3988 RADIO_ON=9 SEC=4156 ' from 29
+pkts=109 Report RX '&: SEQ=139 MCU_SLEEP=4016 RADIO_ON=9 SEC=4185 ' from 29
+3300(0)s
+pkts=110 Report RX '&: SEQ=140 MCU_SLEEP=4046 RADIO_ON=9 SEC=4216 ' from 29
+pkts=111 Report RX '&: SEQ=141 MCU_SLEEP=4074 RADIO_ON=10 SEC=4245 ' from 29
+pkts=112 Report RX '&: SEQ=142 MCU_SLEEP=4103 RADIO_ON=10 SEC=4276 ' from 29
+pkts=113 Report RX '&: SEQ=143 MCU_SLEEP=4131 RADIO_ON=10 SEC=4307 ' from 29
+pkts=114 Report RX '&: SEQ=144 MCU_SLEEP=4161 RADIO_ON=10 SEC=4337 ' from 29
+pkts=115 Report RX '&: SEQ=145 MCU_SLEEP=4189 RADIO_ON=10 SEC=4366 ' from 29
+3480(0)s
+pkts=116 Report RX '&: SEQ=146 MCU_SLEEP=4219 RADIO_ON=10 SEC=4397 ' from 29
+pkts=117 Report RX '&: SEQ=147 MCU_SLEEP=4247 RADIO_ON=10 SEC=4425 ' from 29
+3540(0)s
+pkts=118 Report RX '&: SEQ=148 MCU_SLEEP=4275 RADIO_ON=10 SEC=4456 ' from 29
+pkts=119 Report RX '&: SEQ=149 MCU_SLEEP=4304 RADIO_ON=10 SEC=4486 ' from 29
+3600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1788s
+
+---------
+pkts=120 Report RX '&: SEQ=150 MCU_SLEEP=4334 RADIO_ON=10 SEC=4518 ' from 29
+pkts=121 Report RX '&: SEQ=151 MCU_SLEEP=4361 RADIO_ON=10 SEC=4546 ' from 29
+3660(0)s
+pkts=122 Report RX '&: SEQ=152 MCU_SLEEP=4391 RADIO_ON=10 SEC=4578 ' from 29
+pkts=123 Report RX '&: SEQ=153 MCU_SLEEP=4419 RADIO_ON=10 SEC=4606 ' from 29
+pkts=124 Report RX '&: SEQ=154 MCU_SLEEP=4449 RADIO_ON=10 SEC=4638 ' from 29
+pkts=125 Report RX '&: SEQ=155 MCU_SLEEP=4476 RADIO_ON=10 SEC=4666 ' from 29
+3780(0)s
+pkts=126 Report RX '&: SEQ=156 MCU_SLEEP=4507 RADIO_ON=10 SEC=4697 ' from 29
+pkts=127 Report RX '&: SEQ=157 MCU_SLEEP=4534 RADIO_ON=11 SEC=4725 ' from 29
+3840(0)s
+pkts=128 Report RX '&: SEQ=158 MCU_SLEEP=4562 RADIO_ON=11 SEC=4755 ' from 29
+pkts=129 Report RX '&: SEQ=159 MCU_SLEEP=4591 RADIO_ON=11 SEC=4786 ' from 29
+3900(0)s
+pkts=130 Report RX '&: SEQ=160 MCU_SLEEP=4620 RADIO_ON=11 SEC=4815 ' from 29
+pkts=131 Report RX '&: SEQ=161 MCU_SLEEP=4650 RADIO_ON=11 SEC=4847 ' from 29
+3960(0)s
+pkts=132 Report RX '&: SEQ=162 MCU_SLEEP=4678 RADIO_ON=11 SEC=4876 ' from 29
+pkts=133 Report RX '&: SEQ=163 MCU_SLEEP=4706 RADIO_ON=11 SEC=4905 ' from 29
+4020(0)s
+pkts=134 Report RX '&: SEQ=165 MCU_SLEEP=4764 RADIO_ON=11 SEC=4966 ' from 29
+Never-used stack > 18210 bytes
+pkts=135 Report RX '&: SEQ=166 MCU_SLEEP=4794 RADIO_ON=11 SEC=4996 ' from 29
+pkts=136 Report RX '&: SEQ=167 MCU_SLEEP=4822 RADIO_ON=11 SEC=5026 ' from 29
+4140(0)s
+pkts=137 Report RX '&: SEQ=168 MCU_SLEEP=4851 RADIO_ON=11 SEC=5056 ' from 29
+pkts=138 Report RX '&: SEQ=169 MCU_SLEEP=4880 RADIO_ON=11 SEC=5086 ' from 29
+4200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1188s
+
+---------
+pkts=139 Report RX '&: SEQ=170 MCU_SLEEP=4909 RADIO_ON=11 SEC=5116 ' from 29
+pkts=140 Report RX '&: SEQ=171 MCU_SLEEP=4938 RADIO_ON=12 SEC=5147 ' from 29
+4260(0)s
+pkts=141 Report RX '&: SEQ=172 MCU_SLEEP=4968 RADIO_ON=12 SEC=5177 ' from 29
+pkts=142 Report RX '&: SEQ=173 MCU_SLEEP=4995 RADIO_ON=12 SEC=5206 ' from 29
+4320(0)s
+pkts=143 Report RX '&: SEQ=174 MCU_SLEEP=5026 RADIO_ON=12 SEC=5239 ' from 29
+pkts=144 Report RX '&: SEQ=175 MCU_SLEEP=5053 RADIO_ON=12 SEC=5266 ' from 29
+4380(0)s
+pkts=145 Report RX '&: SEQ=176 MCU_SLEEP=5083 RADIO_ON=12 SEC=5296 ' from 29
+pkts=146 Report RX '&: SEQ=177 MCU_SLEEP=5111 RADIO_ON=12 SEC=5327 ' from 29
+4440(0)s
+pkts=147 Report RX '&: SEQ=178 MCU_SLEEP=5139 RADIO_ON=12 SEC=5356 ' from 29
+pkts=148 Report RX '&: SEQ=179 MCU_SLEEP=5169 RADIO_ON=12 SEC=5387 ' from 29
+4500(0)s
+pkts=149 Report RX '&: SEQ=180 MCU_SLEEP=5198 RADIO_ON=12 SEC=5415 ' from 29
+pkts=150 Report RX '&: SEQ=181 MCU_SLEEP=5227 RADIO_ON=12 SEC=5446 ' from 29
+4560(0)s
+pkts=151 Report RX '&: SEQ=182 MCU_SLEEP=5255 RADIO_ON=12 SEC=5476 ' from 29
+pkts=152 Report RX '&: SEQ=183 MCU_SLEEP=5284 RADIO_ON=12 SEC=5506 ' from 29
+4620(0)s
+pkts=153 Report RX '&: SEQ=184 MCU_SLEEP=5312 RADIO_ON=12 SEC=5535 ' from 29
+pkts=154 Report RX '&: SEQ=185 MCU_SLEEP=5341 RADIO_ON=12 SEC=5565 ' from 29
+4680(0)s
+pkts=155 Report RX '&: SEQ=186 MCU_SLEEP=5369 RADIO_ON=13 SEC=5595 ' from 29
+pkts=156 Report RX '&: SEQ=187 MCU_SLEEP=5398 RADIO_ON=13 SEC=5627 ' from 29
+4740(0)s
+pkts=157 Report RX '&: SEQ=188 MCU_SLEEP=5428 RADIO_ON=13 SEC=5658 ' from 29
+pkts=158 Report RX '&: SEQ=189 MCU_SLEEP=5454 RADIO_ON=13 SEC=5685 ' from 29
+4800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1715s
+
+---------
+pkts=159 Report RX '&: SEQ=190 MCU_SLEEP=5484 RADIO_ON=13 SEC=5716 ' from 29
+pkts=160 Report RX '&: SEQ=191 MCU_SLEEP=5513 RADIO_ON=13 SEC=5746 ' from 29
+4860(0)s
+pkts=161 Report RX '&: SEQ=192 MCU_SLEEP=5541 RADIO_ON=13 SEC=5775 ' from 29
+pkts=162 Report RX '&: SEQ=193 MCU_SLEEP=5569 RADIO_ON=13 SEC=5805 ' from 29
+4920(0)s
+pkts=163 Report RX '&: SEQ=194 MCU_SLEEP=5598 RADIO_ON=13 SEC=5835 ' from 29
+pkts=164 Report RX '&: SEQ=195 MCU_SLEEP=5628 RADIO_ON=13 SEC=5866 ' from 29
+4980(0)s
+pkts=165 Report RX '&: SEQ=196 MCU_SLEEP=5657 RADIO_ON=13 SEC=5895 ' from 29
+pkts=166 Report RX '&: SEQ=197 MCU_SLEEP=5685 RADIO_ON=13 SEC=5926 ' from 29
+5040(0)s
+pkts=167 Report RX '&: SEQ=198 MCU_SLEEP=5715 RADIO_ON=13 SEC=5957 ' from 29
+pkts=168 Report RX '&: SEQ=199 MCU_SLEEP=5743 RADIO_ON=13 SEC=5986 ' from 29
+5100(0)s
+Never-used stack > 18210 bytes
+pkts=169 Report RX '&: SEQ=200 MCU_SLEEP=5771 RADIO_ON=13 SEC=6015 ' from 29
+pkts=170 Report RX '&: SEQ=201 MCU_SLEEP=5800 RADIO_ON=14 SEC=6045 ' from 29
+5160(0)s
+pkts=171 Report RX '&: SEQ=202 MCU_SLEEP=5829 RADIO_ON=14 SEC=6076 ' from 29
+pkts=172 Report RX '&: SEQ=203 MCU_SLEEP=5858 RADIO_ON=14 SEC=6106 ' from 29
+5220(0)s
+pkts=173 Report RX '&: SEQ=204 MCU_SLEEP=5889 RADIO_ON=14 SEC=6137 ' from 29
+pkts=174 Report RX '&: SEQ=205 MCU_SLEEP=5918 RADIO_ON=14 SEC=6167 ' from 29
+5280(0)s
+pkts=175 Report RX '&: SEQ=206 MCU_SLEEP=5945 RADIO_ON=14 SEC=6196 ' from 29
+pkts=176 Report RX '&: SEQ=207 MCU_SLEEP=5973 RADIO_ON=14 SEC=6225 ' from 29
+5340(0)s
+pkts=177 Report RX '&: SEQ=208 MCU_SLEEP=6002 RADIO_ON=14 SEC=6255 ' from 29
+pkts=178 Report RX '&: SEQ=209 MCU_SLEEP=6031 RADIO_ON=14 SEC=6285 ' from 29
+5400(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1115s
+
+---------
+pkts=179 Report RX '&: SEQ=210 MCU_SLEEP=6063 RADIO_ON=14 SEC=6317 ' from 29
+pkts=180 Report RX '&: SEQ=211 MCU_SLEEP=6090 RADIO_ON=14 SEC=6347 ' from 29
+5460(0)s
+pkts=181 Report RX '&: SEQ=212 MCU_SLEEP=6120 RADIO_ON=14 SEC=6376 ' from 29
+5520(0)s
+pkts=182 Report RX '&: SEQ=214 MCU_SLEEP=6177 RADIO_ON=14 SEC=6436 ' from 29
+pkts=183 Report RX '&: SEQ=215 MCU_SLEEP=6204 RADIO_ON=15 SEC=6466 ' from 29
+5580(0)s
+pkts=184 Report RX '&: SEQ=216 MCU_SLEEP=6233 RADIO_ON=15 SEC=6495 ' from 29
+pkts=185 Report RX '&: SEQ=217 MCU_SLEEP=6263 RADIO_ON=15 SEC=6526 ' from 29
+5640(0)s
+pkts=186 Report RX '&: SEQ=218 MCU_SLEEP=6294 RADIO_ON=15 SEC=6558 ' from 29
+pkts=187 Report RX '&: SEQ=219 MCU_SLEEP=6320 RADIO_ON=15 SEC=6586 ' from 29
+5700(0)s
+pkts=188 Report RX '&: SEQ=220 MCU_SLEEP=6350 RADIO_ON=15 SEC=6616 ' from 29
+pkts=189 Report RX '&: SEQ=221 MCU_SLEEP=6379 RADIO_ON=15 SEC=6646 ' from 29
+5760(0)s
+pkts=190 Report RX '&: SEQ=222 MCU_SLEEP=6408 RADIO_ON=15 SEC=6677 ' from 29
+pkts=191 Report RX '&: SEQ=223 MCU_SLEEP=6436 RADIO_ON=15 SEC=6706 ' from 29
+5820(0)s
+pkts=192 Report RX '&: SEQ=224 MCU_SLEEP=6467 RADIO_ON=15 SEC=6737 ' from 29
+pkts=193 Report RX '&: SEQ=225 MCU_SLEEP=6493 RADIO_ON=15 SEC=6765 ' from 29
+5880(0)s
+pkts=194 Report RX '&: SEQ=226 MCU_SLEEP=6523 RADIO_ON=15 SEC=6796 ' from 29
+pkts=195 Report RX '&: SEQ=227 MCU_SLEEP=6552 RADIO_ON=15 SEC=6825 ' from 29
+5940(0)s
+pkts=196 Report RX '&: SEQ=228 MCU_SLEEP=6582 RADIO_ON=15 SEC=6857 ' from 29
+pkts=197 Report RX '&: SEQ=229 MCU_SLEEP=6611 RADIO_ON=16 SEC=6886 ' from 29
+6000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1613s
+
+---------
+pkts=198 Report RX '&: SEQ=230 MCU_SLEEP=6639 RADIO_ON=16 SEC=6916 ' from 29
+pkts=199 Report RX '&: SEQ=231 MCU_SLEEP=6668 RADIO_ON=16 SEC=6946 ' from 29
+6060(0)s
+pkts=200 Report RX '&: SEQ=232 MCU_SLEEP=6697 RADIO_ON=16 SEC=6976 ' from 29
+pkts=201 Report RX '&: SEQ=233 MCU_SLEEP=6725 RADIO_ON=16 SEC=7006 ' from 29
+6120(0)s
+Never-used stack > 18210 bytes
+pkts=202 Report RX '&: SEQ=234 MCU_SLEEP=6755 RADIO_ON=16 SEC=7037 ' from 29
+pkts=203 Report RX '&: SEQ=235 MCU_SLEEP=6782 RADIO_ON=16 SEC=7066 ' from 29
+6180(0)s
+pkts=204 Report RX '&: SEQ=236 MCU_SLEEP=6813 RADIO_ON=16 SEC=7096 ' from 29
+pkts=205 Report RX '&: SEQ=237 MCU_SLEEP=6841 RADIO_ON=16 SEC=7126 ' from 29
+6240(0)s
+pkts=206 Report RX '&: SEQ=238 MCU_SLEEP=6870 RADIO_ON=16 SEC=7156 ' from 29
+pkts=207 Report RX '&: SEQ=239 MCU_SLEEP=6898 RADIO_ON=16 SEC=7187 ' from 29
+6300(0)s
+pkts=208 Report RX '&: SEQ=240 MCU_SLEEP=6927 RADIO_ON=16 SEC=7215 ' from 29
+pkts=209 Report RX '&: SEQ=241 MCU_SLEEP=6955 RADIO_ON=16 SEC=7247 ' from 29
+6360(0)s
+pkts=210 Report RX '&: SEQ=242 MCU_SLEEP=6986 RADIO_ON=16 SEC=7278 ' from 29
+pkts=211 Report RX '&: SEQ=243 MCU_SLEEP=7013 RADIO_ON=16 SEC=7305 ' from 29
+6420(0)s
+pkts=212 Report RX '&: SEQ=244 MCU_SLEEP=7042 RADIO_ON=16 SEC=7337 ' from 29
+pkts=213 Report RX '&: SEQ=245 MCU_SLEEP=7070 RADIO_ON=16 SEC=7366 ' from 29
+6480(0)s
+pkts=214 Report RX '&: SEQ=246 MCU_SLEEP=7099 RADIO_ON=17 SEC=7396 ' from 29
+pkts=215 Report RX '&: SEQ=247 MCU_SLEEP=7129 RADIO_ON=17 SEC=7425 ' from 29
+pkts=216 Report RX '&: SEQ=248 MCU_SLEEP=7157 RADIO_ON=17 SEC=7456 ' from 29
+pkts=217 Report RX '&: SEQ=249 MCU_SLEEP=7184 RADIO_ON=17 SEC=7486 ' from 29
+6600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1013s
+
+---------
+pkts=218 Report RX '&: SEQ=250 MCU_SLEEP=7214 RADIO_ON=17 SEC=7515 ' from 29
+pkts=219 Report RX '&: SEQ=251 MCU_SLEEP=7242 RADIO_ON=17 SEC=7546 ' from 29
+6660(0)s
+pkts=220 Report RX '&: SEQ=252 MCU_SLEEP=7272 RADIO_ON=17 SEC=7576 ' from 29
+pkts=221 Report RX '&: SEQ=253 MCU_SLEEP=7301 RADIO_ON=17 SEC=7606 ' from 29
+6720(0)s
+pkts=222 Report RX '&: SEQ=254 MCU_SLEEP=7328 RADIO_ON=17 SEC=7636 ' from 29
+pkts=223 Report RX '&: SEQ=255 MCU_SLEEP=7357 RADIO_ON=17 SEC=7665 ' from 29
+pkts=224 Report RX '&: SEQ=256 MCU_SLEEP=7387 RADIO_ON=17 SEC=7695 ' from 29
+pkts=225 Report RX '&: SEQ=257 MCU_SLEEP=7416 RADIO_ON=17 SEC=7727 ' from 29
+6840(0)s
+pkts=226 Report RX '&: SEQ=258 MCU_SLEEP=7446 RADIO_ON=17 SEC=7757 ' from 29
+pkts=227 Report RX '&: SEQ=259 MCU_SLEEP=7474 RADIO_ON=18 SEC=7785 ' from 29
+6900(0)s
+pkts=228 Report RX '&: SEQ=260 MCU_SLEEP=7504 RADIO_ON=18 SEC=7818 ' from 29
+pkts=229 Report RX '&: SEQ=261 MCU_SLEEP=7532 RADIO_ON=18 SEC=7845 ' from 29
+6960(0)s
+pkts=230 Report RX '&: SEQ=262 MCU_SLEEP=7560 RADIO_ON=18 SEC=7876 ' from 29
+pkts=231 Report RX '&: SEQ=263 MCU_SLEEP=7588 RADIO_ON=18 SEC=7906 ' from 29
+7020(0)s
+pkts=232 Report RX '&: SEQ=264 MCU_SLEEP=7617 RADIO_ON=18 SEC=7935 ' from 29
+pkts=233 Report RX '&: SEQ=265 MCU_SLEEP=7647 RADIO_ON=18 SEC=7966 ' from 29
+7080(0)s
+pkts=234 Report RX '&: SEQ=266 MCU_SLEEP=7676 RADIO_ON=18 SEC=7997 ' from 29
+pkts=235 Report RX '&: SEQ=267 MCU_SLEEP=7704 RADIO_ON=18 SEC=8026 ' from 29
+pkts=236 Report RX '&: SEQ=268 MCU_SLEEP=7734 RADIO_ON=18 SEC=8055 ' from 29
+Never-used stack > 18210 bytes
+pkts=237 Report RX '&: SEQ=269 MCU_SLEEP=7763 RADIO_ON=18 SEC=8085 ' from 29
+7200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1587s
+
+---------
+pkts=238 Report RX '&: SEQ=270 MCU_SLEEP=7792 RADIO_ON=18 SEC=8117 ' from 29
+pkts=239 Report RX '&: SEQ=271 MCU_SLEEP=7821 RADIO_ON=18 SEC=8147 ' from 29
+pkts=240 Report RX '&: SEQ=272 MCU_SLEEP=7851 RADIO_ON=19 SEC=8176 ' from 29
+pkts=241 Report RX '&: SEQ=273 MCU_SLEEP=7878 RADIO_ON=19 SEC=8206 ' from 29
+7320(0)s
+pkts=242 Report RX '&: SEQ=274 MCU_SLEEP=7909 RADIO_ON=19 SEC=8238 ' from 29
+pkts=243 Report RX '&: SEQ=275 MCU_SLEEP=7937 RADIO_ON=19 SEC=8266 ' from 29
+7380(0)s
+pkts=244 Report RX '&: SEQ=276 MCU_SLEEP=7966 RADIO_ON=19 SEC=8295 ' from 29
+pkts=245 Report RX '&: SEQ=277 MCU_SLEEP=7996 RADIO_ON=19 SEC=8327 ' from 29
+pkts=246 Report RX '&: SEQ=278 MCU_SLEEP=8025 RADIO_ON=19 SEC=8357 ' from 29
+pkts=247 Report RX '&: SEQ=279 MCU_SLEEP=8053 RADIO_ON=19 SEC=8386 ' from 29
+7500(0)s
+pkts=248 Report RX '&: SEQ=280 MCU_SLEEP=8083 RADIO_ON=19 SEC=8417 ' from 29
+pkts=249 Report RX '&: SEQ=281 MCU_SLEEP=8110 RADIO_ON=19 SEC=8446 ' from 29
+7560(0)s
+pkts=250 Report RX '&: SEQ=282 MCU_SLEEP=8140 RADIO_ON=19 SEC=8476 ' from 29
+pkts=251 Report RX '&: SEQ=283 MCU_SLEEP=8169 RADIO_ON=19 SEC=8507 ' from 29
+7620(0)s
+pkts=252 Report RX '&: SEQ=285 MCU_SLEEP=8226 RADIO_ON=19 SEC=8567 ' from 29
+7680(0)s
+pkts=253 Report RX '&: SEQ=286 MCU_SLEEP=8254 RADIO_ON=20 SEC=8596 ' from 29
+pkts=254 Report RX '&: SEQ=287 MCU_SLEEP=8283 RADIO_ON=20 SEC=8626 ' from 29
+7740(0)s
+pkts=255 Report RX '&: SEQ=288 MCU_SLEEP=8313 RADIO_ON=20 SEC=8657 ' from 29
+pkts=256 Report RX '&: SEQ=289 MCU_SLEEP=8341 RADIO_ON=20 SEC=8687 ' from 29
+7800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 987s
+
+---------
+pkts=257 Report RX '&: SEQ=290 MCU_SLEEP=8369 RADIO_ON=20 SEC=8716 ' from 29
+pkts=258 Report RX '&: SEQ=291 MCU_SLEEP=8398 RADIO_ON=20 SEC=8747 ' from 29
+7860(0)s
+pkts=259 Report RX '&: SEQ=292 MCU_SLEEP=8428 RADIO_ON=20 SEC=8778 ' from 29
+pkts=260 Report RX '&: SEQ=293 MCU_SLEEP=8454 RADIO_ON=20 SEC=8806 ' from 29
+7920(0)s
+pkts=261 Report RX '&: SEQ=294 MCU_SLEEP=8485 RADIO_ON=20 SEC=8837 ' from 29
+pkts=262 Report RX '&: SEQ=295 MCU_SLEEP=8512 RADIO_ON=20 SEC=8866 ' from 29
+7980(0)s
+pkts=263 Report RX '&: SEQ=296 MCU_SLEEP=8542 RADIO_ON=20 SEC=8896 ' from 29
+pkts=264 Report RX '&: SEQ=297 MCU_SLEEP=8569 RADIO_ON=20 SEC=8925 ' from 29
+8040(0)s
+pkts=265 Report RX '&: SEQ=298 MCU_SLEEP=8601 RADIO_ON=20 SEC=8958 ' from 29
+pkts=266 Report RX '&: SEQ=299 MCU_SLEEP=8629 RADIO_ON=21 SEC=8986 ' from 29
+8100(0)s
+pkts=267 Report RX '&: SEQ=300 MCU_SLEEP=8658 RADIO_ON=21 SEC=9018 ' from 29
+pkts=268 Report RX '&: SEQ=301 MCU_SLEEP=8685 RADIO_ON=21 SEC=9046 ' from 29
+8160(0)s
+pkts=269 Report RX '&: SEQ=302 MCU_SLEEP=8716 RADIO_ON=21 SEC=9077 ' from 29
+Never-used stack > 18210 bytes
+pkts=270 Report RX '&: SEQ=303 MCU_SLEEP=8742 RADIO_ON=21 SEC=9105 ' from 29
+8220(0)s
+pkts=271 Report RX '&: SEQ=304 MCU_SLEEP=8770 RADIO_ON=21 SEC=9135 ' from 29
+pkts=272 Report RX '&: SEQ=305 MCU_SLEEP=8800 RADIO_ON=21 SEC=9166 ' from 29
+8280(0)s
+pkts=273 Report RX '&: SEQ=306 MCU_SLEEP=8829 RADIO_ON=21 SEC=9195 ' from 29
+pkts=274 Report RX '&: SEQ=307 MCU_SLEEP=8857 RADIO_ON=21 SEC=9226 ' from 29
+8340(0)s
+pkts=275 Report RX '&: SEQ=308 MCU_SLEEP=8887 RADIO_ON=21 SEC=9256 ' from 29
+pkts=276 Report RX '&: SEQ=309 MCU_SLEEP=8915 RADIO_ON=21 SEC=9287 ' from 29
+pkts=277 Report RX '&: SEQ=310 MCU_SLEEP=8945 RADIO_ON=21 SEC=9318 ' from 29
+pkts=278 Report RX '&: SEQ=311 MCU_SLEEP=8971 RADIO_ON=21 SEC=9345 ' from 29
+8460(0)s
+pkts=279 Report RX '&: SEQ=312 MCU_SLEEP=9001 RADIO_ON=21 SEC=9375 ' from 29
+pkts=280 Report RX '&: SEQ=313 MCU_SLEEP=9030 RADIO_ON=21 SEC=9405 ' from 29
+8520(0)s
+8580(0)s
+pkts=281 Report RX '&: SEQ=316 MCU_SLEEP=9115 RADIO_ON=22 SEC=9497 ' from 29
+pkts=282 Report RX '&: SEQ=317 MCU_SLEEP=9144 RADIO_ON=22 SEC=9526 ' from 29
+8640(0)s
+pkts=283 Report RX '&: SEQ=318 MCU_SLEEP=9173 RADIO_ON=22 SEC=9555 ' from 29
+pkts=284 Report RX '&: SEQ=319 MCU_SLEEP=9202 RADIO_ON=22 SEC=9586 ' from 29
+pkts=285 Report RX '&: SEQ=320 MCU_SLEEP=9231 RADIO_ON=22 SEC=9616 ' from 29
+pkts=286 Report RX '&: SEQ=321 MCU_SLEEP=9260 RADIO_ON=22 SEC=9645 ' from 29
+8760(0)s
+pkts=287 Report RX '&: SEQ=322 MCU_SLEEP=9290 RADIO_ON=22 SEC=9677 ' from 29
+pkts=288 Report RX '&: SEQ=323 MCU_SLEEP=9319 RADIO_ON=22 SEC=9706 ' from 29
+8820(0)s
+pkts=289 Report RX '&: SEQ=324 MCU_SLEEP=9348 RADIO_ON=22 SEC=9735 ' from 29
+pkts=290 Report RX '&: SEQ=325 MCU_SLEEP=9376 RADIO_ON=22 SEC=9766 ' from 29
+8880(0)s
+pkts=291 Report RX '&: SEQ=326 MCU_SLEEP=9405 RADIO_ON=22 SEC=9796 ' from 29
+pkts=292 Report RX '&: SEQ=327 MCU_SLEEP=9434 RADIO_ON=22 SEC=9827 ' from 29
+8940(0)s
+pkts=293 Report RX '&: SEQ=328 MCU_SLEEP=9462 RADIO_ON=22 SEC=9857 ' from 29
+pkts=294 Report RX '&: SEQ=329 MCU_SLEEP=9490 RADIO_ON=23 SEC=9886 ' from 29
+9000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1762s
+
+---------
+pkts=295 Report RX '&: SEQ=330 MCU_SLEEP=9520 RADIO_ON=23 SEC=9916 ' from 29
+pkts=296 Report RX '&: SEQ=331 MCU_SLEEP=9549 RADIO_ON=23 SEC=9945 ' from 29
+9060(0)s
+pkts=297 Report RX '&: SEQ=332 MCU_SLEEP=9577 RADIO_ON=23 SEC=9976 ' from 29
+pkts=298 Report RX '&: SEQ=333 MCU_SLEEP=9607 RADIO_ON=23 SEC=10006 ' from 29
+9120(0)s
+pkts=299 Report RX '&: SEQ=334 MCU_SLEEP=9636 RADIO_ON=23 SEC=10036 ' from 29
+pkts=300 Report RX '&: SEQ=335 MCU_SLEEP=9664 RADIO_ON=23 SEC=10065 ' from 29
+9180(0)s
+pkts=301 Report RX '&: SEQ=336 MCU_SLEEP=9693 RADIO_ON=23 SEC=10096 ' from 29
+Never-used stack > 18210 bytes
+pkts=302 Report RX '&: SEQ=337 MCU_SLEEP=9721 RADIO_ON=23 SEC=10126 ' from 29
+9240(0)s
+pkts=303 Report RX '&: SEQ=338 MCU_SLEEP=9751 RADIO_ON=23 SEC=10157 ' from 29
+pkts=304 Report RX '&: SEQ=339 MCU_SLEEP=9778 RADIO_ON=23 SEC=10186 ' from 29
+9300(0)s
+pkts=305 Report RX '&: SEQ=340 MCU_SLEEP=9808 RADIO_ON=23 SEC=10217 ' from 29
+pkts=306 Report RX '&: SEQ=341 MCU_SLEEP=9834 RADIO_ON=23 SEC=10246 ' from 29
+9360(0)s
+pkts=307 Report RX '&: SEQ=342 MCU_SLEEP=9865 RADIO_ON=23 SEC=10278 ' from 29
+9420(0)s
+pkts=308 Report RX '&: SEQ=343 MCU_SLEEP=9892 RADIO_ON=23 SEC=10307 ' from 29
+pkts=309 Report RX '&: SEQ=344 MCU_SLEEP=9922 RADIO_ON=24 SEC=10336 ' from 29
+pkts=310 Report RX '&: SEQ=345 MCU_SLEEP=9950 RADIO_ON=24 SEC=10366 ' from 29
+9480(0)s
+pkts=311 Report RX '&: SEQ=346 MCU_SLEEP=9980 RADIO_ON=24 SEC=10397 ' from 29
+pkts=312 Report RX '&: SEQ=347 MCU_SLEEP=10008 RADIO_ON=24 SEC=10426 ' from 29
+9540(0)s
+pkts=313 Report RX '&: SEQ=348 MCU_SLEEP=10037 RADIO_ON=24 SEC=10455 ' from 29
+pkts=314 Report RX '&: SEQ=349 MCU_SLEEP=10065 RADIO_ON=24 SEC=10486 ' from 29
+9600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1162s
+
+---------
+pkts=315 Report RX '&: SEQ=350 MCU_SLEEP=10096 RADIO_ON=24 SEC=10516 ' from 29
+9660(0)s
+pkts=316 Report RX '&: SEQ=352 MCU_SLEEP=10151 RADIO_ON=24 SEC=10575 ' from 29
+pkts=317 Report RX '&: SEQ=353 MCU_SLEEP=10181 RADIO_ON=24 SEC=10607 ' from 29
+pkts=318 Report RX '&: SEQ=354 MCU_SLEEP=10211 RADIO_ON=24 SEC=10638 ' from 29
+pkts=319 Report RX '&: SEQ=355 MCU_SLEEP=10238 RADIO_ON=24 SEC=10667 ' from 29
+9780(0)s
+pkts=320 Report RX '&: SEQ=356 MCU_SLEEP=10268 RADIO_ON=24 SEC=10697 ' from 29
+pkts=321 Report RX '&: SEQ=357 MCU_SLEEP=10295 RADIO_ON=24 SEC=10726 ' from 29
+9840(0)s
+pkts=322 Report RX '&: SEQ=358 MCU_SLEEP=10325 RADIO_ON=24 SEC=10756 ' from 29
+pkts=323 Report RX '&: SEQ=359 MCU_SLEEP=10354 RADIO_ON=24 SEC=10787 ' from 29
+9900(0)s
+pkts=324 Report RX '&: SEQ=360 MCU_SLEEP=10385 RADIO_ON=25 SEC=10818 ' from 29
+pkts=325 Report RX '&: SEQ=361 MCU_SLEEP=10411 RADIO_ON=25 SEC=10846 ' from 29
+9960(0)s
+pkts=326 Report RX '&: SEQ=362 MCU_SLEEP=10441 RADIO_ON=25 SEC=10877 ' from 29
+pkts=327 Report RX '&: SEQ=363 MCU_SLEEP=10468 RADIO_ON=25 SEC=10905 ' from 29
+10020(0)s
+pkts=328 Report RX '&: SEQ=364 MCU_SLEEP=10498 RADIO_ON=25 SEC=10936 ' from 29
+pkts=329 Report RX '&: SEQ=365 MCU_SLEEP=10526 RADIO_ON=25 SEC=10965 ' from 29
+10080(0)s
+pkts=330 Report RX '&: SEQ=366 MCU_SLEEP=10556 RADIO_ON=25 SEC=10996 ' from 29
+pkts=331 Report RX '&: SEQ=367 MCU_SLEEP=10584 RADIO_ON=25 SEC=11025 ' from 29
+10140(0)s
+pkts=332 Report RX '&: SEQ=368 MCU_SLEEP=10613 RADIO_ON=25 SEC=11055 ' from 29
+pkts=333 Report RX '&: SEQ=369 MCU_SLEEP=10642 RADIO_ON=25 SEC=11085 ' from 29
+10200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1543s
+
+---------
+pkts=334 Report RX '&: SEQ=370 MCU_SLEEP=10670 RADIO_ON=25 SEC=11116 ' from 29
+Never-used stack > 18210 bytes
+pkts=335 Report RX '&: SEQ=371 MCU_SLEEP=10699 RADIO_ON=25 SEC=11146 ' from 29
+pkts=336 Report RX '&: SEQ=372 MCU_SLEEP=10728 RADIO_ON=25 SEC=11176 ' from 29
+pkts=337 Report RX '&: SEQ=373 MCU_SLEEP=10757 RADIO_ON=25 SEC=11206 ' from 29
+10320(0)s
+pkts=338 Report RX '&: SEQ=374 MCU_SLEEP=10785 RADIO_ON=26 SEC=11235 ' from 29
+pkts=339 Report RX '&: SEQ=375 MCU_SLEEP=10815 RADIO_ON=26 SEC=11266 ' from 29
+pkts=340 Report RX '&: SEQ=376 MCU_SLEEP=10843 RADIO_ON=26 SEC=11295 ' from 29
+pkts=341 Report RX '&: SEQ=377 MCU_SLEEP=10872 RADIO_ON=26 SEC=11325 ' from 29
+10440(0)s
+pkts=342 Report RX '&: SEQ=378 MCU_SLEEP=10902 RADIO_ON=26 SEC=11357 ' from 29
+pkts=343 Report RX '&: SEQ=379 MCU_SLEEP=10930 RADIO_ON=26 SEC=11386 ' from 29
+10500(0)s
+pkts=344 Report RX '&: SEQ=380 MCU_SLEEP=10960 RADIO_ON=26 SEC=11416 ' from 29
+pkts=345 Report RX '&: SEQ=381 MCU_SLEEP=10988 RADIO_ON=26 SEC=11446 ' from 29
+pkts=346 Report RX '&: SEQ=382 MCU_SLEEP=11017 RADIO_ON=26 SEC=11475 ' from 29
+pkts=347 Report RX '&: SEQ=383 MCU_SLEEP=11045 RADIO_ON=26 SEC=11505 ' from 29
+10620(0)s
+pkts=348 Report RX '&: SEQ=384 MCU_SLEEP=11076 RADIO_ON=26 SEC=11536 ' from 29
+pkts=349 Report RX '&: SEQ=385 MCU_SLEEP=11104 RADIO_ON=26 SEC=11566 ' from 29
+10680(0)s
+pkts=350 Report RX '&: SEQ=386 MCU_SLEEP=11133 RADIO_ON=27 SEC=11596 ' from 29
+pkts=351 Report RX '&: SEQ=387 MCU_SLEEP=11160 RADIO_ON=27 SEC=11625 ' from 29
+10740(0)s
+pkts=352 Report RX '&: SEQ=388 MCU_SLEEP=11191 RADIO_ON=27 SEC=11656 ' from 29
+pkts=353 Report RX '&: SEQ=389 MCU_SLEEP=11219 RADIO_ON=27 SEC=11685 ' from 29
+10800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 943s
+
+---------
+pkts=354 Report RX '&: SEQ=390 MCU_SLEEP=11246 RADIO_ON=27 SEC=11715 ' from 29
+pkts=355 Report RX '&: SEQ=391 MCU_SLEEP=11276 RADIO_ON=27 SEC=11746 ' from 29
+pkts=356 Report RX '&: SEQ=392 MCU_SLEEP=11305 RADIO_ON=27 SEC=11776 ' from 29
+pkts=357 Report RX '&: SEQ=393 MCU_SLEEP=11334 RADIO_ON=27 SEC=11805 ' from 29
+pkts=358 Report RX '&: SEQ=394 MCU_SLEEP=11364 RADIO_ON=27 SEC=11837 ' from 29
+pkts=359 Report RX '&: SEQ=395 MCU_SLEEP=11392 RADIO_ON=27 SEC=11866 ' from 29
+10980(0)s
+pkts=360 Report RX '&: SEQ=396 MCU_SLEEP=11421 RADIO_ON=27 SEC=11896 ' from 29
+pkts=361 Report RX '&: SEQ=397 MCU_SLEEP=11450 RADIO_ON=27 SEC=11925 ' from 29
+11040(0)s
+pkts=362 Report RX '&: SEQ=398 MCU_SLEEP=11479 RADIO_ON=27 SEC=11956 ' from 29
+pkts=363 Report RX '&: SEQ=399 MCU_SLEEP=11508 RADIO_ON=27 SEC=11986 ' from 29
+11100(0)s
+pkts=364 Report RX '&: SEQ=400 MCU_SLEEP=11539 RADIO_ON=27 SEC=12019 ' from 29
+pkts=365 Report RX '&: SEQ=401 MCU_SLEEP=11564 RADIO_ON=28 SEC=12046 ' from 29
+11160(0)s
+pkts=366 Report RX '&: SEQ=402 MCU_SLEEP=11594 RADIO_ON=28 SEC=12076 ' from 29
+pkts=367 Report RX '&: SEQ=403 MCU_SLEEP=11622 RADIO_ON=28 SEC=12107 ' from 29
+11220(0)s
+pkts=368 Report RX '&: SEQ=404 MCU_SLEEP=11650 RADIO_ON=28 SEC=12136 ' from 29
+Never-used stack > 18210 bytes
+pkts=369 Report RX '&: SEQ=405 MCU_SLEEP=11679 RADIO_ON=28 SEC=12166 ' from 29
+11280(0)s
+pkts=370 Report RX '&: SEQ=406 MCU_SLEEP=11710 RADIO_ON=28 SEC=12197 ' from 29
+pkts=371 Report RX '&: SEQ=407 MCU_SLEEP=11738 RADIO_ON=28 SEC=12225 ' from 29
+11340(0)s
+pkts=372 Report RX '&: SEQ=408 MCU_SLEEP=11767 RADIO_ON=28 SEC=12256 ' from 29
+pkts=373 Report RX '&: SEQ=409 MCU_SLEEP=11795 RADIO_ON=28 SEC=12286 ' from 29
+11400(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1494s
+
+---------
+pkts=374 Report RX '&: SEQ=410 MCU_SLEEP=11825 RADIO_ON=28 SEC=12317 ' from 29
+11460(0)s
+pkts=375 Report RX '&: SEQ=412 MCU_SLEEP=11883 RADIO_ON=28 SEC=12377 ' from 29
+pkts=376 Report RX '&: SEQ=413 MCU_SLEEP=11911 RADIO_ON=28 SEC=12407 ' from 29
+11520(0)s
+pkts=377 Report RX '&: SEQ=414 MCU_SLEEP=11941 RADIO_ON=28 SEC=12438 ' from 29
+pkts=378 Report RX '&: SEQ=415 MCU_SLEEP=11969 RADIO_ON=28 SEC=12465 ' from 29
+11580(0)s
+pkts=379 Report RX '&: SEQ=416 MCU_SLEEP=11998 RADIO_ON=29 SEC=12495 ' from 29
+pkts=380 Report RX '&: SEQ=417 MCU_SLEEP=12026 RADIO_ON=29 SEC=12526 ' from 29
+11640(0)s
+pkts=381 Report RX '&: SEQ=418 MCU_SLEEP=12056 RADIO_ON=29 SEC=12556 ' from 29
+pkts=382 Report RX '&: SEQ=419 MCU_SLEEP=12085 RADIO_ON=29 SEC=12586 ' from 29
+11700(0)s
+pkts=383 Report RX '&: SEQ=420 MCU_SLEEP=12114 RADIO_ON=29 SEC=12616 ' from 29
+pkts=384 Report RX '&: SEQ=421 MCU_SLEEP=12142 RADIO_ON=29 SEC=12645 ' from 29
+11760(0)s
+pkts=385 Report RX '&: SEQ=422 MCU_SLEEP=12171 RADIO_ON=29 SEC=12676 ' from 29
+pkts=386 Report RX '&: SEQ=423 MCU_SLEEP=12200 RADIO_ON=29 SEC=12706 ' from 29
+11820(0)s
+pkts=387 Report RX '&: SEQ=424 MCU_SLEEP=12228 RADIO_ON=29 SEC=12736 ' from 29
+pkts=388 Report RX '&: SEQ=425 MCU_SLEEP=12257 RADIO_ON=29 SEC=12766 ' from 29
+11880(0)s
+pkts=389 Report RX '&: SEQ=426 MCU_SLEEP=12286 RADIO_ON=29 SEC=12797 ' from 29
+pkts=390 Report RX '&: SEQ=427 MCU_SLEEP=12314 RADIO_ON=29 SEC=12826 ' from 29
+11940(0)s
+pkts=391 Report RX '&: SEQ=428 MCU_SLEEP=12345 RADIO_ON=29 SEC=12858 ' from 29
+pkts=392 Report RX '&: SEQ=429 MCU_SLEEP=12371 RADIO_ON=29 SEC=12886 ' from 29
+12000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 895s
+
+---------
+pkts=393 Report RX '&: SEQ=430 MCU_SLEEP=12402 RADIO_ON=29 SEC=12918 ' from 29
+pkts=394 Report RX '&: SEQ=431 MCU_SLEEP=12429 RADIO_ON=30 SEC=12945 ' from 29
+12060(0)s
+pkts=395 Report RX '&: SEQ=432 MCU_SLEEP=12460 RADIO_ON=30 SEC=12978 ' from 29
+pkts=396 Report RX '&: SEQ=433 MCU_SLEEP=12487 RADIO_ON=30 SEC=13005 ' from 29
+12120(0)s
+pkts=397 Report RX '&: SEQ=435 MCU_SLEEP=12544 RADIO_ON=30 SEC=13066 ' from 29
+12180(0)s
+pkts=398 Report RX '&: SEQ=436 MCU_SLEEP=12573 RADIO_ON=30 SEC=13096 ' from 29
+pkts=399 Report RX '&: SEQ=437 MCU_SLEEP=12602 RADIO_ON=30 SEC=13126 ' from 29
+12240(0)s
+pkts=400 Report RX '&: SEQ=438 MCU_SLEEP=12631 RADIO_ON=30 SEC=13155 ' from 29
+Never-used stack > 18210 bytes
+pkts=401 Report RX '&: SEQ=439 MCU_SLEEP=12660 RADIO_ON=30 SEC=13185 ' from 29
+12300(0)s
+pkts=402 Report RX '&: SEQ=440 MCU_SLEEP=12690 RADIO_ON=30 SEC=13216 ' from 29
+pkts=403 Report RX '&: SEQ=441 MCU_SLEEP=12718 RADIO_ON=30 SEC=13246 ' from 29
+12360(0)s
+pkts=404 Report RX '&: SEQ=442 MCU_SLEEP=12746 RADIO_ON=30 SEC=13276 ' from 29
+pkts=405 Report RX '&: SEQ=443 MCU_SLEEP=12774 RADIO_ON=30 SEC=13305 ' from 29
+12420(0)s
+pkts=406 Report RX '&: SEQ=444 MCU_SLEEP=12803 RADIO_ON=30 SEC=13335 ' from 29
+pkts=407 Report RX '&: SEQ=445 MCU_SLEEP=12833 RADIO_ON=30 SEC=13365 ' from 29
+12480(0)s
+pkts=408 Report RX '&: SEQ=446 MCU_SLEEP=12861 RADIO_ON=30 SEC=13395 ' from 29
+pkts=409 Report RX '&: SEQ=447 MCU_SLEEP=12891 RADIO_ON=30 SEC=13426 ' from 29
+pkts=410 Report RX '&: SEQ=448 MCU_SLEEP=12920 RADIO_ON=31 SEC=13456 ' from 29
+pkts=411 Report RX '&: SEQ=449 MCU_SLEEP=12949 RADIO_ON=31 SEC=13485 ' from 29
+12600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 293s
+
+---------
+pkts=412 Report RX '&: SEQ=450 MCU_SLEEP=12978 RADIO_ON=31 SEC=13517 ' from 29
+pkts=413 Report RX '&: SEQ=451 MCU_SLEEP=13007 RADIO_ON=31 SEC=13546 ' from 29
+12660(0)s
+pkts=414 Report RX '&: SEQ=452 MCU_SLEEP=13036 RADIO_ON=31 SEC=13576 ' from 29
+pkts=415 Report RX '&: SEQ=453 MCU_SLEEP=13065 RADIO_ON=31 SEC=13606 ' from 29
+12720(0)s
+pkts=416 Report RX '&: SEQ=454 MCU_SLEEP=13094 RADIO_ON=31 SEC=13636 ' from 29
+pkts=417 Report RX '&: SEQ=455 MCU_SLEEP=13122 RADIO_ON=31 SEC=13665 ' from 29
+pkts=418 Report RX '&: SEQ=456 MCU_SLEEP=13151 RADIO_ON=31 SEC=13697 ' from 29
+12840(0)s
+pkts=419 Report RX '&: SEQ=457 MCU_SLEEP=13180 RADIO_ON=31 SEC=13727 ' from 29
+pkts=420 Report RX '&: SEQ=458 MCU_SLEEP=13208 RADIO_ON=31 SEC=13757 ' from 29
+pkts=421 Report RX '&: SEQ=459 MCU_SLEEP=13237 RADIO_ON=31 SEC=13785 ' from 29
+12900(0)s
+pkts=422 Report RX '&: SEQ=460 MCU_SLEEP=13265 RADIO_ON=31 SEC=13815 ' from 29
+pkts=423 Report RX '&: SEQ=461 MCU_SLEEP=13294 RADIO_ON=31 SEC=13845 ' from 29
+12960(0)s
+pkts=424 Report RX '&: SEQ=462 MCU_SLEEP=13324 RADIO_ON=32 SEC=13877 ' from 29
+pkts=425 Report RX '&: SEQ=463 MCU_SLEEP=13351 RADIO_ON=32 SEC=13905 ' from 29
+13020(0)s
+pkts=426 Report RX '&: SEQ=464 MCU_SLEEP=13381 RADIO_ON=32 SEC=13936 ' from 29
+pkts=427 Report RX '&: SEQ=465 MCU_SLEEP=13408 RADIO_ON=32 SEC=13966 ' from 29
+pkts=428 Report RX '&: SEQ=466 MCU_SLEEP=13438 RADIO_ON=32 SEC=13996 ' from 29
+pkts=429 Report RX '&: SEQ=467 MCU_SLEEP=13467 RADIO_ON=32 SEC=14026 ' from 29
+pkts=430 Report RX '&: SEQ=468 MCU_SLEEP=13496 RADIO_ON=32 SEC=14055 ' from 29
+pkts=431 Report RX '&: SEQ=469 MCU_SLEEP=13524 RADIO_ON=32 SEC=14085 ' from 29
+13200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1774s
+
+---------
+pkts=432 Report RX '&: SEQ=470 MCU_SLEEP=13554 RADIO_ON=32 SEC=14117 ' from 29
+pkts=433 Report RX '&: SEQ=471 MCU_SLEEP=13582 RADIO_ON=32 SEC=14146 ' from 29
+13260(0)s
+pkts=434 Report RX '&: SEQ=472 MCU_SLEEP=13612 RADIO_ON=32 SEC=14176 ' from 29
+Never-used stack > 18210 bytes
+pkts=435 Report RX '&: SEQ=473 MCU_SLEEP=13641 RADIO_ON=32 SEC=14206 ' from 29
+pkts=436 Report RX '&: SEQ=474 MCU_SLEEP=13669 RADIO_ON=32 SEC=14236 ' from 29
+pkts=437 Report RX '&: SEQ=475 MCU_SLEEP=13697 RADIO_ON=32 SEC=14265 ' from 29
+13380(0)s
+pkts=438 Report RX '&: SEQ=476 MCU_SLEEP=13727 RADIO_ON=33 SEC=14297 ' from 29
+pkts=439 Report RX '&: SEQ=477 MCU_SLEEP=13755 RADIO_ON=33 SEC=14326 ' from 29
+13440(0)s
+pkts=440 Report RX '&: SEQ=478 MCU_SLEEP=13784 RADIO_ON=33 SEC=14356 ' from 29
+pkts=441 Report RX '&: SEQ=479 MCU_SLEEP=13812 RADIO_ON=33 SEC=14386 ' from 29
+pkts=442 Report RX '&: SEQ=480 MCU_SLEEP=13841 RADIO_ON=33 SEC=14416 ' from 29
+pkts=443 Report RX '&: SEQ=481 MCU_SLEEP=13870 RADIO_ON=33 SEC=14445 ' from 29
+pkts=444 Report RX '&: SEQ=482 MCU_SLEEP=13900 RADIO_ON=33 SEC=14477 ' from 29
+pkts=445 Report RX '&: SEQ=483 MCU_SLEEP=13928 RADIO_ON=33 SEC=14505 ' from 29
+13620(0)s
+pkts=446 Report RX '&: SEQ=484 MCU_SLEEP=13956 RADIO_ON=33 SEC=14536 ' from 29
+pkts=447 Report RX '&: SEQ=485 MCU_SLEEP=13985 RADIO_ON=33 SEC=14565 ' from 29
+13680(0)s
+pkts=448 Report RX '&: SEQ=486 MCU_SLEEP=14015 RADIO_ON=33 SEC=14597 ' from 29
+pkts=449 Report RX '&: SEQ=487 MCU_SLEEP=14043 RADIO_ON=33 SEC=14626 ' from 29
+13740(0)s
+pkts=450 Report RX '&: SEQ=488 MCU_SLEEP=14071 RADIO_ON=33 SEC=14656 ' from 29
+pkts=451 Report RX '&: SEQ=489 MCU_SLEEP=14099 RADIO_ON=33 SEC=14685 ' from 29
+13800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1174s
+
+---------
+pkts=452 Report RX '&: SEQ=490 MCU_SLEEP=14129 RADIO_ON=34 SEC=14716 ' from 29
+13860(0)s
+pkts=453 Report RX '&: SEQ=491 MCU_SLEEP=14159 RADIO_ON=34 SEC=14746 ' from 29
+pkts=454 Report RX '&: SEQ=492 MCU_SLEEP=14188 RADIO_ON=34 SEC=14777 ' from 29
+pkts=455 Report RX '&: SEQ=493 MCU_SLEEP=14216 RADIO_ON=34 SEC=14805 ' from 29
+13920(0)s
+pkts=456 Report RX '&: SEQ=494 MCU_SLEEP=14245 RADIO_ON=34 SEC=14836 ' from 29
+pkts=457 Report RX '&: SEQ=495 MCU_SLEEP=14274 RADIO_ON=34 SEC=14865 ' from 29
+13980(0)s
+pkts=458 Report RX '&: SEQ=496 MCU_SLEEP=14303 RADIO_ON=34 SEC=14895 ' from 29
+pkts=459 Report RX '&: SEQ=497 MCU_SLEEP=14331 RADIO_ON=34 SEC=14925 ' from 29
+14040(0)s
+pkts=460 Report RX '&: SEQ=498 MCU_SLEEP=14360 RADIO_ON=34 SEC=14956 ' from 29
+pkts=461 Report RX '&: SEQ=499 MCU_SLEEP=14390 RADIO_ON=34 SEC=14985 ' from 29
+14100(0)s
+pkts=462 Report RX '&: SEQ=500 MCU_SLEEP=14418 RADIO_ON=34 SEC=15015 ' from 29
+pkts=463 Report RX '&: SEQ=501 MCU_SLEEP=14447 RADIO_ON=34 SEC=15046 ' from 29
+14160(0)s
+pkts=464 Report RX '&: SEQ=502 MCU_SLEEP=14477 RADIO_ON=34 SEC=15075 ' from 29
+pkts=465 Report RX '&: SEQ=503 MCU_SLEEP=14506 RADIO_ON=34 SEC=15106 ' from 29
+14220(0)s
+pkts=466 Report RX '&: SEQ=504 MCU_SLEEP=14535 RADIO_ON=34 SEC=15136 ' from 29
+pkts=467 Report RX '&: SEQ=505 MCU_SLEEP=14563 RADIO_ON=35 SEC=15165 ' from 29
+14280(0)s
+pkts=468 Report RX '&: SEQ=506 MCU_SLEEP=14592 RADIO_ON=35 SEC=15196 ' from 29
+Never-used stack > 18210 bytes
+pkts=469 Report RX '&: SEQ=507 MCU_SLEEP=14620 RADIO_ON=35 SEC=15225 ' from 29
+14340(0)s
+pkts=470 Report RX '&: SEQ=509 MCU_SLEEP=14678 RADIO_ON=35 SEC=15286 ' from 29
+14400(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1603s
+
+---------
+pkts=471 Report RX '&: SEQ=510 MCU_SLEEP=14707 RADIO_ON=35 SEC=15316 ' from 29
+14460(0)s
+pkts=472 Report RX '&: SEQ=512 MCU_SLEEP=14765 RADIO_ON=35 SEC=15377 ' from 29
+pkts=473 Report RX '&: SEQ=513 MCU_SLEEP=14793 RADIO_ON=35 SEC=15405 ' from 29
+14520(0)s
+pkts=474 Report RX '&: SEQ=514 MCU_SLEEP=14821 RADIO_ON=35 SEC=15435 ' from 29
+14580(0)s
+pkts=475 Report RX '&: SEQ=515 MCU_SLEEP=14851 RADIO_ON=35 SEC=15465 ' from 29
+pkts=476 Report RX '&: SEQ=516 MCU_SLEEP=14881 RADIO_ON=35 SEC=15497 ' from 29
+pkts=477 Report RX '&: SEQ=517 MCU_SLEEP=14909 RADIO_ON=35 SEC=15527 ' from 29
+14640(0)s
+pkts=478 Report RX '&: SEQ=518 MCU_SLEEP=14938 RADIO_ON=35 SEC=15557 ' from 29
+pkts=479 Report RX '&: SEQ=519 MCU_SLEEP=14966 RADIO_ON=35 SEC=15586 ' from 29
+14700(0)s
+pkts=480 Report RX '&: SEQ=520 MCU_SLEEP=14996 RADIO_ON=36 SEC=15617 ' from 29
+pkts=481 Report RX '&: SEQ=521 MCU_SLEEP=15025 RADIO_ON=36 SEC=15647 ' from 29
+14760(0)s
+pkts=482 Report RX '&: SEQ=522 MCU_SLEEP=15054 RADIO_ON=36 SEC=15676 ' from 29
+14820(0)s
+pkts=483 Report RX '&: SEQ=523 MCU_SLEEP=15083 RADIO_ON=36 SEC=15706 ' from 29
+pkts=484 Report RX '&: SEQ=524 MCU_SLEEP=15111 RADIO_ON=36 SEC=15736 ' from 29
+pkts=485 Report RX '&: SEQ=525 MCU_SLEEP=15139 RADIO_ON=36 SEC=15765 ' from 29
+14880(0)s
+pkts=486 Report RX '&: SEQ=526 MCU_SLEEP=15169 RADIO_ON=36 SEC=15796 ' from 29
+pkts=487 Report RX '&: SEQ=527 MCU_SLEEP=15198 RADIO_ON=36 SEC=15826 ' from 29
+14940(0)s
+pkts=488 Report RX '&: SEQ=528 MCU_SLEEP=15226 RADIO_ON=36 SEC=15856 ' from 29
+pkts=489 Report RX '&: SEQ=529 MCU_SLEEP=15255 RADIO_ON=36 SEC=15886 ' from 29
+15000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1004s
+
+---------
+pkts=490 Report RX '&: SEQ=530 MCU_SLEEP=15285 RADIO_ON=36 SEC=15917 ' from 29
+pkts=491 Report RX '&: SEQ=531 MCU_SLEEP=15313 RADIO_ON=36 SEC=15946 ' from 29
+15060(0)s
+pkts=492 Report RX '&: SEQ=532 MCU_SLEEP=15342 RADIO_ON=36 SEC=15978 ' from 29
+pkts=493 Report RX '&: SEQ=533 MCU_SLEEP=15368 RADIO_ON=36 SEC=16005 ' from 29
+15120(0)s
+pkts=494 Report RX '&: SEQ=534 MCU_SLEEP=15398 RADIO_ON=37 SEC=16037 ' from 29
+pkts=495 Report RX '&: SEQ=535 MCU_SLEEP=15426 RADIO_ON=37 SEC=16067 ' from 29
+pkts=496 Report RX '&: SEQ=536 MCU_SLEEP=15456 RADIO_ON=37 SEC=16097 ' from 29
+pkts=497 Report RX '&: SEQ=537 MCU_SLEEP=15485 RADIO_ON=37 SEC=16126 ' from 29
+15240(0)s
+pkts=498 Report RX '&: SEQ=538 MCU_SLEEP=15513 RADIO_ON=37 SEC=16156 ' from 29
+pkts=499 Report RX '&: SEQ=539 MCU_SLEEP=15542 RADIO_ON=37 SEC=16186 ' from 29
+15300(0)s
+pkts=500 Report RX '&: SEQ=540 MCU_SLEEP=15577 RADIO_ON=37 SEC=16223 ' from 29
+pkts=501 Report RX '&: SEQ=541 MCU_SLEEP=15599 RADIO_ON=37 SEC=16247 ' from 29
+15360(0)s
+Never-used stack > 18210 bytes
+pkts=502 Report RX '&: SEQ=542 MCU_SLEEP=15628 RADIO_ON=37 SEC=16277 ' from 29
+pkts=503 Report RX '&: SEQ=543 MCU_SLEEP=15656 RADIO_ON=37 SEC=16307 ' from 29
+15420(0)s
+pkts=504 Report RX '&: SEQ=544 MCU_SLEEP=15686 RADIO_ON=37 SEC=16337 ' from 29
+pkts=505 Report RX '&: SEQ=545 MCU_SLEEP=15714 RADIO_ON=37 SEC=16366 ' from 29
+15540(0)s
+pkts=506 Report RX '&: SEQ=547 MCU_SLEEP=15771 RADIO_ON=37 SEC=16427 ' from 29
+pkts=507 Report RX '&: SEQ=548 MCU_SLEEP=15801 RADIO_ON=38 SEC=16457 ' from 29
+pkts=508 Report RX '&: SEQ=549 MCU_SLEEP=15828 RADIO_ON=38 SEC=16485 ' from 29
+15600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1356s
+
+---------
+pkts=509 Report RX '&: SEQ=550 MCU_SLEEP=15856 RADIO_ON=38 SEC=16515 ' from 29
+pkts=510 Report RX '&: SEQ=551 MCU_SLEEP=15885 RADIO_ON=38 SEC=16545 ' from 29
+15660(0)s
+pkts=511 Report RX '&: SEQ=552 MCU_SLEEP=15914 RADIO_ON=38 SEC=16576 ' from 29
+pkts=512 Report RX '&: SEQ=553 MCU_SLEEP=15942 RADIO_ON=38 SEC=16606 ' from 29
+15720(0)s
+pkts=513 Report RX '&: SEQ=554 MCU_SLEEP=15970 RADIO_ON=38 SEC=16635 ' from 29
+pkts=514 Report RX '&: SEQ=555 MCU_SLEEP=16000 RADIO_ON=38 SEC=16666 ' from 29
+15780(0)s
+pkts=515 Report RX '&: SEQ=556 MCU_SLEEP=16029 RADIO_ON=38 SEC=16696 ' from 29
+pkts=516 Report RX '&: SEQ=557 MCU_SLEEP=16058 RADIO_ON=38 SEC=16726 ' from 29
+15840(0)s
+pkts=517 Report RX '&: SEQ=558 MCU_SLEEP=16087 RADIO_ON=38 SEC=16757 ' from 29
+pkts=518 Report RX '&: SEQ=559 MCU_SLEEP=16114 RADIO_ON=38 SEC=16786 ' from 29
+15900(0)s
+pkts=519 Report RX '&: SEQ=560 MCU_SLEEP=16141 RADIO_ON=38 SEC=16816 ' from 29
+pkts=520 Report RX '&: SEQ=561 MCU_SLEEP=16169 RADIO_ON=38 SEC=16845 ' from 29
+pkts=521 Report RX '&: SEQ=562 MCU_SLEEP=16199 RADIO_ON=38 SEC=16877 ' from 29
+16020(0)s
+pkts=522 Report RX '&: SEQ=563 MCU_SLEEP=16228 RADIO_ON=39 SEC=16906 ' from 29
+pkts=523 Report RX '&: SEQ=564 MCU_SLEEP=16257 RADIO_ON=39 SEC=16936 ' from 29
+pkts=524 Report RX '&: SEQ=565 MCU_SLEEP=16285 RADIO_ON=39 SEC=16966 ' from 29
+16080(0)s
+pkts=525 Report RX '&: SEQ=566 MCU_SLEEP=16314 RADIO_ON=39 SEC=16996 ' from 29
+pkts=526 Report RX '&: SEQ=567 MCU_SLEEP=16343 RADIO_ON=39 SEC=17025 ' from 29
+pkts=527 Report RX '&: SEQ=568 MCU_SLEEP=16372 RADIO_ON=39 SEC=17055 ' from 29
+16200(0)s
+pkts=528 Report RX '&: SEQ=569 MCU_SLEEP=16401 RADIO_ON=39 SEC=17087 ' from 29
+pkts=529 Report RX '&: SEQ=570 MCU_SLEEP=16430 RADIO_ON=39 SEC=17117 ' from 29
+pkts=530 Report RX '&: SEQ=571 MCU_SLEEP=16458 RADIO_ON=39 SEC=17146 ' from 29
+16260(0)s
+pkts=531 Report RX '&: SEQ=572 MCU_SLEEP=16487 RADIO_ON=39 SEC=17177 ' from 29
+pkts=532 Report RX '&: SEQ=573 MCU_SLEEP=16515 RADIO_ON=39 SEC=17206 ' from 29
+16320(0)s
+pkts=533 Report RX '&: SEQ=574 MCU_SLEEP=16544 RADIO_ON=39 SEC=17235 ' from 29
+pkts=534 Report RX '&: SEQ=575 MCU_SLEEP=16572 RADIO_ON=39 SEC=17266 ' from 29
+16380(0)s
+Never-used stack > 18210 bytes
+pkts=535 Report RX '&: SEQ=576 MCU_SLEEP=16603 RADIO_ON=39 SEC=17298 ' from 29
+pkts=536 Report RX '&: SEQ=577 MCU_SLEEP=16630 RADIO_ON=40 SEC=17326 ' from 29
+16440(0)s
+pkts=537 Report RX '&: SEQ=578 MCU_SLEEP=16657 RADIO_ON=40 SEC=17355 ' from 29
+pkts=538 Report RX '&: SEQ=579 MCU_SLEEP=16685 RADIO_ON=40 SEC=17385 ' from 29
+16500(0)s
+pkts=539 Report RX '&: SEQ=580 MCU_SLEEP=16722 RADIO_ON=40 SEC=17424 ' from 29
+16560(0)s
+pkts=540 Report RX '&: SEQ=581 MCU_SLEEP=16743 RADIO_ON=40 SEC=17446 ' from 29
+pkts=541 Report RX '&: SEQ=582 MCU_SLEEP=16772 RADIO_ON=40 SEC=17477 ' from 29
+pkts=542 Report RX '&: SEQ=583 MCU_SLEEP=16801 RADIO_ON=40 SEC=17506 ' from 29
+16620(0)s
+pkts=543 Report RX '&: SEQ=584 MCU_SLEEP=16830 RADIO_ON=40 SEC=17537 ' from 29
+pkts=544 Report RX '&: SEQ=585 MCU_SLEEP=16858 RADIO_ON=40 SEC=17566 ' from 29
+16680(0)s
+pkts=545 Report RX '&: SEQ=586 MCU_SLEEP=16889 RADIO_ON=40 SEC=17597 ' from 29
+pkts=546 Report RX '&: SEQ=587 MCU_SLEEP=16917 RADIO_ON=40 SEC=17625 ' from 29
+16740(0)s
+pkts=547 Report RX '&: SEQ=588 MCU_SLEEP=16945 RADIO_ON=40 SEC=17655 ' from 29
+pkts=548 Report RX '&: SEQ=589 MCU_SLEEP=16974 RADIO_ON=40 SEC=17685 ' from 29
+16800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1504s
+
+---------
+pkts=549 Report RX '&: SEQ=590 MCU_SLEEP=17002 RADIO_ON=40 SEC=17716 ' from 29
+pkts=550 Report RX '&: SEQ=591 MCU_SLEEP=17031 RADIO_ON=41 SEC=17745 ' from 29
+16860(0)s
+pkts=551 Report RX '&: SEQ=592 MCU_SLEEP=17063 RADIO_ON=41 SEC=17778 ' from 29
+pkts=552 Report RX '&: SEQ=593 MCU_SLEEP=17090 RADIO_ON=41 SEC=17806 ' from 29
+16920(0)s
+pkts=553 Report RX '&: SEQ=594 MCU_SLEEP=17119 RADIO_ON=41 SEC=17836 ' from 29
+16980(0)s
+pkts=554 Report RX '&: SEQ=595 MCU_SLEEP=17148 RADIO_ON=41 SEC=17867 ' from 29
+17040(0)s
+pkts=555 Report RX '&: SEQ=597 MCU_SLEEP=17205 RADIO_ON=41 SEC=17925 ' from 29
+pkts=556 Report RX '&: SEQ=598 MCU_SLEEP=17235 RADIO_ON=41 SEC=17956 ' from 29
+pkts=557 Report RX '&: SEQ=599 MCU_SLEEP=17264 RADIO_ON=41 SEC=17986 ' from 29
+17100(0)s
+pkts=558 Report RX '&: SEQ=600 MCU_SLEEP=17294 RADIO_ON=41 SEC=18017 ' from 29
+pkts=559 Report RX '&: SEQ=601 MCU_SLEEP=17322 RADIO_ON=41 SEC=18046 ' from 29
+17160(0)s
+pkts=560 Report RX '&: SEQ=602 MCU_SLEEP=17351 RADIO_ON=41 SEC=18076 ' from 29
+pkts=561 Report RX '&: SEQ=603 MCU_SLEEP=17379 RADIO_ON=42 SEC=18106 ' from 29
+17220(0)s
+pkts=562 Report RX '&: SEQ=604 MCU_SLEEP=17409 RADIO_ON=42 SEC=18136 ' from 29
+pkts=563 Report RX '&: SEQ=605 MCU_SLEEP=17437 RADIO_ON=42 SEC=18165 ' from 29
+17280(0)s
+pkts=564 Report RX '&: SEQ=606 MCU_SLEEP=17466 RADIO_ON=42 SEC=18196 ' from 29
+pkts=565 Report RX '&: SEQ=607 MCU_SLEEP=17494 RADIO_ON=42 SEC=18226 ' from 29
+17340(0)s
+pkts=566 Report RX '&: SEQ=608 MCU_SLEEP=17523 RADIO_ON=42 SEC=18255 ' from 29
+pkts=567 Report RX '&: SEQ=609 MCU_SLEEP=17551 RADIO_ON=42 SEC=18286 ' from 29
+17400(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 904s
+
+---------
+pkts=568 Report RX '&: SEQ=610 MCU_SLEEP=17580 RADIO_ON=42 SEC=18316 ' from 29
+pkts=569 Report RX '&: SEQ=611 MCU_SLEEP=17609 RADIO_ON=42 SEC=18345 ' from 29
+17460(0)s
+pkts=570 Report RX '&: SEQ=612 MCU_SLEEP=17637 RADIO_ON=42 SEC=18376 ' from 29
+pkts=571 Report RX '&: SEQ=613 MCU_SLEEP=17667 RADIO_ON=42 SEC=18406 ' from 29
+17520(0)s
+pkts=572 Report RX '&: SEQ=614 MCU_SLEEP=17695 RADIO_ON=42 SEC=18436 ' from 29
+pkts=573 Report RX '&: SEQ=615 MCU_SLEEP=17723 RADIO_ON=42 SEC=18466 ' from 29
+17580(0)s
+pkts=574 Report RX '&: SEQ=616 MCU_SLEEP=17752 RADIO_ON=42 SEC=18497 ' from 29
+pkts=575 Report RX '&: SEQ=617 MCU_SLEEP=17781 RADIO_ON=42 SEC=18526 ' from 29
+pkts=576 Report RX '&: SEQ=618 MCU_SLEEP=17809 RADIO_ON=43 SEC=18555 ' from 29
+pkts=577 Report RX '&: SEQ=619 MCU_SLEEP=17837 RADIO_ON=43 SEC=18586 ' from 29
+pkts=578 Report RX '&: SEQ=620 MCU_SLEEP=17867 RADIO_ON=43 SEC=18615 ' from 29
+pkts=579 Report RX '&: SEQ=621 MCU_SLEEP=17897 RADIO_ON=43 SEC=18646 ' from 29
+17760(0)s
+pkts=580 Report RX '&: SEQ=622 MCU_SLEEP=17926 RADIO_ON=43 SEC=18675 ' from 29
+pkts=581 Report RX '&: SEQ=623 MCU_SLEEP=17954 RADIO_ON=43 SEC=18705 ' from 29
+17820(0)s
+pkts=582 Report RX '&: SEQ=624 MCU_SLEEP=17984 RADIO_ON=43 SEC=18736 ' from 29
+17880(0)s
+pkts=583 Report RX '&: SEQ=625 MCU_SLEEP=18013 RADIO_ON=43 SEC=18766 ' from 29
+pkts=584 Report RX '&: SEQ=626 MCU_SLEEP=18042 RADIO_ON=43 SEC=18796 ' from 29
+pkts=585 Report RX '&: SEQ=627 MCU_SLEEP=18070 RADIO_ON=43 SEC=18827 ' from 29
+17940(0)s
+pkts=586 Report RX '&: SEQ=628 MCU_SLEEP=18098 RADIO_ON=43 SEC=18856 ' from 29
+pkts=587 Report RX '&: SEQ=629 MCU_SLEEP=18127 RADIO_ON=43 SEC=18885 ' from 29
+18000(0)s
+pkts=588 Report RX '&: SEQ=630 MCU_SLEEP=18156 RADIO_ON=43 SEC=18916 ' from 29
+pkts=589 Report RX '&: SEQ=631 MCU_SLEEP=18185 RADIO_ON=43 SEC=18946 ' from 29
+18060(0)s
+pkts=590 Report RX '&: SEQ=632 MCU_SLEEP=18215 RADIO_ON=43 SEC=18977 ' from 29
+pkts=591 Report RX '&: SEQ=633 MCU_SLEEP=18242 RADIO_ON=44 SEC=19006 ' from 29
+pkts=592 Report RX '&: SEQ=634 MCU_SLEEP=18271 RADIO_ON=44 SEC=19036 ' from 29
+18180(0)s
+pkts=593 Report RX '&: SEQ=635 MCU_SLEEP=18299 RADIO_ON=44 SEC=19065 ' from 29
+pkts=594 Report RX '&: SEQ=636 MCU_SLEEP=18328 RADIO_ON=44 SEC=19097 ' from 29
+pkts=595 Report RX '&: SEQ=637 MCU_SLEEP=18357 RADIO_ON=44 SEC=19126 ' from 29
+18240(0)s
+pkts=596 Report RX '&: SEQ=638 MCU_SLEEP=18385 RADIO_ON=44 SEC=19155 ' from 29
+pkts=597 Report RX '&: SEQ=639 MCU_SLEEP=18415 RADIO_ON=44 SEC=19185 ' from 29
+18300(0)s
+pkts=598 Report RX '&: SEQ=640 MCU_SLEEP=18445 RADIO_ON=44 SEC=19217 ' from 29
+pkts=599 Report RX '&: SEQ=641 MCU_SLEEP=18472 RADIO_ON=44 SEC=19245 ' from 29
+18360(0)s
+pkts=600 Report RX '&: SEQ=642 MCU_SLEEP=18502 RADIO_ON=44 SEC=19277 ' from 29
+pkts=601 Report RX '&: SEQ=643 MCU_SLEEP=18530 RADIO_ON=44 SEC=19305 ' from 29
+18420(0)s
+Never-used stack > 18210 bytes
+pkts=602 Report RX '&: SEQ=644 MCU_SLEEP=18560 RADIO_ON=44 SEC=19338 ' from 29
+pkts=603 Report RX '&: SEQ=645 MCU_SLEEP=18587 RADIO_ON=44 SEC=19366 ' from 29
+18480(0)s
+pkts=604 Report RX '&: SEQ=646 MCU_SLEEP=18617 RADIO_ON=44 SEC=19397 ' from 29
+18540(0)s
+pkts=605 Report RX '&: SEQ=647 MCU_SLEEP=18644 RADIO_ON=45 SEC=19427 ' from 29
+pkts=606 Report RX '&: SEQ=648 MCU_SLEEP=18673 RADIO_ON=45 SEC=19457 ' from 29
+pkts=607 Report RX '&: SEQ=649 MCU_SLEEP=18701 RADIO_ON=45 SEC=19485 ' from 29
+18600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1723s
+
+---------
+pkts=608 Report RX '&: SEQ=650 MCU_SLEEP=18731 RADIO_ON=45 SEC=19517 ' from 29
+18660(0)s
+pkts=609 Report RX '&: SEQ=651 MCU_SLEEP=18759 RADIO_ON=45 SEC=19547 ' from 29
+pkts=610 Report RX '&: SEQ=652 MCU_SLEEP=18788 RADIO_ON=45 SEC=19576 ' from 29
+pkts=611 Report RX '&: SEQ=653 MCU_SLEEP=18816 RADIO_ON=45 SEC=19605 ' from 29
+18720(0)s
+pkts=612 Report RX '&: SEQ=654 MCU_SLEEP=18844 RADIO_ON=45 SEC=19636 ' from 29
+pkts=613 Report RX '&: SEQ=655 MCU_SLEEP=18873 RADIO_ON=45 SEC=19666 ' from 29
+18780(0)s
+pkts=614 Report RX '&: SEQ=656 MCU_SLEEP=18903 RADIO_ON=45 SEC=19697 ' from 29
+18840(0)s
+pkts=615 Report RX '&: SEQ=657 MCU_SLEEP=18932 RADIO_ON=45 SEC=19727 ' from 29
+pkts=616 Report RX '&: SEQ=658 MCU_SLEEP=18960 RADIO_ON=45 SEC=19757 ' from 29
+pkts=617 Report RX '&: SEQ=659 MCU_SLEEP=18988 RADIO_ON=45 SEC=19786 ' from 29
+18900(0)s
+pkts=618 Report RX '&: SEQ=660 MCU_SLEEP=19015 RADIO_ON=45 SEC=19815 ' from 29
+18960(0)s
+pkts=619 Report RX '&: SEQ=661 MCU_SLEEP=19045 RADIO_ON=46 SEC=19846 ' from 29
+pkts=620 Report RX '&: SEQ=662 MCU_SLEEP=19074 RADIO_ON=46 SEC=19876 ' from 29
+19020(0)s
+pkts=621 Report RX '&: SEQ=663 MCU_SLEEP=19103 RADIO_ON=46 SEC=19906 ' from 29
+pkts=622 Report RX '&: SEQ=664 MCU_SLEEP=19132 RADIO_ON=46 SEC=19936 ' from 29
+pkts=623 Report RX '&: SEQ=665 MCU_SLEEP=19160 RADIO_ON=46 SEC=19965 ' from 29
+19080(0)s
+pkts=624 Report RX '&: SEQ=666 MCU_SLEEP=19189 RADIO_ON=46 SEC=19995 ' from 29
+pkts=625 Report RX '&: SEQ=667 MCU_SLEEP=19217 RADIO_ON=46 SEC=20026 ' from 29
+19140(0)s
+pkts=626 Report RX '&: SEQ=668 MCU_SLEEP=19246 RADIO_ON=46 SEC=20055 ' from 29
+pkts=627 Report RX '&: SEQ=669 MCU_SLEEP=19276 RADIO_ON=46 SEC=20085 ' from 29
+19200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1124s
+
+---------
+pkts=628 Report RX '&: SEQ=670 MCU_SLEEP=19304 RADIO_ON=46 SEC=20115 ' from 29
+pkts=629 Report RX '&: SEQ=671 MCU_SLEEP=19334 RADIO_ON=46 SEC=20146 ' from 29
+pkts=630 Report RX '&: SEQ=672 MCU_SLEEP=19363 RADIO_ON=46 SEC=20176 ' from 29
+19320(0)s
+pkts=631 Report RX '&: SEQ=673 MCU_SLEEP=19391 RADIO_ON=46 SEC=20206 ' from 29
+pkts=632 Report RX '&: SEQ=674 MCU_SLEEP=19422 RADIO_ON=46 SEC=20238 ' from 29
+pkts=633 Report RX '&: SEQ=675 MCU_SLEEP=19449 RADIO_ON=46 SEC=20266 ' from 29
+19380(0)s
+pkts=634 Report RX '&: SEQ=676 MCU_SLEEP=19478 RADIO_ON=47 SEC=20297 ' from 29
+pkts=635 Report þX '&: SEQ=677 MCU_SLEEP=19506 RADIO_ON=47 SEC=20326 ' from 29
+Never-used stack > 18210 bytes
+pkts=636 Report RX '&: SEQ=678 MCU_SLEEP=19537 RADIO_ON=47 SEC=20357 ' from 29
+pkts=637 Report RX '&: SEQ=679 MCU_SLEEP=19565 RADIO_ON=47 SEC=20386 ' from 29
+19500(0)s
+pkts=638 Report RX '&: SEQ=680 MCU_SLEEP=19593 RADIO_ON=47 SEC=20416 ' from 29
+pkts=639 Report RX '&: SEQ=681 MCU_SLEEP=19622 RADIO_ON=47 SEC=20445 ' from 29
+19560(0)s
+pkts=640 Report RX '&: SEQ=683 MCU_SLEEP=19679 RADIO_ON=47 SEC=20505 ' from 29
+19620(0)s
+pkts=641 Report RX '&: SEQ=684 MCU_SLEEP=19707 RADIO_ON=47 SEC=20535 ' from 29
+pkts=642 Report RX '&: SEQ=685 MCU_SLEEP=19736 RADIO_ON=47 SEC=20565 ' from 29
+19680(0)s
+pkts=643 Report RX '&: SEQ=686 MCU_SLEEP=19766 RADIO_ON=47 SEC=20597 ' from 29
+pkts=644 Report RX '&: SEQ=687 MCU_SLEEP=19793 RADIO_ON=47 SEC=20626 ' from 29
+19740(0)s
+pkts=645 Report RX '&: SEQ=688 MCU_SLEEP=19822 RADIO_ON=47 SEC=20657 ' from 29
+pkts=646 Report RX '&: SEQ=689 MCU_SLEEP=19850 RADIO_ON=48 SEC=20685 ' from 29
+19800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1557s
+
+---------
+pkts=647 Report RX '&: SEQ=690 MCU_SLEEP=19881 RADIO_ON=48 SEC=20717 ' from 29
+pkts=648 Report RX '&: SEQ=691 MCU_SLEEP=19908 RADIO_ON=48 SEC=20746 ' from 29
+19860(0)s
+pkts=649 Report RX '&: SEQ=692 MCU_SLEEP=19937 RADIO_ON=48 SEC=20778 ' from 29
+19920(0)s
+pkts=650 Report RX '&: SEQ=693 MCU_SLEEP=19964 RADIO_ON=48 SEC=20806 ' from 29
+pkts=651 Report RX '&: SEQ=694 MCU_SLEEP=19995 RADIO_ON=48 SEC=20838 ' from 29
+19980(0)s
+pkts=652 Report RX '&: SEQ=695 MCU_SLEEP=20021 RADIO_ON=48 SEC=20866 ' from 29
+pkts=653 Report RX '&: SEQ=696 MCU_SLEEP=20050 RADIO_ON=48 SEC=20897 ' from 29
+pkts=654 Report RX '&: SEQ=697 MCU_SLEEP=20079 RADIO_ON=48 SEC=20926 ' from 29
+20040(0)s
+pkts=655 Report RX '&: SEQ=698 MCU_SLEEP=20107 RADIO_ON=48 SEC=20956 ' from 29
+pkts=656 Report RX '&: SEQ=699 MCU_SLEEP=20134 RADIO_ON=48 SEC=20986 ' from 29
+20100(0)s
+pkts=657 Report RX '&: SEQ=700 MCU_SLEEP=20164 RADIO_ON=48 SEC=21017 ' from 29
+20160(0)s
+pkts=658 Report RX '&: SEQ=701 MCU_SLEEP=20191 RADIO_ON=48 SEC=21046 ' from 29
+pkts=659 Report RX '&: SEQ=702 MCU_SLEEP=20220 RADIO_ON=49 SEC=21076 ' from 29
+pkts=660 Report RX '&: SEQ=703 MCU_SLEEP=20249 RADIO_ON=49 SEC=21106 ' from 29
+20220(0)s
+pkts=661 Report RX '&: SEQ=704 MCU_SLEEP=20278 RADIO_ON=49 SEC=21135 ' from 29
+pkts=662 Report RX '&: SEQ=705 MCU_SLEEP=20307 RADIO_ON=49 SEC=21165 ' from 29
+20280(0)s
+pkts=663 Report RX '&: SEQ=706 MCU_SLEEP=20337 RADIO_ON=49 SEC=21197 ' from 29
+20340(0)s
+pkts=664 Report RX '&: SEQ=707 MCU_SLEEP=20365 RADIO_ON=49 SEC=21226 ' from 29
+pkts=665 Report RX '&: SEQ=708 MCU_SLEEP=20395 RADIO_ON=49 SEC=21257 ' from 29
+20400(0)s
+pkts=666 Report RX '&: SEQ=709 MCU_SLEEP=20423 RADIO_ON=49 SEC=21286 ' from 29
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 955s
+
+---------
+pkts=667 Report RX '&: SEQ=710 MCU_SLEEP=20451 RADIO_ON=49 SEC=21316 ' from 29
+pkts=668 Report RX '&: SEQ=711 MCU_SLEEP=20481 RADIO_ON=49 SEC=21346 ' from 29
+Never-used stack > 18210 bytes
+pkts=669 Report RX '&: SEQ=712 MCU_SLEEP=20511 RADIO_ON=49 SEC=21378 ' from 29
+pkts=670 Report RX '&: SEQ=713 MCU_SLEEP=20539 RADIO_ON=49 SEC=21406 ' from 29
+20520(0)s
+pkts=671 Report RX '&: SEQ=714 MCU_SLEEP=20568 RADIO_ON=49 SEC=21437 ' from 29
+pkts=672 Report RX '&: SEQ=715 MCU_SLEEP=20596 RADIO_ON=49 SEC=21465 ' from 29
+pkts=673 Report RX '&: SEQ=716 MCU_SLEEP=20625 RADIO_ON=50 SEC=21496 ' from 29
+20640(0)s
+pkts=674 Report RX '&: SEQ=717 MCU_SLEEP=20654 RADIO_ON=50 SEC=21527 ' from 29
+pkts=675 Report RX '&: SEQ=718 MCU_SLEEP=20682 RADIO_ON=50 SEC=21556 ' from 29
+pkts=676 Report RX '&: SEQ=719 MCU_SLEEP=20711 RADIO_ON=50 SEC=21585 ' from 29
+pkts=677 Report RX '&: SEQ=720 MCU_SLEEP=20738 RADIO_ON=50 SEC=21615 ' from 29
+pkts=678 Report RX '&: SEQ=721 MCU_SLEEP=20768 RADIO_ON=50 SEC=21647 ' from 29
+pkts=679 Report RX '&: SEQ=722 MCU_SLEEP=20797 RADIO_ON=50 SEC=21675 ' from 29
+20820(0)s
+pkts=680 Report RX '&: SEQ=723 MCU_SLEEP=20826 RADIO_ON=50 SEC=21706 ' from 29
+pkts=681 Report RX '&: SEQ=724 MCU_SLEEP=20855 RADIO_ON=50 SEC=21736 ' from 29
+pkts=682 Report RX '&: SEQ=725 MCU_SLEEP=20883 RADIO_ON=50 SEC=21765 ' from 29
+20880(0)s
+pkts=683 Report RX '&: SEQ=726 MCU_SLEEP=20912 RADIO_ON=50 SEC=21795 ' from 29
+pkts=684 Report RX '&: SEQ=727 MCU_SLEEP=20941 RADIO_ON=50 SEC=21826 ' from 29
+pkts=685 Report RX '&: SEQ=728 MCU_SLEEP=20971 RADIO_ON=50 SEC=21856 ' from 29
+pkts=686 Report RX '&: SEQ=729 MCU_SLEEP=20999 RADIO_ON=50 SEC=21887 ' from 29
+21000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1394s
+
+---------
+pkts=687 Report RX '&: SEQ=730 MCU_SLEEP=21028 RADIO_ON=50 SEC=21917 ' from 29
+pkts=688 Report RX '&: SEQ=731 MCU_SLEEP=21058 RADIO_ON=51 SEC=21946 ' from 29
+21060(0)s
+pkts=689 Report RX '&: SEQ=732 MCU_SLEEP=21086 RADIO_ON=51 SEC=21977 ' from 29
+pkts=690 Report RX '&: SEQ=733 MCU_SLEEP=21115 RADIO_ON=51 SEC=22007 ' from 29
+21120(0)s
+pkts=691 Report RX '&: SEQ=734 MCU_SLEEP=21144 RADIO_ON=51 SEC=22037 ' from 29
+pkts=692 Report RX '&: SEQ=735 MCU_SLEEP=21173 RADIO_ON=51 SEC=22067 ' from 29
+21180(0)s
+pkts=693 Report RX '&: SEQ=736 MCU_SLEEP=21202 RADIO_ON=51 SEC=22096 ' from 29
+pkts=694 Report RX '&: SEQ=737 MCU_SLEEP=21231 RADIO_ON=51 SEC=22127 ' from 29
+21240(0)s
+pkts=695 Report RX '&: SEQ=738 MCU_SLEEP=21260 RADIO_ON=51 SEC=22156 ' from 29
+pkts=696 Report RX '&: SEQ=739 MCU_SLEEP=21288 RADIO_ON=51 SEC=22185 ' from 29
+21300(0)s
+pkts=697 Report RX '&: SEQ=740 MCU_SLEEP=21325 RADIO_ON=51 SEC=22224 ' from 29
+21360(0)s
+pkts=698 Report RX '&: SEQ=741 MCU_SLEEP=21346 RADIO_ON=51 SEC=22247 ' from 29
+pkts=699 Report RX '&: SEQ=742 MCU_SLEEP=21375 RADIO_ON=51 SEC=22277 ' from 29
+pkts=700 Report RX '&: SEQ=743 MCU_SLEEP=21402 RADIO_ON=51 SEC=22305 ' from 29
+21420(0)s
+pkts=701 Report RX '&: SEQ=744 MCU_SLEEP=21431 RADIO_ON=51 SEC=22336 ' from 29
+pkts=702 Report RX '&: SEQ=745 MCU_SLEEP=21460 RADIO_ON=51 SEC=22366 ' from 29
+21480(0)s
+Never-used stack > 18210 bytes
+pkts=703 Report RX '&: SEQ=746 MCU_SLEEP=21489 RADIO_ON=52 SEC=22395 ' from 29
+pkts=704 Report RX '&: SEQ=747 MCU_SLEEP=21517 RADIO_ON=52 SEC=22426 ' from 29
+21540(0)s
+pkts=705 Report RX '&: SEQ=748 MCU_SLEEP=21546 RADIO_ON=52 SEC=22455 ' from 29
+pkts=706 Report RX '&: SEQ=749 MCU_SLEEP=21574 RADIO_ON=52 SEC=22485 ' from 29
+pkts=707 Report RX '&: SEQ=750 MCU_SLEEP=21605 RADIO_ON=52 SEC=22518 ' from 29
+pkts=708 Report RX '&: SEQ=751 MCU_SLEEP=21633 RADIO_ON=52 SEC=22546 ' from 29
+pkts=709 Report RX '&: SEQ=752 MCU_SLEEP=21663 RADIO_ON=52 SEC=22577 ' from 29
+21720(0)s
+pkts=710 Report RX '&: SEQ=753 MCU_SLEEP=21690 RADIO_ON=52 SEC=22606 ' from 29
+pkts=711 Report RX '&: SEQ=754 MCU_SLEEP=21719 RADIO_ON=52 SEC=22636 ' from 29
+pkts=712 Report RX '&: SEQ=755 MCU_SLEEP=21748 RADIO_ON=52 SEC=22666 ' from 29
+21780(0)s
+pkts=713 Report RX '&: SEQ=756 MCU_SLEEP=21779 RADIO_ON=52 SEC=22697 ' from 29
+pkts=714 Report RX '&: SEQ=757 MCU_SLEEP=21806 RADIO_ON=52 SEC=22726 ' from 29
+pkts=715 Report RX '&: SEQ=758 MCU_SLEEP=21835 RADIO_ON=52 SEC=22755 ' from 29
+pkts=716 Report RX '&: SEQ=759 MCU_SLEEP=21864 RADIO_ON=52 SEC=22785 ' from 29
+21900(0)s
+pkts=717 Report RX '&: SEQ=760 MCU_SLEEP=21894 RADIO_ON=52 SEC=22817 ' from 29
+pkts=718 Report RX '&: SEQ=761 MCU_SLEEP=21922 RADIO_ON=52 SEC=22845 ' from 29
+21960(0)s
+pkts=719 Report RX '&: SEQ=762 MCU_SLEEP=21951 RADIO_ON=52 SEC=22875 ' from 29
+pkts=720 Report RX '&: SEQ=763 MCU_SLEEP=21981 RADIO_ON=53 SEC=22906 ' from 29
+pkts=721 Report RX '&: SEQ=764 MCU_SLEEP=22010 RADIO_ON=53 SEC=22936 ' from 29
+pkts=722 Report RX '&: SEQ=765 MCU_SLEEP=22038 RADIO_ON=53 SEC=22965 ' from 29
+22080(0)s
+pkts=723 Report RX '&: SEQ=766 MCU_SLEEP=22067 RADIO_ON=53 SEC=22996 ' from 29
+22140(0)s
+pkts=724 Report RX '&: SEQ=767 MCU_SLEEP=22095 RADIO_ON=53 SEC=23026 ' from 29
+pkts=725 Report RX '&: SEQ=768 MCU_SLEEP=22125 RADIO_ON=53 SEC=23057 ' from 29
+22200(0)s
+pkts=726 Report RX '&: SEQ=769 MCU_SLEEP=22154 RADIO_ON=53 SEC=23086 ' from 29
+pkts=727 Report RX '&: SEQ=770 MCU_SLEEP=22183 RADIO_ON=53 SEC=23117 ' from 29
+pkts=728 Report RX '&: SEQ=771 MCU_SLEEP=22210 RADIO_ON=53 SEC=23145 ' from 29
+22260(0)s
+pkts=729 Report RX '&: SEQ=772 MCU_SLEEP=22240 RADIO_ON=53 SEC=23176 ' from 29
+pkts=730 Report RX '&: SEQ=773 MCU_SLEEP=22270 RADIO_ON=53 SEC=23207 ' from 29
+22320(0)s
+pkts=731 Report RX '&: SEQ=774 MCU_SLEEP=22297 RADIO_ON=53 SEC=23235 ' from 29
+pkts=732 Report RX '&: SEQ=775 MCU_SLEEP=22326 RADIO_ON=53 SEC=23265 ' from 29
+22380(0)s
+pkts=733 Report RX '&: SEQ=776 MCU_SLEEP=22356 RADIO_ON=53 SEC=23297 ' from 29
+pkts=734 Report RX '&: SEQ=777 MCU_SLEEP=22384 RADIO_ON=54 SEC=23326 ' from 29
+22440(0)s
+pkts=735 Report RX '&: SEQ=778 MCU_SLEEP=22413 RADIO_ON=54 SEC=23356 ' from 29
+pkts=736 Report RX '&: SEQ=779 MCU_SLEEP=22442 RADIO_ON=54 SEC=23385 ' from 29
+22500(0)s
+pkts=737 Report RX '&: SEQ=780 MCU_SLEEP=22472 RADIO_ON=54 SEC=23416 ' from 29
+Never-used stack > 18210 bytes
+pkts=738 Report RX '&: SEQ=781 MCU_SLEEP=22500 RADIO_ON=54 SEC=23445 ' from 29
+22560(0)s
+pkts=739 Report RX '&: SEQ=782 MCU_SLEEP=22529 RADIO_ON=54 SEC=23476 ' from 29
+pkts=740 Report RX '&: SEQ=783 MCU_SLEEP=22558 RADIO_ON=54 SEC=23505 ' from 29
+22620(0)s
+pkts=741 Report RX '&: SEQ=784 MCU_SLEEP=22586 RADIO_ON=54 SEC=23536 ' from 29
+pkts=742 Report RX '&: SEQ=785 MCU_SLEEP=22615 RADIO_ON=54 SEC=23567 ' from 29
+22680(0)s
+pkts=743 Report RX '&: SEQ=786 MCU_SLEEP=22643 RADIO_ON=54 SEC=23595 ' from 29
+pkts=744 Report RX '&: SEQ=787 MCU_SLEEP=22672 RADIO_ON=54 SEC=23625 ' from 29
+22740(0)s
+pkts=745 Report RX '&: SEQ=788 MCU_SLEEP=22701 RADIO_ON=54 SEC=23655 ' from 29
+pkts=746 Report RX '&: SEQ=789 MCU_SLEEP=22730 RADIO_ON=54 SEC=23685 ' from 29
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1650s
+
+---------
+pkts=747 Report RX '&: SEQ=790 MCU_SLEEP=22759 RADIO_ON=54 SEC=23717 ' from 29
+pkts=748 Report RX '&: SEQ=791 MCU_SLEEP=22787 RADIO_ON=55 SEC=23745 ' from 29
+22860(0)s
+pkts=749 Report RX '&: SEQ=792 MCU_SLEEP=22816 RADIO_ON=55 SEC=23776 ' from 29
+pkts=750 Report RX '&: SEQ=793 MCU_SLEEP=22845 RADIO_ON=55 SEC=23806 ' from 29
+pkts=751 Report RX '&: SEQ=794 MCU_SLEEP=22873 RADIO_ON=55 SEC=23835 ' from 29
+pkts=752 Report RX '&: SEQ=795 MCU_SLEEP=22901 RADIO_ON=55 SEC=23865 ' from 29
+22980(0)s
+pkts=753 Report RX '&: SEQ=796 MCU_SLEEP=22932 RADIO_ON=55 SEC=23896 ' from 29
+pkts=754 Report RX '&: SEQ=797 MCU_SLEEP=22961 RADIO_ON=55 SEC=23926 ' from 29
+23040(0)s
+pkts=755 Report RX '&: SEQ=798 MCU_SLEEP=22989 RADIO_ON=55 SEC=23957 ' from 29
+23100(0)s
+pkts=756 Report RX '&: SEQ=799 MCU_SLEEP=23017 RADIO_ON=55 SEC=23986 ' from 29
+pkts=757 Report RX '&: SEQ=800 MCU_SLEEP=23047 RADIO_ON=55 SEC=24018 ' from 29
+pkts=758 Report RX '&: SEQ=801 MCU_SLEEP=23074 RADIO_ON=55 SEC=24045 ' from 29
+23160(0)s
+pkts=759 Report RX '&: SEQ=802 MCU_SLEEP=23103 RADIO_ON=55 SEC=24076 ' from 29
+pkts=760 Report RX '&: SEQ=803 MCU_SLEEP=23133 RADIO_ON=55 SEC=24105 ' from 29
+pkts=761 Report RX '&: SEQ=804 MCU_SLEEP=23161 RADIO_ON=55 SEC=24136 ' from 29
+pkts=762 Report RX '&: SEQ=805 MCU_SLEEP=23190 RADIO_ON=55 SEC=24165 ' from 29
+23280(0)s
+pkts=763 Report RX '&: SEQ=806 MCU_SLEEP=23218 RADIO_ON=55 SEC=24195 ' from 29
+pkts=764 Report RX '&: SEQ=807 MCU_SLEEP=23247 RADIO_ON=55 SEC=24226 ' from 29
+23340(0)s
+pkts=765 Report RX '&: SEQ=808 MCU_SLEEP=23277 RADIO_ON=56 SEC=24256 ' from 29
+pkts=766 Report RX '&: SEQ=809 MCU_SLEEP=23304 RADIO_ON=56 SEC=24285 ' from 29
+pkts=767 Report RX '&: SEQ=810 MCU_SLEEP=23335 RADIO_ON=56 SEC=24317 ' from 29
+pkts=768 Report RX '&: SEQ=811 MCU_SLEEP=23363 RADIO_ON=56 SEC=24345 ' from 29
+23460(0)s
+pkts=769 Report RX '&: SEQ=812 MCU_SLEEP=23391 RADIO_ON=56 SEC=24376 ' from 29
+23520(0)s
+pkts=770 Report RX '&: SEQ=813 MCU_SLEEP=23421 RADIO_ON=56 SEC=24407 ' from 29
+pkts=771 Report RX '&: SEQ=814 MCU_SLEEP=23452 RADIO_ON=56 SEC=24438 ' from 29
+Never-used stack > 18210 bytes
+23580(0)s
+pkts=772 Report RX '&: SEQ=815 MCU_SLEEP=23479 RADIO_ON=56 SEC=24467 ' from 29
+pkts=773 Report RX '&: SEQ=816 MCU_SLEEP=23510 RADIO_ON=56 SEC=24498 ' from 29
+pkts=774 Report RX '&: SEQ=817 MCU_SLEEP=23537 RADIO_ON=56 SEC=24526 ' from 29
+23640(0)s
+pkts=775 Report RX '&: SEQ=818 MCU_SLEEP=23566 RADIO_ON=56 SEC=24555 ' from 29
+pkts=776 Report RX '&: SEQ=819 MCU_SLEEP=23595 RADIO_ON=56 SEC=24587 ' from 29
+23700(0)s
+pkts=777 Report RX '&: SEQ=820 MCU_SLEEP=23625 RADIO_ON=56 SEC=24617 ' from 29
+pkts=778 Report RX '&: SEQ=821 MCU_SLEEP=23653 RADIO_ON=56 SEC=24646 ' from 29
+pkts=779 Report RX '&: SEQ=822 MCU_SLEEP=23681 RADIO_ON=56 SEC=24676 ' from 29
+pkts=780 Report RX '&: SEQ=823 MCU_SLEEP=23711 RADIO_ON=57 SEC=24705 ' from 29
+23820(0)s
+pkts=781 Report RX '&: SEQ=824 MCU_SLEEP=23741 RADIO_ON=57 SEC=24737 ' from 29
+pkts=782 Report RX '&: SEQ=825 MCU_SLEEP=23768 RADIO_ON=57 SEC=24765 ' from 29
+23880(0)s
+pkts=783 Report RX '&: SEQ=826 MCU_SLEEP=23798 RADIO_ON=57 SEC=24796 ' from 29
+23940(0)s
+pkts=784 Report RX '&: SEQ=827 MCU_SLEEP=23827 RADIO_ON=57 SEC=24827 ' from 29
+pkts=785 Report RX '&: SEQ=828 MCU_SLEEP=23858 RADIO_ON=57 SEC=24859 ' from 29
+pkts=786 Report RX '&: SEQ=829 MCU_SLEEP=23884 RADIO_ON=57 SEC=24885 ' from 29
+24000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1476s
+
+---------
+pkts=787 Report RX '&: SEQ=830 MCU_SLEEP=23914 RADIO_ON=57 SEC=24918 ' from 29
+pkts=788 Report RX '&: SEQ=831 MCU_SLEEP=23941 RADIO_ON=57 SEC=24945 ' from 29
+24060(0)s
+pkts=789 Report RX '&: SEQ=832 MCU_SLEEP=23972 RADIO_ON=57 SEC=24978 ' from 29
+pkts=790 Report RX '&: SEQ=833 MCU_SLEEP=23999 RADIO_ON=57 SEC=25005 ' from 29
+24120(0)s
+pkts=791 Report RX '&: SEQ=834 MCU_SLEEP=24029 RADIO_ON=57 SEC=25035 ' from 29
+24180(0)s
+pkts=792 Report RX '&: SEQ=835 MCU_SLEEP=24057 RADIO_ON=57 SEC=25066 ' from 29
+pkts=793 Report RX '&: SEQ=836 MCU_SLEEP=24088 RADIO_ON=57 SEC=25097 ' from 29
+pkts=794 Report RX '&: SEQ=837 MCU_SLEEP=24115 RADIO_ON=57 SEC=25125 ' from 29
+24240(0)s
+pkts=795 Report RX '&: SEQ=838 MCU_SLEEP=24145 RADIO_ON=57 SEC=25157 ' from 29
+pkts=796 Report RX '&: SEQ=839 MCU_SLEEP=24173 RADIO_ON=58 SEC=25185 ' from 29
+24300(0)s
+pkts=797 Report RX '&: SEQ=840 MCU_SLEEP=24203 RADIO_ON=58 SEC=25217 ' from 29
+24360(0)s
+pkts=798 Report RX '&: SEQ=841 MCU_SLEEP=24231 RADIO_ON=58 SEC=25246 ' from 29
+pkts=799 Report RX '&: SEQ=842 MCU_SLEEP=24260 RADIO_ON=58 SEC=25278 ' from 29
+24420(0)s
+pkts=800 Report RX '&: SEQ=843 MCU_SLEEP=24287 RADIO_ON=58 SEC=25306 ' from 29
+pkts=801 Report RX '&: SEQ=844 MCU_SLEEP=24317 RADIO_ON=58 SEC=25337 ' from 29
+pkts=802 Report RX '&: SEQ=845 MCU_SLEEP=24345 RADIO_ON=58 SEC=25366 ' from 29
+24480(0)s
+pkts=803 Report RX '&: SEQ=846 MCU_SLEEP=24374 RADIO_ON=58 SEC=25397 ' from 29
+24540(0)s
+pkts=804 Report RX '&: SEQ=847 MCU_SLEEP=24402 RADIO_ON=58 SEC=25426 ' from 29
+pkts=805 Report RX '&: SEQ=848 MCU_SLEEP=24430 RADIO_ON=58 SEC=25455 ' from 29
+Never-used stack > 18210 bytes
+24600(0)s
+pkts=806 Report RX '&: SEQ=849 MCU_SLEEP=24460 RADIO_ON=58 SEC=25486 ' from 29
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 876s
+
+---------
+pkts=807 Report RX '&: SEQ=850 MCU_SLEEP=24490 RADIO_ON=58 SEC=25517 ' from 29
+pkts=808 Report RX '&: SEQ=851 MCU_SLEEP=24518 RADIO_ON=58 SEC=25546 ' from 29
+24660(0)s
+pkts=809 Report RX '&: SEQ=852 MCU_SLEEP=24548 RADIO_ON=58 SEC=25576 ' from 29
+pkts=810 Report RX '&: SEQ=853 MCU_SLEEP=24577 RADIO_ON=59 SEC=25606 ' from 29
+24720(0)s
+pkts=811 Report RX '&: SEQ=854 MCU_SLEEP=24607 RADIO_ON=59 SEC=25639 ' from 29
+24780(0)s
+pkts=812 Report RX '&: SEQ=855 MCU_SLEEP=24633 RADIO_ON=59 SEC=25666 ' from 29
+pkts=813 Report RX '&: SEQ=856 MCU_SLEEP=24664 RADIO_ON=59 SEC=25698 ' from 29
+24840(0)s
+pkts=814 Report RX '&: SEQ=857 MCU_SLEEP=24690 RADIO_ON=59 SEC=25725 ' from 29
+pkts=815 Report RX '&: SEQ=858 MCU_SLEEP=24720 RADIO_ON=59 SEC=25756 ' from 29
+24900(0)s
+pkts=816 Report RX '&: SEQ=859 MCU_SLEEP=24748 RADIO_ON=59 SEC=25786 ' from 29
+pkts=817 Report RX '&: SEQ=860 MCU_SLEEP=24775 RADIO_ON=59 SEC=25816 ' from 29
+24960(0)s
+pkts=818 Report RX '&: SEQ=862 MCU_SLEEP=24833 RADIO_ON=59 SEC=25875 ' from 29
+pkts=819 Report RX '&: SEQ=863 MCU_SLEEP=24861 RADIO_ON=59 SEC=25906 ' from 29
+25020(0)s
+pkts=820 Report RX '&: SEQ=864 MCU_SLEEP=24891 RADIO_ON=59 SEC=25936 ' from 29
+pkts=821 Report RX '&: SEQ=865 MCU_SLEEP=24918 RADIO_ON=59 SEC=25965 ' from 29
+25080(0)s
+pkts=822 Report RX '&: SEQ=866 MCU_SLEEP=24948 RADIO_ON=59 SEC=25997 ' from 29
+pkts=823 Report RX '&: SEQ=867 MCU_SLEEP=24977 RADIO_ON=59 SEC=26026 ' from 29
+25140(0)s
+pkts=824 Report RX '&: SEQ=868 MCU_SLEEP=25006 RADIO_ON=60 SEC=26056 ' from 29
+25200(0)s
+pkts=825 Report RX '&: SEQ=869 MCU_SLEEP=25035 RADIO_ON=60 SEC=26085 ' from 29
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1439s
+
+---------
+pkts=826 Report RX '&: SEQ=870 MCU_SLEEP=25064 RADIO_ON=60 SEC=26117 ' from 29
+25260(0)s
+pkts=827 Report RX '&: SEQ=871 MCU_SLEEP=25092 RADIO_ON=60 SEC=26146 ' from 29
+pkts=828 Report RX '&: SEQ=872 MCU_SLEEP=25123 RADIO_ON=60 SEC=26178 ' from 29
+25320(0)s
+pkts=829 Report RX '&: SEQ=873 MCU_SLEEP=25151 RADIO_ON=60 SEC=26207 ' from 29
+pkts=830 Report RX '&: SEQ=874 MCU_SLEEP=25180 RADIO_ON=60 SEC=26237 ' from 29
+25380(0)s
+pkts=831 Report RX '&: SEQ=876 MCU_SLEEP=25237 RADIO_ON=60 SEC=26298 ' from 29
+25440(0)s
+pkts=832 Report RX '&: SEQ=877 MCU_SLEEP=25265 RADIO_ON=60 SEC=26327 ' from 29
+pkts=833 Report RX '&: SEQ=878 MCU_SLEEP=25295 RADIO_ON=60 SEC=26356 ' from 29
+25500(0)s
+pkts=834 Report RX '&: SEQ=879 MCU_SLEEP=25323 RADIO_ON=60 SEC=26386 ' from 29
+pkts=835 Report RX '&: SEQ=880 MCU_SLEEP=25352 RADIO_ON=60 SEC=26417 ' from 29
+25560(0)s
+pkts=836 Report RX '&: SEQ=881 MCU_SLEEP=25381 RADIO_ON=60 SEC=26447 ' from 29
+pkts=837 Report RX '&: SEQ=882 MCU_SLEEP=25410 RADIO_ON=60 SEC=26477 ' from 29
+Never-used stack > 18210 bytes
+pkts=838 Report RX '&: SEQ=883 MCU_SLEEP=25439 RADIO_ON=61 SEC=26505 ' from 29
+pkts=839 Report RX '&: SEQ=884 MCU_SLEEP=25469 RADIO_ON=61 SEC=26538 ' from 29
+pkts=840 Report RX '&: SEQ=885 MCU_SLEEP=25496 RADIO_ON=61 SEC=26566 ' from 29
+pkts=841 Report RX '&: SEQ=886 MCU_SLEEP=25525 RADIO_ON=61 SEC=26595 ' from 29
+pkts=842 Report RX '&: SEQ=887 MCU_SLEEP=25554 RADIO_ON=61 SEC=26625 ' from 29
+25740(0)s
+pkts=843 Report RX '&: SEQ=888 MCU_SLEEP=25585 RADIO_ON=61 SEC=26658 ' from 29
+25800(0)s
+pkts=844 Report RX '&: SEQ=889 MCU_SLEEP=25612 RADIO_ON=61 SEC=26686 ' from 29
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 839s
+
+---------
+pkts=845 Report RX '&: SEQ=890 MCU_SLEEP=25642 RADIO_ON=61 SEC=26718 ' from 29
+25860(0)s
+pkts=846 Report RX '&: SEQ=891 MCU_SLEEP=25671 RADIO_ON=61 SEC=26747 ' from 29
+pkts=847 Report RX '&: SEQ=892 MCU_SLEEP=25698 RADIO_ON=61 SEC=26775 ' from 29
+25920(0)s
+pkts=848 Report RX '&: SEQ=893 MCU_SLEEP=25726 RADIO_ON=61 SEC=26805 ' from 29
+pkts=849 Report RX '&: SEQ=894 MCU_SLEEP=25756 RADIO_ON=61 SEC=26837 ' from 29
+25980(0)s
+pkts=850 Report RX '&: SEQ=895 MCU_SLEEP=25784 RADIO_ON=61 SEC=26866 ' from 29
+pkts=851 Report RX '&: SEQ=896 MCU_SLEEP=25814 RADIO_ON=61 SEC=26897 ' from 29
+26040(0)s
+pkts=852 Report RX '&: SEQ=897 MCU_SLEEP=25842 RADIO_ON=61 SEC=26927 ' from 29
+pkts=853 Report RX '&: SEQ=898 MCU_SLEEP=25873 RADIO_ON=61 SEC=26958 ' from 29
+26100(0)s
+pkts=854 Report RX '&: SEQ=899 MCU_SLEEP=25900 RADIO_ON=62 SEC=26986 ' from 29
+pkts=855 Report RX '&: SEQ=901 MCU_SLEEP=25956 RADIO_ON=62 SEC=27046 ' from 29
+26160(0)s
+pkts=856 Report RX '&: SEQ=902 MCU_SLEEP=25985 RADIO_ON=62 SEC=27075 ' from 29
+26220(0)s
+pkts=857 Report RX '&: SEQ=903 MCU_SLEEP=26015 RADIO_ON=62 SEC=27107 ' from 29
+pkts=858 Report RX '&: SEQ=904 MCU_SLEEP=26044 RADIO_ON=62 SEC=27137 ' from 29
+pkts=859 Report RX '&: SEQ=905 MCU_SLEEP=26073 RADIO_ON=62 SEC=27167 ' from 29
+26280(0)s
+pkts=860 Report RX '&: SEQ=906 MCU_SLEEP=26101 RADIO_ON=62 SEC=27196 ' from 29
+pkts=861 Report RX '&: SEQ=907 MCU_SLEEP=26130 RADIO_ON=62 SEC=27226 ' from 29
+26340(0)s
+pkts=862 Report RX '&: SEQ=908 MCU_SLEEP=26159 RADIO_ON=62 SEC=27255 ' from 29
+pkts=863 Report RX '&: SEQ=909 MCU_SLEEP=26189 RADIO_ON=62 SEC=27286 ' from 29
+26400(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1306s
+
+---------
+pkts=864 Report RX '&: SEQ=910 MCU_SLEEP=26218 RADIO_ON=62 SEC=27316 ' from 29
+26460(0)s
+pkts=865 Report RX '&: SEQ=911 MCU_SLEEP=26246 RADIO_ON=62 SEC=27346 ' from 29
+pkts=866 Report RX '&: SEQ=912 MCU_SLEEP=26275 RADIO_ON=63 SEC=27376 ' from 29
+26520(0)s
+pkts=867 Report RX '&: SEQ=913 MCU_SLEEP=26304 RADIO_ON=63 SEC=27405 ' from 29
+pkts=868 Report RX '&: SEQ=914 MCU_SLEEP=26334 RADIO_ON=63 SEC=27437 ' from 29
+26580(0)s
+pkts=869 Report RX '&: SEQ=915 MCU_SLEEP=26361 RADIO_ON=63 SEC=27465 ' from 29
+Never-used stack > 18210 bytes
+26640(0)s
+pkts=870 Report RX '&: SEQ=917 MCU_SLEEP=26419 RADIO_ON=63 SEC=27525 ' from 29
+pkts=871 Report RX '&: SEQ=918 MCU_SLEEP=26449 RADIO_ON=63 SEC=27557 ' from 29
+26700(0)s
+pkts=872 Report RX '&: SEQ=919 MCU_SLEEP=26477 RADIO_ON=63 SEC=27585 ' from 29
+pkts=873 Report RX '&: SEQ=920 MCU_SLEEP=26507 RADIO_ON=63 SEC=27616 ' from 29
+26760(0)s
+pkts=874 Report RX '&: SEQ=921 MCU_SLEEP=26536 RADIO_ON=63 SEC=27646 ' from 29
+pkts=875 Report RX '&: SEQ=922 MCU_SLEEP=26567 RADIO_ON=63 SEC=27678 ' from 29
+26820(0)s
+pkts=876 Report RX '&: SEQ=923 MCU_SLEEP=26592 RADIO_ON=63 SEC=27706 ' from 29
+pkts=877 Report RX '&: SEQ=924 MCU_SLEEP=26621 RADIO_ON=64 SEC=27735 ' from 29
+26880(0)s
+pkts=878 Report RX '&: SEQ=925 MCU_SLEEP=26650 RADIO_ON=64 SEC=27765 ' from 29
+pkts=879 Report RX '&: SEQ=926 MCU_SLEEP=26679 RADIO_ON=64 SEC=27795 ' from 29
+pkts=880 Report RX '&: SEQ=927 MCU_SLEEP=26707 RADIO_ON=64 SEC=27826 ' from 29
+26940(0)s
+pkts=881 Report RX '&: SEQ=928 MCU_SLEEP=26738 RADIO_ON=64 SEC=27857 ' from 29
+27000(0)s
+pkts=882 Report RX '&: SEQ=929 MCU_SLEEP=26765 RADIO_ON=64 SEC=27886 ' from 29
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1612s
+
+---------
+pkts=883 Report RX '&: SEQ=930 MCU_SLEEP=26795 RADIO_ON=64 SEC=27917 ' from 29
+27060(0)s
+pkts=884 Report RX '&: SEQ=931 MCU_SLEEP=26823 RADIO_ON=64 SEC=27946 ' from 29
+pkts=885 Report RX '&: SEQ=932 MCU_SLEEP=26853 RADIO_ON=64 SEC=27978 ' from 29
+27120(0)s
+pkts=886 Report RX '&: SEQ=933 MCU_SLEEP=26880 RADIO_ON=64 SEC=28006 ' from 29
+pkts=887 Report RX '&: SEQ=934 MCU_SLEEP=26910 RADIO_ON=64 SEC=28036 ' from 29
+27180(0)s
+pkts=888 Report RX '&: SEQ=935 MCU_SLEEP=26938 RADIO_ON=64 SEC=28066 ' from 29
+pkts=889 Report RX '&: SEQ=936 MCU_SLEEP=26967 RADIO_ON=64 SEC=28098 ' from 29
+27240(0)s
+pkts=890 Report RX '&: SEQ=937 MCU_SLEEP=26995 RADIO_ON=64 SEC=28126 ' from 29
+pkts=891 Report RX '&: SEQ=938 MCU_SLEEP=27024 RADIO_ON=65 SEC=28156 ' from 29
+pkts=892 Report RX '&: SEQ=939 MCU_SLEEP=27052 RADIO_ON=65 SEC=28185 ' from 29
+pkts=893 Report RX '&: SEQ=940 MCU_SLEEP=27082 RADIO_ON=65 SEC=28216 ' from 29
+pkts=894 Report RX '&: SEQ=941 MCU_SLEEP=27111 RADIO_ON=65 SEC=28245 ' from 29
+27360(0)s
+pkts=895 Report RX '&: SEQ=942 MCU_SLEEP=27139 RADIO_ON=65 SEC=28275 ' from 29
+27420(0)s
+pkts=896 Report RX '&: SEQ=943 MCU_SLEEP=27168 RADIO_ON=65 SEC=28305 ' from 29
+pkts=897 Report RX '&: SEQ=944 MCU_SLEEP=27197 RADIO_ON=65 SEC=28336 ' from 29
+pkts=898 Report RX '&: SEQ=945 MCU_SLEEP=27226 RADIO_ON=65 SEC=28366 ' from 29
+27480(0)s
+pkts=899 Report RX '&: SEQ=946 MCU_SLEEP=27255 RADIO_ON=65 SEC=28396 ' from 29
+27540(0)s
+pkts=900 Report RX '&: SEQ=947 MCU_SLEEP=27285 RADIO_ON=65 SEC=28427 ' from 29
+pkts=901 Report RX '&: SEQ=948 MCU_SLEEP=27314 RADIO_ON=65 SEC=28457 ' from 29
+27600(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1012s
+
+---------
+pkts=902 Report RX '&: SEQ=950 MCU_SLEEP=27372 RADIO_ON=65 SEC=28517 ' from 29
+Never-used stack > 18210 bytes
+pkts=903 Report RX '&: SEQ=951 MCU_SLEEP=27400 RADIO_ON=66 SEC=28546 ' from 29
+27660(0)s
+pkts=904 Report RX '&: SEQ=952 MCU_SLEEP=27428 RADIO_ON=66 SEC=28576 ' from 29
+27720(0)s
+pkts=905 Report RX '&: SEQ=953 MCU_SLEEP=27457 RADIO_ON=66 SEC=28606 ' from 29
+pkts=906 Report RX '&: SEQ=954 MCU_SLEEP=27486 RADIO_ON=66 SEC=28635 ' from 29
+pkts=907 Report RX '&: SEQ=955 MCU_SLEEP=27515 RADIO_ON=66 SEC=28665 ' from 29
+27780(0)s
+pkts=908 Report RX '&: SEQ=956 MCU_SLEEP=27544 RADIO_ON=66 SEC=28697 ' from 29
+pkts=909 Report RX '&: SEQ=957 MCU_SLEEP=27573 RADIO_ON=66 SEC=28726 ' from 29
+pkts=910 Report RX '&: SEQ=958 MCU_SLEEP=27602 RADIO_ON=66 SEC=28756 ' from 29
+27900(0)s
+pkts=911 Report RX '&: SEQ=959 MCU_SLEEP=27631 RADIO_ON=66 SEC=28786 ' from 29
+pkts=912 Report RX '&: SEQ=960 MCU_SLEEP=27661 RADIO_ON=66 SEC=28817 ' from 29
+27960(0)s
+pkts=913 Report RX '&: SEQ=961 MCU_SLEEP=27688 RADIO_ON=66 SEC=28846 ' from 29
+pkts=914 Report RX '&: SEQ=962 MCU_SLEEP=27718 RADIO_ON=66 SEC=28877 ' from 29
+pkts=915 Report RX '&: SEQ=963 MCU_SLEEP=27745 RADIO_ON=66 SEC=28905 ' from 29
+28020(0)s
+pkts=916 Report RX '&: SEQ=964 MCU_SLEEP=27775 RADIO_ON=67 SEC=28936 ' from 29
+pkts=917 Report RX '&: SEQ=965 MCU_SLEEP=27803 RADIO_ON=67 SEC=28965 ' from 29
+28080(0)s
+pkts=918 Report RX '&: SEQ=966 MCU_SLEEP=27831 RADIO_ON=67 SEC=28995 ' from 29
+28140(0)s
+pkts=919 Report RX '&: SEQ=967 MCU_SLEEP=27860 RADIO_ON=67 SEC=29025 ' from 29
+pkts=920 Report RX '&: SEQ=968 MCU_SLEEP=27890 RADIO_ON=67 SEC=29055 ' from 29
+28200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1514s
+
+---------
+pkts=921 Report RX '&: SEQ=969 MCU_SLEEP=27919 RADIO_ON=67 SEC=29085 ' from 29
+pkts=922 Report RX '&: SEQ=970 MCU_SLEEP=27950 RADIO_ON=67 SEC=29118 ' from 29
+28260(0)s
+pkts=923 Report RX '&: SEQ=971 MCU_SLEEP=27977 RADIO_ON=67 SEC=29145 ' from 29
+pkts=924 Report RX '&: SEQ=972 MCU_SLEEP=28006 RADIO_ON=67 SEC=29176 ' from 29
+28320(0)s
+pkts=925 Report RX '&: SEQ=973 MCU_SLEEP=28035 RADIO_ON=67 SEC=29206 ' from 29
+pkts=926 Report RX '&: SEQ=974 MCU_SLEEP=28064 RADIO_ON=67 SEC=29235 ' from 29
+28380(0)s
+pkts=927 Report RX '&: SEQ=975 MCU_SLEEP=28092 RADIO_ON=67 SEC=29265 ' from 29
+pkts=928 Report RX '&: SEQ=976 MCU_SLEEP=28121 RADIO_ON=67 SEC=29295 ' from 29
+28440(0)s
+pkts=929 Report RX '&: SEQ=977 MCU_SLEEP=28150 RADIO_ON=67 SEC=29325 ' from 29
+pkts=930 Report RX '&: SEQ=978 MCU_SLEEP=28179 RADIO_ON=68 SEC=29357 ' from 29
+pkts=931 Report RX '&: SEQ=979 MCU_SLEEP=28207 RADIO_ON=68 SEC=29386 ' from 29
+pkts=932 Report RX '&: SEQ=980 MCU_SLEEP=28237 RADIO_ON=68 SEC=29416 ' from 29
+28560(0)s
+pkts=933 Report RX '&: SEQ=981 MCU_SLEEP=28266 RADIO_ON=68 SEC=29447 ' from 29
+pkts=934 Report RX '&: SEQ=982 MCU_SLEEP=28296 RADIO_ON=68 SEC=29477 ' from 29
+28620(0)s
+pkts=935 Report RX '&: SEQ=983 MCU_SLEEP=28324 RADIO_ON=68 SEC=29505 ' from 29
+pkts=936 Report RX '&: SEQ=984 MCU_SLEEP=28354 RADIO_ON=68 SEC=29536 ' from 29
+Never-used stack > 18210 bytes
+28680(0)s
+pkts=937 Report RX '&: SEQ=985 MCU_SLEEP=28381 RADIO_ON=68 SEC=29565 ' from 29
+pkts=938 Report RX '&: SEQ=986 MCU_SLEEP=28411 RADIO_ON=68 SEC=29596 ' from 29
+28740(0)s
+pkts=939 Report RX '&: SEQ=987 MCU_SLEEP=28439 RADIO_ON=68 SEC=29626 ' from 29
+pkts=940 Report RX '&: SEQ=988 MCU_SLEEP=28469 RADIO_ON=68 SEC=29658 ' from 29
+pkts=941 Report RX '&: SEQ=989 MCU_SLEEP=28497 RADIO_ON=68 SEC=29685 ' from 29
+28800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 914s
+
+---------
+pkts=942 Report RX '&: SEQ=990 MCU_SLEEP=28526 RADIO_ON=68 SEC=29716 ' from 29
+28860(0)s
+pkts=943 Report RX '&: SEQ=991 MCU_SLEEP=28555 RADIO_ON=68 SEC=29745 ' from 29
+pkts=944 Report RX '&: SEQ=992 MCU_SLEEP=28584 RADIO_ON=68 SEC=29777 ' from 29
+28920(0)s
+pkts=945 Report RX '&: SEQ=993 MCU_SLEEP=28611 RADIO_ON=68 SEC=29806 ' from 29
+pkts=946 Report RX '&: SEQ=994 MCU_SLEEP=28641 RADIO_ON=68 SEC=29836 ' from 29
+28980(0)s
+pkts=947 Report RX '&: SEQ=995 MCU_SLEEP=28669 RADIO_ON=68 SEC=29866 ' from 29
+pkts=948 Report RX '&: SEQ=996 MCU_SLEEP=28698 RADIO_ON=69 SEC=29896 ' from 29
+29040(0)s
+pkts=949 Report RX '&: SEQ=997 MCU_SLEEP=28726 RADIO_ON=69 SEC=29925 ' from 29
+pkts=950 Report RX '&: SEQ=998 MCU_SLEEP=28756 RADIO_ON=69 SEC=29958 ' from 29
+29100(0)s
+pkts=951 Report RX '&: SEQ=999 MCU_SLEEP=28783 RADIO_ON=69 SEC=29985 ' from 29
+pkts=952 Report RX '&: SEQ=1000 MCU_SLEEP=28814 RADIO_ON=69 SEC=30017 ' from 29
+29160(0)s
+pkts=953 Report RX '&: SEQ=1001 MCU_SLEEP=28842 RADIO_ON=69 SEC=30046 ' from 29
+pkts=954 Report RX '&: SEQ=1002 MCU_SLEEP=28871 RADIO_ON=69 SEC=30076 ' from 29
+29220(0)s
+pkts=955 Report RX '&: SEQ=1003 MCU_SLEEP=28899 RADIO_ON=69 SEC=30106 ' from 29
+pkts=956 Report RX '&: SEQ=1004 MCU_SLEEP=28929 RADIO_ON=69 SEC=30137 ' from 29
+29280(0)s
+pkts=957 Report RX '&: SEQ=1005 MCU_SLEEP=28957 RADIO_ON=69 SEC=30166 ' from 29
+pkts=958 Report RX '&: SEQ=1006 MCU_SLEEP=28986 RADIO_ON=69 SEC=30197 ' from 29
+29340(0)s
+pkts=959 Report RX '&: SEQ=1007 MCU_SLEEP=29014 RADIO_ON=69 SEC=30226 ' from 29
+pkts=960 Report RX '&: SEQ=1008 MCU_SLEEP=29044 RADIO_ON=69 SEC=30257 ' from 29
+29400(0)s
+pkts=961 Report RX '&: SEQ=1009 MCU_SLEEP=29071 RADIO_ON=70 SEC=30285 ' from 29
+pkts=962 Report RX '&: SEQ=1010 MCU_SLEEP=29102 RADIO_ON=70 SEC=30317 ' from 29
+29460(0)s
+pkts=963 Report RX '&: SEQ=1011 MCU_SLEEP=29129 RADIO_ON=70 SEC=30345 ' from 29
+pkts=964 Report RX '&: SEQ=1012 MCU_SLEEP=29159 RADIO_ON=70 SEC=30376 ' from 29
+29520(0)s
+pkts=965 Report RX '&: SEQ=1013 MCU_SLEEP=29187 RADIO_ON=70 SEC=30405 ' from 29
+pkts=966 Report RX '&: SEQ=1014 MCU_SLEEP=29215 RADIO_ON=70 SEC=30436 ' from 29
+29580(0)s
+pkts=967 Report RX '&: SEQ=1015 MCU_SLEEP=29244 RADIO_ON=70 SEC=30466 ' from 29
+pkts=968 Report RX '&: SEQ=1016 MCU_SLEEP=29275 RADIO_ON=70 SEC=30497 ' from 29
+29640(0)s
+pkts=969 Report RX '&: SEQ=1017 MCU_SLEEP=29303 RADIO_ON=70 SEC=30527 ' from 29
+pkts=970 Report RX '&: SEQ=1018 MCU_SLEEP=29332 RADIO_ON=70 SEC=30556 ' from 29
+Never-used stack > 18210 bytes
+pkts=971 Report RX '&: SEQ=1019 MCU_SLEEP=29360 RADIO_ON=70 SEC=30585 ' from 29
+29700(0)s
+pkts=972 Report RX '&: SEQ=1020 MCU_SLEEP=29389 RADIO_ON=70 SEC=30616 ' from 29
+29760(0)s
+pkts=973 Report RX '&: SEQ=1021 MCU_SLEEP=29417 RADIO_ON=70 SEC=30646 ' from 29
+pkts=974 Report RX '&: SEQ=1022 MCU_SLEEP=29446 RADIO_ON=70 SEC=30675 ' from 29
+29820(0)s
+pkts=975 Report RX '&: SEQ=1023 MCU_SLEEP=29476 RADIO_ON=71 SEC=30705 ' from 29
+pkts=976 Report RX '&: SEQ=1024 MCU_SLEEP=29505 RADIO_ON=71 SEC=30736 ' from 29
+29880(0)s
+pkts=977 Report RX '&: SEQ=1025 MCU_SLEEP=29534 RADIO_ON=71 SEC=30766 ' from 29
+pkts=978 Report RX '&: SEQ=1026 MCU_SLEEP=29563 RADIO_ON=71 SEC=30797 ' from 29
+29940(0)s
+pkts=979 Report RX '&: SEQ=1027 MCU_SLEEP=29591 RADIO_ON=71 SEC=30826 ' from 29
+pkts=980 Report RX '&: SEQ=1028 MCU_SLEEP=29621 RADIO_ON=71 SEC=30857 ' from 29
+30000(0)s
+pkts=981 Report RX '&: SEQ=1029 MCU_SLEEP=29649 RADIO_ON=71 SEC=30886 ' from 29
+pkts=982 Report RX '&: SEQ=1030 MCU_SLEEP=29679 RADIO_ON=71 SEC=30916 ' from 29
+pkts=983 Report RX '&: SEQ=1031 MCU_SLEEP=29706 RADIO_ON=71 SEC=30945 ' from 29
+30060(0)s
+pkts=984 Report RX '&: SEQ=1032 MCU_SLEEP=29736 RADIO_ON=71 SEC=30976 ' from 29
+30120(0)s
+pkts=985 Report RX '&: SEQ=1033 MCU_SLEEP=29764 RADIO_ON=71 SEC=31006 ' from 29
+pkts=986 Report RX '&: SEQ=1034 MCU_SLEEP=29794 RADIO_ON=71 SEC=31036 ' from 29
+30180(0)s
+pkts=987 Report RX '&: SEQ=1035 MCU_SLEEP=29823 RADIO_ON=71 SEC=31067 ' from 29
+pkts=988 Report RX '&: SEQ=1036 MCU_SLEEP=29851 RADIO_ON=71 SEC=31097 ' from 29
+30240(0)s
+pkts=989 Report RX '&: SEQ=1037 MCU_SLEEP=29879 RADIO_ON=71 SEC=31125 ' from 29
+pkts=990 Report RX '&: SEQ=1038 MCU_SLEEP=29909 RADIO_ON=71 SEC=31158 ' from 29
+30300(0)s
+pkts=991 Report RX '&: SEQ=1039 MCU_SLEEP=29936 RADIO_ON=72 SEC=31186 ' from 29
+pkts=992 Report RX '&: SEQ=1040 MCU_SLEEP=29965 RADIO_ON=72 SEC=31217 ' from 29
+30360(0)s
+pkts=993 Report RX '&: SEQ=1041 MCU_SLEEP=29994 RADIO_ON=72 SEC=31246 ' from 29
+pkts=994 Report RX '&: SEQ=1042 MCU_SLEEP=30023 RADIO_ON=72 SEC=31276 ' from 29
+30420(0)s
+pkts=995 Report RX '&: SEQ=1043 MCU_SLEEP=30051 RADIO_ON=72 SEC=31305 ' from 29
+pkts=996 Report RX '&: SEQ=1044 MCU_SLEEP=30080 RADIO_ON=72 SEC=31335 ' from 29
+30480(0)s
+pkts=997 Report RX '&: SEQ=1045 MCU_SLEEP=30108 RADIO_ON=72 SEC=31366 ' from 29
+pkts=998 Report RX '&: SEQ=1046 MCU_SLEEP=30138 RADIO_ON=72 SEC=31397 ' from 29
+30540(0)s
+pkts=999 Report RX '&: SEQ=1047 MCU_SLEEP=30166 RADIO_ON=72 SEC=31426 ' from 29
+pkts=1000 Report RX '&: SEQ=1048 MCU_SLEEP=30196 RADIO_ON=72 SEC=31457 ' from 29
+30600(0)s
+pkts=1001 Report RX '&: SEQ=1049 MCU_SLEEP=30223 RADIO_ON=72 SEC=31486 ' from 29
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1231s
+
+---------
+pkts=1002 Report RX '&: SEQ=1050 MCU_SLEEP=30252 RADIO_ON=72 SEC=31516 ' from 29
+30660(0)s
+pkts=1003 Report RX '&: SEQ=1051 MCU_SLEEP=30280 RADIO_ON=72 SEC=31546 ' from 29
+pkts=1004 Report RX '&: SEQ=1052 MCU_SLEEP=30309 RADIO_ON=73 SEC=31576 ' from 29
+30720(0)s
+pkts=1005 Report RX '&: SEQ=1053 MCU_SLEEP=30337 RADIO_ON=73 SEC=31605 ' from 29
+Never-used stack > 18210 bytes
+pkts=1006 Report RX '&: SEQ=1054 MCU_SLEEP=30367 RADIO_ON=73 SEC=31636 ' from 29
+pkts=1007 Report RX '&: SEQ=1055 MCU_SLEEP=30396 RADIO_ON=73 SEC=31666 ' from 29
+30780(0)s
+pkts=1008 Report RX '&: SEQ=1056 MCU_SLEEP=30424 RADIO_ON=73 SEC=31696 ' from 29
+30840(0)s
+pkts=1009 Report RX '&: SEQ=1057 MCU_SLEEP=30454 RADIO_ON=73 SEC=31726 ' from 29
+pkts=1010 Report RX '&: SEQ=1058 MCU_SLEEP=30483 RADIO_ON=73 SEC=31757 ' from 29
+30900(0)s
+pkts=1011 Report RX '&: SEQ=1059 MCU_SLEEP=30511 RADIO_ON=73 SEC=31785 ' from 29
+pkts=1012 Report RX '&: SEQ=1060 MCU_SLEEP=30540 RADIO_ON=73 SEC=31815 ' from 29
+30960(0)s
+pkts=1013 Report RX '&: SEQ=1061 MCU_SLEEP=30568 RADIO_ON=73 SEC=31845 ' from 29
+pkts=1014 Report RX '&: SEQ=1062 MCU_SLEEP=30598 RADIO_ON=73 SEC=31876 ' from 29
+pkts=1015 Report RX '&: SEQ=1063 MCU_SLEEP=30627 RADIO_ON=73 SEC=31906 ' from 29
+31020(0)s
+pkts=1016 Report RX '&: SEQ=1064 MCU_SLEEP=30655 RADIO_ON=73 SEC=31936 ' from 29
+pkts=1017 Report RX '&: SEQ=1065 MCU_SLEEP=30684 RADIO_ON=73 SEC=31965 ' from 29
+pkts=1018 Report RX '&: SEQ=1066 MCU_SLEEP=30714 RADIO_ON=73 SEC=31996 ' from 29
+31140(0)s
+pkts=1019 Report RX '&: SEQ=1067 MCU_SLEEP=30743 RADIO_ON=74 SEC=32026 ' from 29
+pkts=1020 Report RX '&: SEQ=1068 MCU_SLEEP=30772 RADIO_ON=74 SEC=32056 ' from 29
+31200(0)s
+pkts=1021 Report RX '&: SEQ=1069 MCU_SLEEP=30800 RADIO_ON=74 SEC=32086 ' from 29
+pkts=1022 Report RX '&: SEQ=1070 MCU_SLEEP=30830 RADIO_ON=74 SEC=32116 ' from 29
+31260(0)s
+pkts=1023 Report RX '&: SEQ=1071 MCU_SLEEP=30858 RADIO_ON=74 SEC=32146 ' from 29
+pkts=1024 Report RX '&: SEQ=1072 MCU_SLEEP=30887 RADIO_ON=74 SEC=32177 ' from 29
+31320(0)s
+pkts=1025 Report RX '&: SEQ=1073 MCU_SLEEP=30915 RADIO_ON=74 SEC=32207 ' from 29
+pkts=1026 Report RX '&: SEQ=1074 MCU_SLEEP=30944 RADIO_ON=74 SEC=32236 ' from 29
+31380(0)s
+pkts=1027 Report RX '&: SEQ=1075 MCU_SLEEP=30972 RADIO_ON=74 SEC=32266 ' from 29
+pkts=1028 Report RX '&: SEQ=1076 MCU_SLEEP=31003 RADIO_ON=74 SEC=32297 ' from 29
+31440(0)s
+pkts=1029 Report RX '&: SEQ=1077 MCU_SLEEP=31030 RADIO_ON=74 SEC=32326 ' from 29
+pkts=1030 Report RX '&: SEQ=1078 MCU_SLEEP=31061 RADIO_ON=74 SEC=32358 ' from 29
+31500(0)s
+pkts=1031 Report RX '&: SEQ=1079 MCU_SLEEP=31088 RADIO_ON=74 SEC=32387 ' from 29
+pkts=1032 Report RX '&: SEQ=1080 MCU_SLEEP=31123 RADIO_ON=74 SEC=32422 ' from 29
+31560(0)s
+pkts=1033 Report RX '&: SEQ=1081 MCU_SLEEP=31146 RADIO_ON=74 SEC=32446 ' from 29
+pkts=1034 Report RX '&: SEQ=1082 MCU_SLEEP=31175 RADIO_ON=75 SEC=32476 ' from 29
+31620(0)s
+pkts=1035 Report RX '&: SEQ=1083 MCU_SLEEP=31203 RADIO_ON=75 SEC=32505 ' from 29
+pkts=1036 Report RX '&: SEQ=1084 MCU_SLEEP=31232 RADIO_ON=75 SEC=32536 ' from 29
+31680(0)s
+pkts=1037 Report RX '&: SEQ=1085 MCU_SLEEP=31260 RADIO_ON=75 SEC=32565 ' from 29
+pkts=1038 Report RX '&: SEQ=1086 MCU_SLEEP=31289 RADIO_ON=75 SEC=32596 ' from 29
+31740(0)s
+pkts=1039 Report RX '&: SEQ=1087 MCU_SLEEP=31319 RADIO_ON=75 SEC=32626 ' from 29
+Never-used stack > 18210 bytes
+pkts=1040 Report RX '&: SEQ=1088 MCU_SLEEP=31347 RADIO_ON=75 SEC=32656 ' from 29
+31800(0)s
+pkts=1041 Report RX '&: SEQ=1089 MCU_SLEEP=31375 RADIO_ON=75 SEC=32686 ' from 29
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 942s
+
+---------
+pkts=1042 Report RX '&: SEQ=1090 MCU_SLEEP=31406 RADIO_ON=75 SEC=32717 ' from 29
+31860(0)s
+pkts=1043 Report RX '&: SEQ=1091 MCU_SLEEP=31434 RADIO_ON=75 SEC=32746 ' from 29
+pkts=1044 Report RX '&: SEQ=1092 MCU_SLEEP=31464 RADIO_ON=75 SEC=32777 ' from 29
+31920(0)s
+pkts=1045 Report RX '&: SEQ=1093 MCU_SLEEP=31492 RADIO_ON=75 SEC=32806 ' from 29
+pkts=1046 Report RX '&: SEQ=1094 MCU_SLEEP=31523 RADIO_ON=75 SEC=32838 ' from 29
+31980(0)s
+pkts=1047 Report RX '&: SEQ=1095 MCU_SLEEP=31548 RADIO_ON=75 SEC=32865 ' from 29
+pkts=1048 Report RX '&: SEQ=1096 MCU_SLEEP=31580 RADIO_ON=76 SEC=32898 ' from 29
+32040(0)s
+pkts=1049 Report RX '&: SEQ=1097 MCU_SLEEP=31607 RADIO_ON=76 SEC=32926 ' from 29
+pkts=1050 Report RX '&: SEQ=1098 MCU_SLEEP=31638 RADIO_ON=76 SEC=32958 ' from 29
+32100(0)s
+pkts=1051 Report RX '&: SEQ=1099 MCU_SLEEP=31665 RADIO_ON=76 SEC=32986 ' from 29
+pkts=1052 Report RX '&: SEQ=1100 MCU_SLEEP=31694 RADIO_ON=76 SEC=33016 ' from 29
+32160(0)s
+pkts=1053 Report RX '&: SEQ=1101 MCU_SLEEP=31722 RADIO_ON=76 SEC=33045 ' from 29
+pkts=1054 Report RX '&: SEQ=1102 MCU_SLEEP=31753 RADIO_ON=76 SEC=33078 ' from 29
+32220(0)s
+pkts=1055 Report RX '&: SEQ=1103 MCU_SLEEP=31780 RADIO_ON=76 SEC=33105 ' from 29
+pkts=1056 Report RX '&: SEQ=1104 MCU_SLEEP=31809 RADIO_ON=76 SEC=33135 ' from 29
+pkts=1057 Report RX '&: SEQ=1105 MCU_SLEEP=31838 RADIO_ON=76 SEC=33165 ' from 29
+32280(0)s
+pkts=1058 Report RX '&: SEQ=1106 MCU_SLEEP=31868 RADIO_ON=76 SEC=33196 ' from 29
+32340(0)s
+pkts=1059 Report RX '&: SEQ=1107 MCU_SLEEP=31896 RADIO_ON=76 SEC=33226 ' from 29
+pkts=1060 Report RX '&: SEQ=1108 MCU_SLEEP=31926 RADIO_ON=76 SEC=33256 ' from 29
+32400(0)s
+pkts=1061 Report RX '&: SEQ=1109 MCU_SLEEP=31954 RADIO_ON=77 SEC=33286 ' from 29
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1356s
+
+---------
+pkts=1062 Report RX '&: SEQ=1110 MCU_SLEEP=31985 RADIO_ON=77 SEC=33317 ' from 29
+32460(0)s
+pkts=1063 Report RX '&: SEQ=1111 MCU_SLEEP=32012 RADIO_ON=77 SEC=33346 ' from 29
+pkts=1064 Report RX '&: SEQ=1112 MCU_SLEEP=32043 RADIO_ON=77 SEC=33378 ' from 29
+32520(0)s
+pkts=1065 Report RX '&: SEQ=1113 MCU_SLEEP=32069 RADIO_ON=77 SEC=33406 ' from 29
+pkts=1066 Report RX '&: SEQ=1114 MCU_SLEEP=32098 RADIO_ON=77 SEC=33437 ' from 29
+32580(0)s
+pkts=1067 Report RX '&: SEQ=1115 MCU_SLEEP=32127 RADIO_ON=77 SEC=33466 ' from 29
+pkts=1068 Report RX '&: SEQ=1116 MCU_SLEEP=32157 RADIO_ON=77 SEC=33497 ' from 29
+32640(0)s
+pkts=1069 Report RX '&: SEQ=1117 MCU_SLEEP=32185 RADIO_ON=77 SEC=33527 ' from 29
+pkts=1070 Report RX '&: SEQ=1118 MCU_SLEEP=32216 RADIO_ON=77 SEC=33558 ' from 29
+32700(0)s
+pkts=1071 Report RX '&: SEQ=1120 MCU_SLEEP=32272 RADIO_ON=77 SEC=33618 ' from 29
+32760(0)s
+pkts=1072 Report RX '&: SEQ=1121 MCU_SLEEP=32299 RADIO_ON=77 SEC=33646 ' from 29
+Never-used stack > 18210 bytes
+pkts=1073 Report RX '&: SEQ=1122 MCU_SLEEP=32329 RADIO_ON=78 SEC=33676 ' from 29
+32820(0)s
+pkts=1074 Report RX '&: SEQ=1123 MCU_SLEEP=32357 RADIO_ON=78 SEC=33706 ' from 29
+pkts=1075 Report RX '&: SEQ=1124 MCU_SLEEP=32387 RADIO_ON=78 SEC=33736 ' from 29
+pkts=1076 Report RX '&: SEQ=1125 MCU_SLEEP=32416 RADIO_ON=78 SEC=33766 ' from 29
+32880(0)s
+pkts=1077 Report RX '&: SEQ=1126 MCU_SLEEP=32446 RADIO_ON=78 SEC=33797 ' from 29
+32940(0)s
+pkts=1078 Report RX '&: SEQ=1127 MCU_SLEEP=32472 RADIO_ON=78 SEC=33826 ' from 29
+pkts=1079 Report RX '&: SEQ=1128 MCU_SLEEP=32502 RADIO_ON=78 SEC=33857 ' from 29
+pkts=1080 Report RX '&: SEQ=1129 MCU_SLEEP=32530 RADIO_ON=78 SEC=33886 ' from 29
+33000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1785s
+
+---------
+pkts=1081 Report RX '&: SEQ=1130 MCU_SLEEP=32560 RADIO_ON=78 SEC=33915 ' from 29
+33060(0)s
+pkts=1082 Report RX '&: SEQ=1131 MCU_SLEEP=32588 RADIO_ON=78 SEC=33945 ' from 29
+pkts=1083 Report RX '&: SEQ=1132 MCU_SLEEP=32618 RADIO_ON=78 SEC=33976 ' from 29
+pkts=1084 Report RX '&: SEQ=1133 MCU_SLEEP=32646 RADIO_ON=78 SEC=34006 ' from 29
+pkts=1085 Report RX '&: SEQ=1134 MCU_SLEEP=32674 RADIO_ON=78 SEC=34036 ' from 29
+33180(0)s
+pkts=1086 Report RX '&: SEQ=1135 MCU_SLEEP=32704 RADIO_ON=78 SEC=34067 ' from 29
+pkts=1087 Report RX '&: SEQ=1136 MCU_SLEEP=32735 RADIO_ON=79 SEC=34099 ' from 29
+33240(0)s
+pkts=1088 Report RX '&: SEQ=1137 MCU_SLEEP=32760 RADIO_ON=79 SEC=34126 ' from 29
+pkts=1089 Report RX '&: SEQ=1138 MCU_SLEEP=32789 RADIO_ON=79 SEC=34156 ' from 29
+33300(0)s
+pkts=1090 Report RX '&: SEQ=1139 MCU_SLEEP=32819 RADIO_ON=79 SEC=34187 ' from 29
+pkts=1091 Report RX '&: SEQ=1140 MCU_SLEEP=32849 RADIO_ON=79 SEC=34216 ' from 29
+33360(0)s
+pkts=1092 Report RX '&: SEQ=1141 MCU_SLEEP=32878 RADIO_ON=79 SEC=34247 ' from 29
+pkts=1093 Report RX '&: SEQ=1142 MCU_SLEEP=32907 RADIO_ON=79 SEC=34276 ' from 29
+pkts=1094 Report RX '&: SEQ=1143 MCU_SLEEP=32934 RADIO_ON=79 SEC=34305 ' from 29
+33420(0)s
+33480(0)s
+pkts=1095 Report RX '&: SEQ=1145 MCU_SLEEP=32991 RADIO_ON=79 SEC=34366 ' from 29
+pkts=1096 Report RX '&: SEQ=1146 MCU_SLEEP=33021 RADIO_ON=80 SEC=34396 ' from 29
+33540(0)s
+pkts=1097 Report RX '&: SEQ=1147 MCU_SLEEP=33049 RADIO_ON=80 SEC=34426 ' from 29
+pkts=1098 Report RX '&: SEQ=1148 MCU_SLEEP=33077 RADIO_ON=80 SEC=34455 ' from 29
+33600(0)s
+pkts=1099 Report RX '&: SEQ=1149 MCU_SLEEP=33106 RADIO_ON=80 SEC=34485 ' from 29
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1185s
+
+---------
+pkts=1100 Report RX '&: SEQ=1150 MCU_SLEEP=33136 RADIO_ON=80 SEC=34516 ' from 29
+pkts=1101 Report RX '&: SEQ=1151 MCU_SLEEP=33165 RADIO_ON=80 SEC=34545 ' from 29
+pkts=1102 Report RX '&: SEQ=1152 MCU_SLEEP=33195 RADIO_ON=80 SEC=34576 ' from 29
+pkts=1103 Report RX '&: SEQ=1153 MCU_SLEEP=33223 RADIO_ON=80 SEC=34606 ' from 29
+33720(0)s
+pkts=1104 Report RX '&: SEQ=1154 MCU_SLEEP=33252 RADIO_ON=80 SEC=34635 ' from 29
+33780(0)s
+pkts=1105 Report RX '&: SEQ=1155 MCU_SLEEP=33281 RADIO_ON=80 SEC=34666 ' from 29
+Never-used stack > 18210 bytes
+pkts=1106 Report RX '&: SEQ=1156 MCU_SLEEP=33310 RADIO_ON=80 SEC=34696 ' from 29
+33840(0)s
+pkts=1107 Report RX '&: SEQ=1157 MCU_SLEEP=33339 RADIO_ON=80 SEC=34725 ' from 29
+33900(0)s
+pkts=1108 Report RX '&: SEQ=1159 MCU_SLEEP=33397 RADIO_ON=80 SEC=34785 ' from 29
+pkts=1109 Report RX '&: SEQ=1160 MCU_SLEEP=33426 RADIO_ON=81 SEC=34816 ' from 29
+pkts=1110 Report RX '&: SEQ=1161 MCU_SLEEP=33455 RADIO_ON=81 SEC=34846 ' from 29
+33960(0)s
+pkts=1111 Report RX '&: SEQ=1162 MCU_SLEEP=33484 RADIO_ON=81 SEC=34876 ' from 29
+34020(0)s
+pkts=1112 Report RX '&: SEQ=1163 MCU_SLEEP=33512 RADIO_ON=81 SEC=34906 ' from 29
+pkts=1113 Report RX '&: SEQ=1164 MCU_SLEEP=33542 RADIO_ON=81 SEC=34937 ' from 29
+34080(0)s
+pkts=1114 Report RX '&: SEQ=1165 MCU_SLEEP=33569 RADIO_ON=81 SEC=34966 ' from 29
+pkts=1115 Report RX '&: SEQ=1166 MCU_SLEEP=33600 RADIO_ON=81 SEC=34997 ' from 29
+34140(0)s
+pkts=1116 Report RX '&: SEQ=1167 MCU_SLEEP=33627 RADIO_ON=81 SEC=35026 ' from 29
+pkts=1117 Report RX '&: SEQ=1168 MCU_SLEEP=33657 RADIO_ON=81 SEC=35056 ' from 29
+pkts=1118 Report RX '&: SEQ=1169 MCU_SLEEP=33685 RADIO_ON=81 SEC=35085 ' from 29
+34200(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1648s
+
+---------
+pkts=1119 Report RX '&: SEQ=1170 MCU_SLEEP=33713 RADIO_ON=81 SEC=35116 ' from 29
+pkts=1120 Report RX '&: SEQ=1171 MCU_SLEEP=33743 RADIO_ON=81 SEC=35146 ' from 29
+34260(0)s
+pkts=1121 Report RX '&: SEQ=1172 MCU_SLEEP=33772 RADIO_ON=81 SEC=35177 ' from 29
+34320(0)s
+pkts=1122 Report RX '&: SEQ=1173 MCU_SLEEP=33800 RADIO_ON=81 SEC=35205 ' from 29
+pkts=1123 Report RX '&: SEQ=1174 MCU_SLEEP=33831 RADIO_ON=81 SEC=35237 ' from 29
+34380(0)s
+pkts=1124 Report RX '&: SEQ=1175 MCU_SLEEP=33858 RADIO_ON=81 SEC=35265 ' from 29
+pkts=1125 Report RX '&: SEQ=1176 MCU_SLEEP=33888 RADIO_ON=81 SEC=35297 ' from 29
+34440(0)s
+pkts=1126 Report RX '&: SEQ=1177 MCU_SLEEP=33916 RADIO_ON=81 SEC=35326 ' from 29
+pkts=1127 Report RX '&: SEQ=1178 MCU_SLEEP=33946 RADIO_ON=82 SEC=35357 ' from 29
+34500(0)s
+pkts=1128 Report RX '&: SEQ=1179 MCU_SLEEP=33974 RADIO_ON=82 SEC=35385 ' from 29
+pkts=1129 Report RX '&: SEQ=1180 MCU_SLEEP=34004 RADIO_ON=82 SEC=35417 ' from 29
+pkts=1130 Report RX '&: SEQ=1181 MCU_SLEEP=34032 RADIO_ON=82 SEC=35446 ' from 29
+34560(0)s
+pkts=1131 Report RX '&: SEQ=1182 MCU_SLEEP=34064 RADIO_ON=82 SEC=35477 ' from 29
+pkts=1132 Report RX '&: SEQ=1183 MCU_SLEEP=34090 RADIO_ON=82 SEC=35505 ' from 29
+pkts=1133 Report RX '&: SEQ=1184 MCU_SLEEP=34118 RADIO_ON=82 SEC=35535 ' from 29
+34680(0)s
+pkts=1134 Report RX '&: SEQ=1185 MCU_SLEEP=34148 RADIO_ON=82 SEC=35566 ' from 29
+pkts=1135 Report RX '&: SEQ=1186 MCU_SLEEP=34178 RADIO_ON=82 SEC=35597 ' from 29
+34740(0)s
+pkts=1136 Report RX '&: SEQ=1187 MCU_SLEEP=34205 RADIO_ON=82 SEC=35626 ' from 29
+34800(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1048s
+
+---------
+pkts=1137 Report RX '&: SEQ=1189 MCU_SLEEP=34262 RADIO_ON=82 SEC=35687 ' from 29
+Never-used stack > 18210 bytes
+pkts=1138 Report RX '&: SEQ=1190 MCU_SLEEP=34291 RADIO_ON=82 SEC=35715 ' from 29
+34860(0)s
+pkts=1139 Report RX '&: SEQ=1191 MCU_SLEEP=34319 RADIO_ON=83 SEC=35745 ' from 29
+pkts=1140 Report RX '&: SEQ=1192 MCU_SLEEP=34349 RADIO_ON=83 SEC=35777 ' from 29
+34920(0)s
+pkts=1141 Report RX '&: SEQ=1193 MCU_SLEEP=34377 RADIO_ON=83 SEC=35806 ' from 29
+pkts=1142 Report RX '&: SEQ=1194 MCU_SLEEP=34407 RADIO_ON=83 SEC=35837 ' from 29
+34980(0)s
+pkts=1143 Report RX '&: SEQ=1195 MCU_SLEEP=34434 RADIO_ON=83 SEC=35866 ' from 29
+pkts=1144 Report RX '&: SEQ=1196 MCU_SLEEP=34464 RADIO_ON=83 SEC=35896 ' from 29
+35040(0)s
+pkts=1145 Report RX '&: SEQ=1197 MCU_SLEEP=34492 RADIO_ON=83 SEC=35925 ' from 29
+pkts=1146 Report RX '&: SEQ=1198 MCU_SLEEP=34523 RADIO_ON=83 SEC=35957 ' from 29
+35100(0)s
+pkts=1147 Report RX '&: SEQ=1199 MCU_SLEEP=34551 RADIO_ON=83 SEC=35987 ' from 29
+pkts=1148 Report RX '&: SEQ=1200 MCU_SLEEP=34579 RADIO_ON=83 SEC=36017 ' from 29
+35160(0)s
+pkts=1149 Report RX '&: SEQ=1201 MCU_SLEEP=34609 RADIO_ON=83 SEC=36047 ' from 29
+pkts=1150 Report RX '&: SEQ=1202 MCU_SLEEP=34637 RADIO_ON=83 SEC=36075 ' from 29
+pkts=1151 Report RX '&: SEQ=1203 MCU_SLEEP=34666 RADIO_ON=83 SEC=36106 ' from 29
+35220(0)s
+pkts=1152 Report RX '&: SEQ=1204 MCU_SLEEP=34695 RADIO_ON=84 SEC=36136 ' from 29
+pkts=1153 Report RX '&: SEQ=1205 MCU_SLEEP=34724 RADIO_ON=84 SEC=36165 ' from 29
+35280(0)s
+pkts=1154 Report RX '&: SEQ=1206 MCU_SLEEP=34755 RADIO_ON=84 SEC=36197 ' from 29
+35340(0)s
+pkts=1155 Report RX '&: SEQ=1207 MCU_SLEEP=34783 RADIO_ON=84 SEC=36226 ' from 29
+pkts=1156 Report RX '&: SEQ=1208 MCU_SLEEP=34812 RADIO_ON=84 SEC=36257 ' from 29
+35400(0)s
+pkts=1157 Report RX '&: SEQ=1209 MCU_SLEEP=34839 RADIO_ON=84 SEC=36285 ' from 29
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1373s
+
+---------
+pkts=1158 Report RX '&: SEQ=1210 MCU_SLEEP=34868 RADIO_ON=84 SEC=36317 ' from 29
+35460(0)s
+pkts=1159 Report RX '&: SEQ=1211 MCU_SLEEP=34896 RADIO_ON=84 SEC=36345 ' from 29
+pkts=1160 Report RX '&: SEQ=1212 MCU_SLEEP=34926 RADIO_ON=84 SEC=36377 ' from 29
+35520(0)s
+pkts=1161 Report RX '&: SEQ=1213 MCU_SLEEP=34954 RADIO_ON=84 SEC=36406 ' from 29
+pkts=1162 Report RX '&: SEQ=1214 MCU_SLEEP=34983 RADIO_ON=84 SEC=36437 ' from 29
+35580(0)s
+pkts=1163 Report RX '&: SEQ=1215 MCU_SLEEP=35011 RADIO_ON=84 SEC=36465 ' from 29
+pkts=1164 Report RX '&: SEQ=1216 MCU_SLEEP=35041 RADIO_ON=84 SEC=36497 ' from 29
+35640(0)s
+pkts=1165 Report RX '&: SEQ=1217 MCU_SLEEP=35069 RADIO_ON=84 SEC=36526 ' from 29
+pkts=1166 Report RX '&: SEQ=1218 MCU_SLEEP=35099 RADIO_ON=84 SEC=36558 ' from 29
+35700(0)s
+pkts=1167 Report RX '&: SEQ=1219 MCU_SLEEP=35126 RADIO_ON=84 SEC=36585 ' from 29
+pkts=1168 Report RX '&: SEQ=1220 MCU_SLEEP=35155 RADIO_ON=85 SEC=36616 ' from 29
+pkts=1169 Report RX '&: SEQ=1221 MCU_SLEEP=35184 RADIO_ON=85 SEC=36645 ' from 29
+35760(0)s
+pkts=1170 Report RX '&: SEQ=1222 MCU_SLEEP=35214 RADIO_ON=85 SEC=36676 ' from 29
+35820(0)s
+pkts=1171 Report RX '&: SEQ=1223 MCU_SLEEP=35243 RADIO_ON=85 SEC=36706 ' from 29
+Never-used stack > 18210 bytes
+pkts=1172 Report RX '&: SEQ=1224 MCU_SLEEP=35274 RADIO_ON=85 SEC=36738 ' from 29
+35880(0)s
+pkts=1173 Report RX '&: SEQ=1225 MCU_SLEEP=35301 RADIO_ON=85 SEC=36767 ' from 29
+pkts=1174 Report RX '&: SEQ=1226 MCU_SLEEP=35331 RADIO_ON=85 SEC=36796 ' from 29
+pkts=1175 Report RX '&: SEQ=1227 MCU_SLEEP=35360 RADIO_ON=85 SEC=36826 ' from 29
+35940(0)s
+pkts=1176 Report RX '&: SEQ=1228 MCU_SLEEP=35388 RADIO_ON=85 SEC=36856 ' from 29
+36000(0)s
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1217s
+
+---------
+pkts=1177 Report RX '&: SEQ=1229 MCU_SLEEP=35417 RADIO_ON=85 SEC=36886 ' from 29
+pkts=1178 Report RX '&: SEQ=1230 MCU_SLEEP=35446 RADIO_ON=85 SEC=36917 ' from 29
+36060(0)s
+pkts=1179 Report RX '&: SEQ=1231 MCU_SLEEP=35474 RADIO_ON=85 SEC=36945 ' from 29
+pkts=1180 Report RX '&: SEQ=1232 MCU_SLEEP=35503 RADIO_ON=85 SEC=36976 ' from 29
+36120(0)s
+pkts=1181 Report RX '&: SEQ=1233 MCU_SLEEP=35532 RADIO_ON=85 SEC=37006 ' from 29
+pkts=1182 Report RX '&: SEQ=1234 MCU_SLEEP=35560 RADIO_ON=85 SEC=37037 ' from 29
+36180(0)s
+pkts=1183 Report RX '&: SEQ=1235 MCU_SLEEP=35588 RADIO_ON=86 SEC=37066 ' from 29
+pkts=1184 Report RX '&: SEQ=1236 MCU_SLEEP=35618 RADIO_ON=86 SEC=37096 ' from 29
+36240(0)s
+pkts=1185 Report RX '&: SEQ=1237 MCU_SLEEP=35646 RADIO_ON=86 SEC=37126 ' from 29
+pkts=1186 Report RX '&: SEQ=1238 MCU_SLEEP=35676 RADIO_ON=86 SEC=37158 ' from 29
+36300(0)s
+pkts=1187 Report RX '&: SEQ=1239 MCU_SLEEP=35704 RADIO_ON=86 SEC=37186 ' from 29
+pkts=1188 Report RX '&: SEQ=1240 MCU_SLEEP=35732 RADIO_ON=86 SEC=37216 ' from 29
+36360(0)s
+pkts=1189 Report RX '&: SEQ=1241 MCU_SLEEP=35761 RADIO_ON=86 SEC=37246 ' from 29
+pkts=1190 Report RX '&: SEQ=1242 MCU_SLEEP=35791 RADIO_ON=86 SEC=37276 ' from 29
+36420(0)s
+pkts=1191 Report RX '&: SEQ=1243 MCU_SLEEP=35820 RADIO_ON=86 SEC=37307 ' from 29
+pkts=1192 Report RX '&: SEQ=1244 MCU_SLEEP=35848 RADIO_ON=86 SEC=37337 ' from 29
+36480(0)s
+pkts=1193 Report RX '&: SEQ=1245 MCU_SLEEP=35876 RADIO_ON=86 SEC=37365 ' from 29
+pkts=1194 Report RX '&: SEQ=1246 MCU_SLEEP=35907 RADIO_ON=87 SEC=37396 ' from 29
+pkts=1195 Report RX '&: SEQ=1247 MCU_SLEEP=35934 RADIO_ON=87 SEC=37425 ' from 29
+pkts=1196 Report RX '&: SEQ=1248 MCU_SLEEP=35962 RADIO_ON=87 SEC=37455 ' from 29
+36600(0)s
+pkts=1197 Report RX '&: SEQ=1249 MCU_SLEEP=35990 RADIO_ON=87 SEC=37486 ' from 29
+
+Addresses [4 max]
+fd00::fec2:3d00:0:386d
+fd00::ff:fe00:1
+fe80::fec2:3d00:0:386d
+
+Neighbors [20 max]
+fe80::fec2:3d00:0:151d
+
+Routes [20 max]
+fd00::fec2:3d00:0:151d/128 (via fe80::fec2:3d00:0:151d) 1737s
+
+---------
+pkts=1198 Report RX '&: SEQ=1250 MCU_SLEEP=36020 RADIO_ON=87 SEC=37517 ' from 29
+36660(0)s
+pkts=1199 Report RX '&: SEQ=1251 MCU_SLEEP=36048 RADIO_ON=87 SEC=37546 ' from 29
+pkts=1200 Report RX '&: SEQ=1252 MCU_SLEEP=36077 RADIO_ON=87 SEC=37576 ' from 29
+36720(0)s
+pkts=1201 Report RX '&: SEQ=1253 MCU_SLEEP=36105 RADIO_ON=87 SEC=37606 ' from 29
+pkts=1202 Report RX '&: SEQ=1254 MCU_SLEEP=36135 RADIO_ON=87 SEC=37636 ' from 29
+36780(0)s
+pkts=1203 Report RX '&: SEQ=1255 MCU_SLEEP=36163 RADIO_ON=87 SEC=37666 ' from 29
+pkts=1204 Report RX '&: SEQ=1256 MCU_SLEEP=36192 RADIO_ON=87 SEC=37696 ' from 29
+pkts=1205 Report RX '&: SEQ=1257 MCU_SLEEP=36220 RADIO_ON=87 SEC=37725 ' from 29
+36840(0)s
+Never-used stack > 18180 bytes
+pkts=1206 Report RX '&: SEQ=1258 MCU_SLEEP=36250 RADIO_ON=87 SEC=37756 ' from 29
+36900(0)s
+pkts=1207 Report RX '&: SEQ=1259 MCU_SLEEP=36278 RADIO_ON=87 SEC=37787 ' from 29
+pkts=1208 Report RX '&: SEQ=1260 MCU_SLEEP=36307 RADIO_ON=88 SEC=37818 ' from 29
+36960(0)s
+pkts=1209 Report RX '&: SEQ=1261 MCU_SLEEP=36335 RADIO_ON=88 SEC=37845 ' from 29
+pkts=1210 Report RX '&: SEQ=1262 MCU_SLEEP=36365 RADIO_ON=88 SEC=37876 ' from 29
+37020(0)s
+pkts=1211 Report RX '&: SEQ=1263 MCU_SLEEP=36394 RADIO_ON=88 SEC=37907 ' from 29
+pkts=1212 Report RX '&: SEQ=1264 MCU_SLEEP=36422 RADIO_ON=88 SEC=37936 ' from 29
+pkts=1213 Report RX '&: SEQ=1265 MCU_SLEEP=36451 RADIO_ON=88 SEC=37965 ' from 29
+37080(0)s
+pkts=1214 Report RX '&: SEQ=1266 MCU_SLEEP=36479 RADIO_ON=88 SEC=37995 ' from 29
+
+
